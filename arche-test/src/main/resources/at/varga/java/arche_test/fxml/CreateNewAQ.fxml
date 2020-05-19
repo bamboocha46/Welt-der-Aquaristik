@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.CreateNewAQController">
+   <children>
+      <Button id="saveButton" fx:id="saveButton" layoutX="30.0" layoutY="338.0" mnemonicParsing="false" text="Speichern" />
+      <Button id="breakButton" fx:id="breakButton" layoutX="479.0" layoutY="338.0" mnemonicParsing="false" text="Abbrechen" />
+      <TextField layoutX="28.0" layoutY="40.0" text="Aquarium Name:" />
+      <TextField fx:id="aqNameTextField" layoutX="225.0" layoutY="40.0" />
+      <TextField id="size1" fx:id="size1" layoutX="225.0" layoutY="102.0" prefHeight="31.0" prefWidth="35.0" />
+      <TextField layoutX="28.0" layoutY="102.0" text="Aquarium Größe (LxBxH):" />
+      <TextField id="volume" fx:id="volume" layoutX="225.0" layoutY="169.0" />
+      <TextField layoutX="28.0" layoutY="169.0" text="Volumen:" />
+      <Button id="newFishButton" fx:id="newFishButton" layoutX="30.0" layoutY="259.0" mnemonicParsing="false" onAction="#addNewFish" prefHeight="31.0" prefWidth="187.0" text="Neuen Fisch hinzufügen" />
+      <TextField id="size2" fx:id="size2" layoutX="265.0" layoutY="102.0" prefHeight="31.0" prefWidth="35.0" />
+      <TextField id="size3" fx:id="size3" layoutX="308.0" layoutY="102.0" prefHeight="31.0" prefWidth="35.0" />
+   </children>
+</AnchorPane>

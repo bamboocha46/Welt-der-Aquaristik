@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.ListOfFishesController">
+   <children>
+      <Text layoutX="171.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste der Fische" wrappingWidth="257.6708984375">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Text>
+      <SplitMenuButton layoutX="39.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Barsche">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="39.0" layoutY="141.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Kaltwasserfische">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="39.0" layoutY="196.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Lebendgebärende">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="39.0" layoutY="252.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Welse">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="326.0" layoutY="93.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Bärblinge">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="326.0" layoutY="141.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Labyrinthfische">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="326.0" layoutY="196.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Salmlern">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="326.0" layoutY="246.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Eigene Fische">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </SplitMenuButton>
+      <Button fx:id="addNewFishButton" layoutX="377.0" layoutY="307.0" mnemonicParsing="false" onAction="#creadAndAddNewFishToList" prefHeight="73.0" prefWidth="199.0" text="Neuen Fisch hinzufügen" />
+      <Label layoutX="39.0" layoutY="333.0" prefHeight="21.0" prefWidth="65.0" text="TestFisch" />
+      <ChoiceBox fx:id="testChoiceBox" layoutX="104.0" layoutY="328.0" prefHeight="31.0" prefWidth="115.0" />
+   </children>
+</AnchorPane>

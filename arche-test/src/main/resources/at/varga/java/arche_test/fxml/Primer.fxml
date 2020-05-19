@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.PrimerController">
+   <children>
+      <AnchorPane id="StartScreen" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Button id="newAQButton" fx:id="newAQButton" layoutX="42.0" layoutY="171.0" mnemonicParsing="false" onAction="#openNewAQScene" prefHeight="84.0" prefWidth="177.0" text="Neues Aquarium" />
+            <Button id="listOfFischesButton" fx:id="listOfFischesButton" layoutX="42.0" layoutY="270.0" mnemonicParsing="false" onAction="#openListOfFishesWindow" prefHeight="84.0" prefWidth="177.0" text="Liste der Fische" />
+            <Text id="titelText" fx:id="titelText" fontSmoothingType="LCD" layoutX="109.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welt der Aquaristik" textAlignment="CENTER" wrappingWidth="362.6708984375">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <SplitMenuButton id="MyAQsMenuButton" fx:id="MyAQsMenuButton" layoutX="42.0" layoutY="73.0" mnemonicParsing="false" onAction="#openAnAQ" prefHeight="84.0" prefWidth="177.0" text="Meine Aquariums">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Action 2" />
+              </items>
+            </SplitMenuButton>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
