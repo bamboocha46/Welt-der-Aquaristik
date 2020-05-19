@@ -30,6 +30,7 @@ public class ListOfFishesController {
 	String test1 = "Fish1";
 	String test2 = "Fish2";
 
+	//it is just for a GUI test
 	ObservableList<String> testList = FXCollections.observableArrayList(test1, test2);
 
 	// method to create and add a new Fish to "List of fishes"
@@ -64,13 +65,14 @@ public class ListOfFishesController {
 
 	}
 
-	// button wird gedrükt
+	// button to show an fishDatesheet
 	@FXML
 	void showTestFishDateSheet(ActionEvent event) {
 		testmethod();
 
 	}
 
+	//It just to Gui-Test
 	private void testmethod() {
 
 		if (testChoiceBox.getValue().equals(test1)) {

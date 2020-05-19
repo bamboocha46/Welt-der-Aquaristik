@@ -19,8 +19,7 @@ public class AQDateSheetController {
 	@FXML
 	private Button AddNewFishButton;
 
-	
-	//Method to add a new fish to the AQ
+	// Method to add a new fish to the AQ
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
 
@@ -44,59 +43,56 @@ public class AQDateSheetController {
 		addNewFishWindow.showAndWait();
 
 	}
-	
-	//does not delete any fish yet
-	//just show PUAreUSure
-    @FXML
-    void deleteFish(ActionEvent event) {
-    	
-  	  FXMLLoader loader = new FXMLLoader ();
-  			loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUAREUSURE_FXML));
-  			AnchorPane popUpAUSure = null;
-  			try {
-  				popUpAUSure = loader.load();
-  			} catch (IOException e) {
-  				
-  				e.printStackTrace();
-  			}
-  			
-  			Stage puAUS = new Stage();
-  			puAUS.setTitle("Bist sicher?");
-  			puAUS.initModality(Modality.WINDOW_MODAL);
-  			puAUS.initOwner(Main.primaryStage);
-  			
-  			Scene scene = new Scene(popUpAUSure);
-  			puAUS.setScene(scene);
-  			puAUS.showAndWait();
 
+	// does not delete any fish yet
+	// just show PUAreUSure
+	@FXML
+	void deleteFish(ActionEvent event) {
 
-    }
-
-   //does not delete any fish yet
-  	//just show PUAreUSure
-    @FXML
-    void deleteAQ(ActionEvent event) {
-
-   	  FXMLLoader loader = new FXMLLoader ();
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUAREUSURE_FXML));
 		AnchorPane popUpAUSure = null;
 		try {
 			popUpAUSure = loader.load();
 		} catch (IOException e) {
-			
+
 			e.printStackTrace();
 		}
-		
+
 		Stage puAUS = new Stage();
 		puAUS.setTitle("Bist sicher?");
 		puAUS.initModality(Modality.WINDOW_MODAL);
 		puAUS.initOwner(Main.primaryStage);
-		
+
 		Scene scene = new Scene(popUpAUSure);
 		puAUS.setScene(scene);
 		puAUS.showAndWait();
-    }
-	
-	
+
+	}
+
+	// does not delete any fish yet
+	// just show PUAreUSure
+	@FXML
+	void deleteAQ(ActionEvent event) {
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUAREUSURE_FXML));
+		AnchorPane popUpAUSure = null;
+		try {
+			popUpAUSure = loader.load();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		Stage puAUS = new Stage();
+		puAUS.setTitle("Bist sicher?");
+		puAUS.initModality(Modality.WINDOW_MODAL);
+		puAUS.initOwner(Main.primaryStage);
+
+		Scene scene = new Scene(popUpAUSure);
+		puAUS.setScene(scene);
+		puAUS.showAndWait();
+	}
 
 }

@@ -46,15 +46,15 @@ public class CreateNewAQController {
 //
 //    }
 //
-	//back to PrimarWindow
-	 @FXML
-	    void back(ActionEvent event) throws IOException {
-		 FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_PRIMER_FXML));  
-		    Stage stage = new Stage();
-		    stage.setScene(new Scene((Parent) loader.load()));
-		    stage.show();
+	// back to PrimarWindow
+	@FXML
+	void back(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_PRIMER_FXML));
+		Stage stage = new Stage();
+		stage.setScene(new Scene((Parent) loader.load()));
+		stage.show();
 
-	    }
+	}
 
 	// Method to add Fish(es) to the new AQ
 	@FXML
@@ -80,32 +80,31 @@ public class CreateNewAQController {
 		addNewFishWindow.showAndWait();
 
 	}
-	
-	//doesnt save yet
+
+	// doesnt save yet
 	// just show popUp: SaveMessage
-	  @FXML
-	    void save(ActionEvent event) {
-		  
-		  FXMLLoader loader = new FXMLLoader ();
-			loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
-			AnchorPane popUpSaveMessage = null;
-			try {
-				popUpSaveMessage = loader.load();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-			
-			Stage puSave = new Stage();
-			puSave.setTitle("Speicherung");
-			puSave.initModality(Modality.WINDOW_MODAL);
-			puSave.initOwner(Main.primaryStage);
-			
-			Scene scene = new Scene(popUpSaveMessage);
-			puSave.setScene(scene);
-			puSave.showAndWait();
+	@FXML
+	void save(ActionEvent event) {
 
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
+		AnchorPane popUpSaveMessage = null;
+		try {
+			popUpSaveMessage = loader.load();
+		} catch (IOException e) {
 
-	    }
+			e.printStackTrace();
+		}
+
+		Stage puSave = new Stage();
+		puSave.setTitle("Speicherung");
+		puSave.initModality(Modality.WINDOW_MODAL);
+		puSave.initOwner(Main.primaryStage);
+
+		Scene scene = new Scene(popUpSaveMessage);
+		puSave.setScene(scene);
+		puSave.showAndWait();
+
+	}
 
 }

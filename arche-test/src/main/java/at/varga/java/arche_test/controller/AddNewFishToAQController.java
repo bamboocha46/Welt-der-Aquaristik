@@ -25,42 +25,41 @@ public class AddNewFishToAQController {
 
 	@FXML
 	private TextField pieceOfFisches;
-	
-	//back to AQ datesheet window
+
+	// back to AQ datesheet window
 	@FXML
-    void back(ActionEvent event) throws IOException {
-		 FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_AQDATESHEET_FXML));  
-		    Stage stage = new Stage();
-		    stage.setScene(new Scene((Parent) loader.load()));
-		    stage.show();
+	void back(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_AQDATESHEET_FXML));
+		Stage stage = new Stage();
+		stage.setScene(new Scene((Parent) loader.load()));
+		stage.show();
 
-    }
-	
-	//doesnt save yet
+	}
+
+	// doesnt save yet
 	// just show popUp: SaveMessage
-	  @FXML
-	    void save(ActionEvent event) {
-		  
-		  FXMLLoader loader = new FXMLLoader ();
-			loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
-			AnchorPane popUpSaveMessage = null;
-			try {
-				popUpSaveMessage = loader.load();
-			} catch (IOException e) {
-				
-				e.printStackTrace();
-			}
-			
-			Stage puSave = new Stage();
-			puSave.setTitle("Speicherung");
-			puSave.initModality(Modality.WINDOW_MODAL);
-			puSave.initOwner(Main.primaryStage);
-			
-			Scene scene = new Scene(popUpSaveMessage);
-			puSave.setScene(scene);
-			puSave.showAndWait();
+	@FXML
+	void save(ActionEvent event) {
 
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
+		AnchorPane popUpSaveMessage = null;
+		try {
+			popUpSaveMessage = loader.load();
+		} catch (IOException e) {
 
-	    }
+			e.printStackTrace();
+		}
+
+		Stage puSave = new Stage();
+		puSave.setTitle("Speicherung");
+		puSave.initModality(Modality.WINDOW_MODAL);
+		puSave.initOwner(Main.primaryStage);
+
+		Scene scene = new Scene(popUpSaveMessage);
+		puSave.setScene(scene);
+		puSave.showAndWait();
+
+	}
 
 }
