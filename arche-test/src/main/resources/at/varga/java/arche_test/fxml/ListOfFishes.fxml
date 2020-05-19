@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -64,5 +65,6 @@
       <Button fx:id="addNewFishButton" layoutX="377.0" layoutY="307.0" mnemonicParsing="false" onAction="#creadAndAddNewFishToList" prefHeight="73.0" prefWidth="199.0" text="Neuen Fisch hinzufügen" />
       <Label layoutX="39.0" layoutY="333.0" prefHeight="21.0" prefWidth="65.0" text="TestFisch" />
       <ChoiceBox fx:id="testChoiceBox" layoutX="104.0" layoutY="328.0" prefHeight="31.0" prefWidth="115.0" />
+      <Button fx:id="testButton" layoutX="229.0" layoutY="328.0" mnemonicParsing="false" onAction="#showTestFishDateSheet" text="TestButton" />
    </children>
 </AnchorPane>

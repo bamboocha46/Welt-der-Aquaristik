@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.AddNewFishToAQController">
    <children>
-      <Button id="breakButton" fx:id="breakButton" layoutX="446.0" layoutY="295.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="108.0" text="Abbrechnen" />
+      <Button id="breakButton" fx:id="breakButton" layoutX="446.0" layoutY="295.0" mnemonicParsing="false" onAction="#back" prefHeight="73.0" prefWidth="108.0" text="Abbrechnen" />
       <SplitMenuButton layoutX="336.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Eigene Fische">
          <items>
             <MenuItem mnemonicParsing="false" text="Action 1" />
@@ -57,7 +57,7 @@
             <MenuItem mnemonicParsing="false" text="Action 2" />
          </items>
       </SplitMenuButton>
-      <Button id="saveButton" fx:id="saveButton" layoutX="284.0" layoutY="295.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="134.0" text="Speichern" />
+      <Button id="saveButton" fx:id="saveButton" layoutX="284.0" layoutY="295.0" mnemonicParsing="false" onAction="#save" prefHeight="73.0" prefWidth="134.0" text="Speichern" />
       <GridPane layoutX="40.0" layoutY="332.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="64.0" />

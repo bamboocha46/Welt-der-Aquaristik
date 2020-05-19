@@ -10,9 +10,10 @@ public class Constants {
 	public static final String PATH_TO_CREATENEWAQ_FXML = "/at/varga/java/arche_test/fxml/CreateNewAQ.fxml";
 	public static final String PATH_TO_FISHDATESHEET_FXML = "/at/varga/java/arche_test/fxml/FishDateSheet.fxml";
 	public static final String PATH_TO_LISTOFFISHES_FXML = "/at/varga/java/arche_test/fxml/ListOfFishes.fxml";
-	
+	public static final String PATH_TO_PUAREUSURE_FXML = "/at/varga/java/arche_test/fxml/PopUpAreYouSure.fxml";
+	public static final String PATH_TO_PUSAVE_FXML = "/at/varga/java/arche_test/fxml/PopUpSaveMessage.fxml";
+
 	// path to css files
 	public static final String PATH_TO_APPLICATION_CSS = "/at/varga/java/arche_test/css/application.css";
-	
-	
+
 }

@@ -36,7 +36,7 @@
          </children>
       </GridPane>
       <Button id="AddNewFishButton" fx:id="AddNewFishButton" layoutX="34.0" layoutY="311.0" mnemonicParsing="false" onAction="#addANewFishToAQ" prefHeight="50.0" prefWidth="180.0" text="Neuen Fisch hinzufügen" />
-      <Button layoutX="221.0" layoutY="311.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="121.0" text="Fisch entfernen" />
-      <Button layoutX="433.0" layoutY="311.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="145.0" text="Aquarium auflösen" />
+      <Button layoutX="221.0" layoutY="311.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="50.0" prefWidth="121.0" text="Fisch entfernen" />
+      <Button layoutX="433.0" layoutY="311.0" mnemonicParsing="false" onAction="#deleteAQ" prefHeight="50.0" prefWidth="145.0" text="Aquarium auflösen" />
    </children>
 </AnchorPane>
