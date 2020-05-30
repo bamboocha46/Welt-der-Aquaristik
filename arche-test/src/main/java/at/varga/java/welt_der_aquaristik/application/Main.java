@@ -1,11 +1,11 @@
-package at.varga.java.arche_test.application;
+package at.varga.java.welt_der_aquaristik.application;
 
+import at.varga.java.welt_der_aquaristik.controller.PrimerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import at.varga.java.arche_test.controller.PrimerController;
 
 public class Main extends Application {
 	public static Stage primaryStage;

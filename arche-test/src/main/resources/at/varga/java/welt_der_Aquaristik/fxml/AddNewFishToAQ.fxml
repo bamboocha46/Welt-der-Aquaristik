@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.AddNewFishToAQController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.AddNewFishToAQController">
    <children>
       <Button id="breakButton" fx:id="breakButton" layoutX="446.0" layoutY="295.0" mnemonicParsing="false" onAction="#back" prefHeight="73.0" prefWidth="108.0" text="Abbrechnen" />
       <SplitMenuButton layoutX="336.0" layoutY="197.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="164.0" text="Eigene Fische">

@@ -1,9 +1,9 @@
-package at.varga.java.arche_test.controller;
+package at.varga.java.welt_der_aquaristik.controller;
 
 import java.io.IOException;
 
-import at.varga.java.arche_test.application.Constants;
-import at.varga.java.arche_test.application.Main;
+import at.varga.java.welt_der_aquaristik.application.Constants;
+import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

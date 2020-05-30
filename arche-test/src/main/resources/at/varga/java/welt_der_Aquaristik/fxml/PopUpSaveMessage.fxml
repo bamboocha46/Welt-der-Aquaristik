@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.PopUpSaveMessageController">
+<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpSaveMessageController">
    <children>
       <Label layoutX="15.0" layoutY="22.0" prefHeight="26.0" prefWidth="170.0" text="Erfolgerlich gespeichert" />
       <Label layoutX="15.0" layoutY="35.0" prefHeight="43.0" prefWidth="170.0" text="Speciherung gescheitert" />

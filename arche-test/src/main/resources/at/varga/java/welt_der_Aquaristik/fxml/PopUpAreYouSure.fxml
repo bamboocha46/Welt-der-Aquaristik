@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.arche_test.controller.PopUpAreYouSureController">
+<AnchorPane prefHeight="100.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpAreYouSureController">
    <children>
       <Button layoutX="28.0" layoutY="55.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="55.0" style="-fx-border-color: GREEN;" text="Ja" />
       <Button layoutX="112.0" layoutY="55.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="55.0" style="-fx-border-color: RED;" text="Nein" />
