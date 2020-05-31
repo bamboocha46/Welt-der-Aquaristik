@@ -7,6 +7,7 @@ import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,10 +30,8 @@ public class AddNewFishToAQController {
 	// back to AQ datesheet window
 	@FXML
 	void back(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_AQDATESHEET_FXML));
-		Stage stage = new Stage();
-		stage.setScene(new Scene((Parent) loader.load()));
-		stage.show();
+		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+		currentStage.close();
 
 	}
 

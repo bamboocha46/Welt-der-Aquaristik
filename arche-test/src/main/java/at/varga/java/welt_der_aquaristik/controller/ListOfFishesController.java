@@ -34,6 +34,7 @@ public class ListOfFishesController {
 	ObservableList<String> testList = FXCollections.observableArrayList(test1, test2);
 
 	// method to create and add a new Fish to "List of fishes"
+	//Doesent save any fishes yet
 	@FXML
 	void creadAndAddNewFishToList(ActionEvent event) {
 
