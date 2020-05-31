@@ -7,6 +7,7 @@ import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -18,6 +19,8 @@ public class AQDateSheetController {
 
 	@FXML
 	private Button AddNewFishButton;
+    @FXML
+    private Button backButton;
 
 	// Method to add a new fish to the AQ
 	@FXML
@@ -94,5 +97,13 @@ public class AQDateSheetController {
 		puAUS.setScene(scene);
 		puAUS.showAndWait();
 	}
+	
+	// closes actuelly window, leads to PrimerWindow
+	@FXML
+    void back(ActionEvent event) {
+
+		Stage currentStage = (Stage)((Node)event.getTarget()).getScene().getWindow();
+		currentStage.close();
+    }
 
 }

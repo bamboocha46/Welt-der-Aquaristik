@@ -14,7 +14,7 @@
             <Image url="@../images/fish.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="466.0" layoutY="347.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="102.0" text="Specihern" />
+      <Button layoutX="353.0" layoutY="345.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="102.0" text="Specihern" />
       <GridPane gridLinesVisible="true" layoutX="16.0" layoutY="17.0" prefHeight="368.0" prefWidth="236.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Größe:" wrappingWidth="70.29443359375" GridPane.rowIndex="1" />
@@ -51,5 +51,6 @@
          </rowConstraints>
       </GridPane>
       <Button layoutX="455.0" layoutY="272.0" mnemonicParsing="false" text="Bild hinzufügen" />
+      <Button fx:id="backButton" layoutX="468.0" layoutY="345.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="102.0" text="Zurück" />
    </children>
 </AnchorPane>

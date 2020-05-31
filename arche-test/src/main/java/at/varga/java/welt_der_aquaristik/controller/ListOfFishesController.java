@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -23,6 +24,9 @@ public class ListOfFishesController {
 	private Button addNewFishButton;
 
 	@FXML
+	private Button backButton;
+
+	@FXML
 	private ChoiceBox testChoiceBox;
 	@FXML
 	private Button testButton;
@@ -30,11 +34,11 @@ public class ListOfFishesController {
 	String test1 = "Fish1";
 	String test2 = "Fish2";
 
-	//it is just for a GUI test
+	// it is just for a GUI test
 	ObservableList<String> testList = FXCollections.observableArrayList(test1, test2);
 
 	// method to create and add a new Fish to "List of fishes"
-	//Doesent save any fishes yet
+	// Doesent save any fishes yet
 	@FXML
 	void creadAndAddNewFishToList(ActionEvent event) {
 
@@ -73,7 +77,7 @@ public class ListOfFishesController {
 
 	}
 
-	//It just to Gui-Test
+	// It just to Gui-Test
 	private void testmethod() {
 
 		if (testChoiceBox.getValue().equals(test1)) {
@@ -119,6 +123,13 @@ public class ListOfFishesController {
 
 		}
 
+	}
+
+	@FXML
+	void back(ActionEvent event) {
+
+		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+		currentStage.close();
 	}
 
 }

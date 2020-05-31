@@ -7,12 +7,17 @@ import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
 
 public class AddNewFishToListController {
+
+	@FXML
+	private Button backButton;
 
 	// doesnt save yet
 	// just show popUp: SaveMessage
@@ -38,6 +43,13 @@ public class AddNewFishToListController {
 		puSave.setScene(scene);
 		puSave.showAndWait();
 
+	}
+
+	@FXML
+	void back(ActionEvent event) {
+
+		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
+		currentStage.close();
 	}
 
 }

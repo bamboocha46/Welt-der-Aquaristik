@@ -26,6 +26,7 @@ public class AQ {
 		this.sizeWidth = sizeWidth;
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
+		this.volumen = (this.sizeHeight * this.sizeLength * this.sizeWidth) / 1000;
 		this.stockingDensity = stockingDensity;
 		this.listOfFishes = listOfFishes;
 	}
@@ -39,7 +40,6 @@ public class AQ {
 	}
 
 	public double getVolumen() {
-		volumen = (this.sizeHeight * this.sizeLength * this.sizeWidth) / 1000;
 		return volumen;
 	}
 
