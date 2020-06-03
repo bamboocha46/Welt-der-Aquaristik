@@ -17,10 +17,10 @@ public class AQ {
 	private int sizeLength;
 	private int sizeHeight;
 	private double stockingDensity;
-	private List<Fish> listOfFishes;
+	private List<FishType> listOfFishes;
 
 	public AQ(long aqId, int sizeWidth, int sizeLength, int sizeHeight, double stockingDensity,
-			List<Fish> listOfFishes) {
+			List<FishType> listOfFishes) {
 		super();
 		this.aqId = aqId;
 		this.sizeWidth = sizeWidth;
@@ -69,7 +69,7 @@ public class AQ {
 
 	public double getStockingDensity() {
 		double summeFishSize = 0;
-		for (Fish f : listOfFishes) {
+		for (FishType f : listOfFishes) {
 			summeFishSize = +f.getSize();
 		}
 		stockingDensity = summeFishSize / volumen;
@@ -77,11 +77,11 @@ public class AQ {
 	}
 
 
-	public List<Fish> getListOfFishes() {
+	public List<FishType> getListOfFishes() {
 		return listOfFishes;
 	}
 
-	public void setListOfFishes(List<Fish> listOfFishes) {
+	public void setListOfFishes(List<FishType> listOfFishes) {
 		this.listOfFishes = listOfFishes;
 	}
 
