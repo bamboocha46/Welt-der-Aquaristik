@@ -35,8 +35,8 @@ public class ListOfFishesController {
 	private Button ownFishButton;
 	@FXML
 	private Button catFishButton;
-    @FXML
-    private Button darioButton;
+	@FXML
+	private Button darioButton;
 
 	@FXML
 	private Button addNewFishButton;
@@ -53,10 +53,6 @@ public class ListOfFishesController {
 //
 //	// it is just for a GUI test
 //	ObservableList<String> testList = FXCollections.observableArrayList(test1, test2);
-
-	// method to create and add a new Fish to "List of fishes"
-	// Doesent save any fishes yet
-
 
 	@FXML
 	void showPerches(ActionEvent event) {
@@ -126,29 +122,29 @@ public class ListOfFishesController {
 		coldwaterfishes.showAndWait();
 
 	}
-	
-	//!!!!! DarioPath funktioniert nicht, überprüfen!!!!
-	  @FXML
-	   void showDarios(ActionEvent event) {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource(Constants.PATH_TO_COLDWATERFISH_FXML));
-			AnchorPane showDarios = null;
-			try {
-				showDarios = loader.load();
-			} catch (IOException e) {
 
-				e.printStackTrace();
-			}
+	// !!!!! DarioPath funktioniert nicht, überprüfen!!!!
+	@FXML
+	void showDarios(ActionEvent event) {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_COLDWATERFISH_FXML));
+		AnchorPane showDarios = null;
+		try {
+			showDarios = loader.load();
+		} catch (IOException e) {
 
-			Stage darios = new Stage();
-			darios.setTitle("Bärblinge");
-			darios.initModality(Modality.WINDOW_MODAL);
-			darios.initOwner(Main.primaryStage);
+			e.printStackTrace();
+		}
 
-			Scene scene = new Scene(showDarios);
-			darios.setScene(scene);
-			darios.showAndWait();
-	    }
+		Stage darios = new Stage();
+		darios.setTitle("Bärblinge");
+		darios.initModality(Modality.WINDOW_MODAL);
+		darios.initOwner(Main.primaryStage);
+
+		Scene scene = new Scene(showDarios);
+		darios.setScene(scene);
+		darios.showAndWait();
+	}
 
 	@FXML
 	void showCatFishes(ActionEvent event) {
@@ -195,7 +191,6 @@ public class ListOfFishesController {
 		viviparous.showAndWait();
 	}
 
-
 	@FXML
 	void showTetras(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
@@ -240,6 +235,8 @@ public class ListOfFishesController {
 		ownFishes.showAndWait();
 	}
 
+	// method to create and add a new Fish to "List of fishes"
+	// Doesent save any fishes yet
 	@FXML
 	void creadAndAddNewFishToList(ActionEvent event) {
 
