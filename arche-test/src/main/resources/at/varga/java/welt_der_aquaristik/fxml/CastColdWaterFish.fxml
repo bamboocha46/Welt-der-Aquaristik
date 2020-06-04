@@ -13,20 +13,9 @@
       <ComboBox fx:id="fishTypeComboBox" layoutX="95.0" layoutY="33.0" onAction="#choseFishType" prefHeight="31.0" prefWidth="208.0" />
       <Button fx:id="fishTypeShowButton" layoutX="400.0" layoutY="34.0" mnemonicParsing="false" onAction="#showFishType" text="Fischart auswählen" />
       <Text layoutX="32.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" />
-      <GridPane gridLinesVisible="true" layoutX="18.0" layoutY="127.0" prefHeight="250.0" prefWidth="350.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Button fx:id="backButton" layoutX="513.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" text="Zurück" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+      <GridPane layoutX="28.0" layoutY="137.0" prefHeight="250.0" prefWidth="350.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Größe: " wrappingWidth="117.65869140625" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Größe:" wrappingWidth="116.6708984375" GridPane.rowIndex="1" />
@@ -36,17 +25,23 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verhalten:" wrappingWidth="115.6708984375" GridPane.rowIndex="5" />
             <TextField GridPane.columnIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
       </GridPane>
-      <Button fx:id="backButton" layoutX="513.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" text="Zurück" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

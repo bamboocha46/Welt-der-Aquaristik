@@ -21,18 +21,15 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Größe (BxTxH):" wrappingWidth="122.6708984375" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Volumen" wrappingWidth="122.6708984375" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Bewohnern:" wrappingWidth="122.6708984375" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Besatzdichte:" wrappingWidth="122.6708984375" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="122.6708984375" GridPane.columnIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="122.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="122.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Besatzdichte:" wrappingWidth="122.6708984375" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="122.6708984375" GridPane.columnIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="122.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="122.6708984375" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button id="AddNewFishButton" fx:id="AddNewFishButton" layoutX="34.0" layoutY="311.0" mnemonicParsing="false" onAction="#addANewFishToAQ" prefHeight="50.0" prefWidth="180.0" text="Neuen Fisch hinzufügen" />
@@ -41,9 +38,10 @@
       <Button fx:id="backButton" layoutX="510.0" layoutY="311.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="77.0" text="Zurück" />
       <TableView fx:id="fishTypeInAQTable" layoutX="342.0" layoutY="69.0" prefHeight="200.0" prefWidth="200.0">
         <columns>
-          <TableColumn fx:id="breedColumn" prefWidth="75.0" text="Gattung" />
-            <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Anzahl" />
+          <TableColumn fx:id="breedColumn" prefWidth="98.0" text="Gattung" />
+            <TableColumn fx:id="quantityColumn" prefWidth="101.0" text="Anzahl" />
         </columns>
       </TableView>
+      <Text layoutX="342.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bewohner" />
    </children>
 </AnchorPane>

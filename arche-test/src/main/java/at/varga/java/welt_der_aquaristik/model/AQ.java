@@ -12,6 +12,7 @@ import java.util.List;
 public class AQ {
 
 	private long aqId;
+	private String titel;
 	private double volumen;
 	private int sizeWidth;
 	private int sizeLength;
@@ -19,10 +20,11 @@ public class AQ {
 	private double stockingDensity;
 	private List<FishType> listOfFishes;
 
-	public AQ(long aqId, int sizeWidth, int sizeLength, int sizeHeight, double stockingDensity,
+	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, double stockingDensity,
 			List<FishType> listOfFishes) {
 		super();
 		this.aqId = aqId;
+		this.titel = titel;
 		this.sizeWidth = sizeWidth;
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
@@ -37,6 +39,14 @@ public class AQ {
 
 	public void setAqId(long aqId) {
 		this.aqId = aqId;
+	}
+
+	public String getTitel() {
+		return titel;
+	}
+
+	public void setTitel(String titel) {
+		this.titel = titel;
 	}
 
 	public double getVolumen() {

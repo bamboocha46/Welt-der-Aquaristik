@@ -11,7 +11,7 @@
    <children>
       <Text layoutX="32.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fischart:" />
       <ComboBox fx:id="fishTypeComboBox" layoutX="95.0" layoutY="33.0" onAction="#choseFishType" prefHeight="31.0" prefWidth="208.0" />
-      <Button fx:id="fishTypeShowButton" layoutX="400.0" layoutY="34.0" mnemonicParsing="false" onAction="#showFishType" text="Fischart auswählen" />
+      <Button fx:id="fishTypeShowButton" layoutX="400.0" layoutY="34.0" mnemonicParsing="false" onAction="#onMousePressed" text="Fischart auswählen" />
       <Text layoutX="32.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" />
       <GridPane layoutX="18.0" layoutY="127.0" prefHeight="250.0" prefWidth="350.0">
         <columnConstraints>
@@ -33,12 +33,12 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ph-wert: " wrappingWidth="115.6708984375" GridPane.rowIndex="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GH-wert:" wrappingWidth="113.6708984375" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verhalten:" wrappingWidth="115.6708984375" GridPane.rowIndex="5" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="sizeTextField" GridPane.columnIndex="1" />
+            <TextField fx:id="aqSizeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="phTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="gHTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="socialisationsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
       <Button fx:id="backButton" layoutX="513.0" layoutY="346.0" mnemonicParsing="false" onAction="#back" text="Zurück" />
