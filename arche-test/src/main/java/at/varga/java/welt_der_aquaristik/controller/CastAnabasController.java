@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 
 public class CastAnabasController {
 
-	//FishTypes as examples
+	// FishTypes as examples
 	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GROUP,
 			Cast.SALMLER);
 	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.SEPARETE,
@@ -46,26 +46,25 @@ public class CastAnabasController {
 
 	@FXML
 	private Button fishTypeShowButton;
-	//FishParametersTextFields
+
+	@FXML
+	private Button addNewFishButton;
+
+	// FishParametersTextFields
 	@FXML
 	private TextField sizeTextField;
-
 	@FXML
 	private TextField aqSizeTextField;
-
 	@FXML
 	private TextField temperaturTextField;
 	@FXML
 	private TextField gHTextField;
-
 	@FXML
 	private TextField phTextField;
-
 	@FXML
 	private TextField socialisationsTextField;
-	
-	//List for example (because i dont have DB yet)
 
+	// List as example (because i dont have DB yet)
 	ObservableList<FishType> fishTypeList = FXCollections.observableArrayList(fishFirst, fishSecond, fishThird);
 	ObservableList<String> fishBreedList = FXCollections.observableArrayList(fishFirst.getBreed(),
 			fishSecond.getBreed(), fishThird.getBreed());
@@ -75,16 +74,36 @@ public class CastAnabasController {
 
 	}
 
-//	@FXML
-//	void showFishType(ActionEvent event) {
-//
-//	}
 
 	@FXML
 	void back(ActionEvent event) {
 		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 		currentStage.close();
 	}
+	
+    @FXML
+    void openAddNewFishSceen(ActionEvent event) {
+
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOLIST_FXML));
+		AnchorPane addNewFishToList = null;
+		try {
+			addNewFishToList = loader.load();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+		Stage createNewFishWindow = new Stage();
+		createNewFishWindow.setTitle("Neuen Fisch zur Liste hinzufügen");
+		createNewFishWindow.initModality(Modality.WINDOW_MODAL);
+		createNewFishWindow.initOwner(Main.primaryStage);
+
+		Scene scene = new Scene(addNewFishToList);
+		createNewFishWindow.setScene(scene);
+		createNewFishWindow.showAndWait();
+
+    }
 
 	@FXML
 	private void initialize() {
@@ -98,8 +117,9 @@ public class CastAnabasController {
 
 	}
 
+	
 	@FXML
-	void onMousePressed(ActionEvent event) {
+	void fishTypeShowButtonWasPressed(ActionEvent event) {
 
 		for (FishType f : fishTypeFromDB) {
 			if (f.getBreed().equals(fishTypeComboBox.getValue())) {
@@ -122,6 +142,5 @@ public class CastAnabasController {
 //		}
 
 	}
-
 
 }

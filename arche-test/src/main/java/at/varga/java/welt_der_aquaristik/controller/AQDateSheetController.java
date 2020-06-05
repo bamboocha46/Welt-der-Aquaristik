@@ -46,6 +46,7 @@ public class AQDateSheetController  implements Initializable {
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
 
 	// Method to add a new fish to the AQ
+	//opes just a new scene, donesent save any fishes yet
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
 

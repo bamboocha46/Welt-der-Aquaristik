@@ -65,7 +65,7 @@ public class PrimerController {
 	@FXML
 	void openListOfFishesWindow(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_LISTOFFISHES_FXML));
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_FISH_POOL_VIEW_FXML));
 		AnchorPane showListOfFishes = null;
 		try {
 			showListOfFishes = loader.load();

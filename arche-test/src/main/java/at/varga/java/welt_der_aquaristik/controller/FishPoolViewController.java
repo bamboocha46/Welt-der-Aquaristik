@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ListOfFishesController {
+public class FishPoolViewController {
 
 	// FishCastButtons
 	@FXML
@@ -32,14 +32,12 @@ public class ListOfFishesController {
 	@FXML
 	private Button viviparousButton;
 	@FXML
-	private Button ownFishButton;
+	private Button otherFishButton;
 	@FXML
 	private Button catFishButton;
 	@FXML
 	private Button darioButton;
 
-	@FXML
-	private Button addNewFishButton;
 	@FXML
 	private Button backButton;
 
@@ -214,12 +212,12 @@ public class ListOfFishesController {
 	}
 
 	@FXML
-	void showOwnFish(ActionEvent event) {
+	void showOtherFish(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CAST_OWNFISH_FXML));
-		AnchorPane showOwnFishes = null;
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CAST_OTHERFISH_FXML));
+		AnchorPane showOtherFishes = null;
 		try {
-			showOwnFishes = loader.load();
+			showOtherFishes = loader.load();
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -230,35 +228,9 @@ public class ListOfFishesController {
 		ownFishes.initModality(Modality.WINDOW_MODAL);
 		ownFishes.initOwner(Main.primaryStage);
 
-		Scene scene = new Scene(showOwnFishes);
+		Scene scene = new Scene(showOtherFishes);
 		ownFishes.setScene(scene);
 		ownFishes.showAndWait();
-	}
-
-	// method to create and add a new Fish to "List of fishes"
-	// Doesent save any fishes yet
-	@FXML
-	void creadAndAddNewFishToList(ActionEvent event) {
-
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOLIST_FXML));
-		AnchorPane addNewFishToList = null;
-		try {
-			addNewFishToList = loader.load();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		Stage createNewFishWindow = new Stage();
-		createNewFishWindow.setTitle("Neuen Fisch zur Liste hinzufügen");
-		createNewFishWindow.initModality(Modality.WINDOW_MODAL);
-		createNewFishWindow.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(addNewFishToList);
-		createNewFishWindow.setScene(scene);
-		createNewFishWindow.showAndWait();
-
 	}
 
 	@FXML

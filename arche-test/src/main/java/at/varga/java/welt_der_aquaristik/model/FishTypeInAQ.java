@@ -13,12 +13,6 @@ public class FishTypeInAQ {
 	private SimpleStringProperty breed;
 	private SimpleIntegerProperty quantity;
 
-//	public FishTypeInAQ(FishType fishType, long aqID, int quantity) {
-//		super();
-//		this.fishType = new SimpleObjectProperty<FishType>(fishType);
-//		this.aqID = new SimpleLongProperty(aqID);
-//		this.quantity = new SimpleIntegerProperty(quantity);
-//	}
 
 	public FishTypeInAQ(String breed, long aqID, int quantity) {
 		super();
@@ -26,18 +20,7 @@ public class FishTypeInAQ {
 		this.aqID = new SimpleLongProperty(aqID);
 		this.quantity = new SimpleIntegerProperty(quantity);
 	}
-	
-//	public FishTypeInAQ(String breed, int quantity) {
-//		super();
-//		this.breed = new SimpleStringProperty(breed);
-//		this.quantity = new SimpleIntegerProperty(quantity);
-//	}
 
-
-//	public FishType getFish() {
-//
-//		return fishType.get();
-//	}
 
 	public String getBreed() {
 
