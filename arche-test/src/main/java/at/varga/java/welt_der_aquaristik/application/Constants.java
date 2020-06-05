@@ -3,7 +3,7 @@ package at.varga.java.welt_der_aquaristik.application;
 public class Constants {
 
 	// path to fxml files
-	public static final String PATH_TO_PRIMER_FXML = "/at/varga/java/welt_der_aquaristik/fxml/Primer.fxml";
+	public static final String PATH_TO_WELCOME_VIEW_FXML = "/at/varga/java/welt_der_aquaristik/fxml/WelcomeView.fxml";
 	public static final String PATH_TO_ADDNEWFISHTOAQ_FXML = "/at/varga/java/welt_der_aquaristik/fxml/AddNewFishToAQ.fxml";
 	public static final String PATH_TO_ADDNEWFISHTOLIST_FXML = "/at/varga/java/welt_der_aquaristik/fxml/AddNewFishToList.fxml";
 	public static final String PATH_TO_AQDATESHEET_FXML = "/at/varga/java/welt_der_aquaristik/fxml/AQDateSheet.fxml";

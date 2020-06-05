@@ -10,7 +10,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CastAnabasController">
    <children>
       <Text layoutX="32.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fischart:" />
-      <ComboBox fx:id="fishTypeComboBox" layoutX="95.0" layoutY="33.0" onAction="#choseFishType" prefHeight="31.0" prefWidth="208.0" />
+      <ComboBox fx:id="fishTypeComboBox" layoutX="95.0" layoutY="33.0" prefHeight="31.0" prefWidth="208.0" />
       <Button fx:id="fishTypeShowButton" layoutX="327.0" layoutY="21.0" mnemonicParsing="false" onAction="#fishTypeShowButtonWasPressed" prefHeight="55.0" prefWidth="105.0" text="Fischart auswählen" textAlignment="CENTER" wrapText="true" />
       <Text layoutX="32.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" />
       <GridPane layoutX="18.0" layoutY="127.0" prefHeight="250.0" prefWidth="350.0">

@@ -69,10 +69,10 @@ public class CastAnabasController {
 	ObservableList<String> fishBreedList = FXCollections.observableArrayList(fishFirst.getBreed(),
 			fishSecond.getBreed(), fishThird.getBreed());
 
-	@FXML
-	void choseFishType(ActionEvent event) {
-
-	}
+//	@FXML
+//	void choseFishType(ActionEvent event) {
+//
+//	}
 
 
 	@FXML

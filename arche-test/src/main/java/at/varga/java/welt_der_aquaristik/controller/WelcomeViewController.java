@@ -18,7 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class PrimerController {
+public class WelcomeViewController {
 
 	@FXML
 	private Text titelText;
