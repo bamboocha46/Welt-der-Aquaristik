@@ -49,6 +49,8 @@ public class FishTypeInAQ {
 	public Integer getQuantity() {
 		return quantity.get();
 	}
+	
+	
 
 //	public void setQuantity(int quantity) {
 //		this.quantity = quantity;

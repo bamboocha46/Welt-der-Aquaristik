@@ -18,6 +18,10 @@ public abstract class WaterAnimal {
 	private int maxGH;
 	private String pictureUrl;
 	private Socialization socialization;
+	
+	public WaterAnimal() {
+		
+	}
 	public WaterAnimal(long id, String breed, double size, double minAqVolumen, double maxAqVolumen,
 			float minTemperatur, float maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
 			Socialization socialization) {
@@ -36,6 +40,7 @@ public abstract class WaterAnimal {
 		this.pictureUrl = pictureUrl;
 		this.socialization = socialization;
 	}
+
 	public long getId() {
 		return id;
 	}

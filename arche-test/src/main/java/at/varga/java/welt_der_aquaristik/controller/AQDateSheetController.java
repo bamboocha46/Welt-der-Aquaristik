@@ -2,10 +2,13 @@ package at.varga.java.welt_der_aquaristik.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
@@ -19,10 +22,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -39,16 +44,19 @@ public class AQDateSheetController implements Initializable {
 	private Text volumenText;
 	@FXML
 	private Text temperaturText;
-
 	@FXML
 	private Text sizeText;
-
 	@FXML
 	private Text phText;
 	@FXML
 	private Text stockingDensityText;
 	@FXML
 	private Text ghText;
+	// MyAQsList elements
+	@FXML
+	private ComboBox<String> aqComboBox;
+	@FXML
+	private Button showChoosenAQ;
 
 	// Table elements
 	@FXML
@@ -152,14 +160,61 @@ public class AQDateSheetController implements Initializable {
 			Socialization.AGGRESSIVE, Cast.BARSCH);
 
 	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(
-			new FishTypeInAQ(fishFirst.getBreed(), 1, 10), new FishTypeInAQ(fishSecond.getBreed(), 1, 15),
+			new FishTypeInAQ(fishFirst.getBreed(), 1, 10), 
+			new FishTypeInAQ(fishSecond.getBreed(), 1, 15),
 			new FishTypeInAQ(fishThird.getBreed(), 2, 1));
+	
+	public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(
+			new FishTypeInAQ("Blau barsch", 1, 10), 
+			new FishTypeInAQ("Silber Barsch", 1, 15),
+			new FishTypeInAQ("Quietschende Badeente", 2, 42));
+	
+
+	// AQs as example
+
+	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, 10, null);
+	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, 0.3, list);
+	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, 0.3, list2);
+
+	private List<AQ> aqsFromDB = new ArrayList<AQ>();
+
+	ObservableList<String> aqTitelList = FXCollections.observableArrayList(aq1.getTitel(), aq2.getTitel(), aq3.getTitel());
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// FishTabelle
 		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 		fishTypeInAQTable.setItems(list);
+
+		// MyAQS List
+		aqsFromDB.add(aq1);
+		aqsFromDB.add(aq2);
+		aqsFromDB.add(aq3);
+
+//		fishTypeInAQFromDB.add(fishTIA1);
+//		fishTypeInAQFromDB.add(fishTIA2);
+//		fishTypeInAQFromDB.add(fishTIA3);
+
+		aqComboBox.setValue(aq1.getTitel());
+		aqComboBox.setItems(aqTitelList);
+
+	}
+
+	@FXML
+	void showChoosenButtonWasPressed(ActionEvent event) {
+
+		for (AQ a : aqsFromDB) {
+			if (a.getTitel().equals(aqComboBox.getValue())) {
+				sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
+				volumenText.setText(String.valueOf(a.getVolumen()) + "l");
+				temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
+				ghText.setText(String.valueOf(a.getgH()) + "°d");
+				phText.setText(String.valueOf(a.getPh()));
+				stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
+				fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
+			}
+		}
 
 	}
 

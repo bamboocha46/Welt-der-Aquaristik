@@ -20,14 +20,14 @@ public class AQ {
 	private double gH;
 	private double ph;
 	private double stockingDensity;
-	private List<FishTypeInAQ> listOfFishes;
+	private List<FishTypeInAQ> fishesInAQList;
 
-	public AQ(long aqId, String titel, double volumen, int sizeWidth, int sizeLength, int sizeHeight, int temperatur,
+	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur,
 			double gH, double ph, double stockingDensity, List<FishTypeInAQ> listOfFishes) {
 		super();
 		this.aqId = aqId;
 		this.titel = titel;
-		this.volumen = volumen;
+		this.volumen = sizeWidth*sizeLength*sizeHeight/1000;
 		this.sizeWidth = sizeWidth;
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
@@ -35,7 +35,7 @@ public class AQ {
 		this.gH = gH;
 		this.ph = ph;
 		this.stockingDensity = stockingDensity;
-		this.listOfFishes = listOfFishes;
+		this.fishesInAQList = listOfFishes;
 	}
 
 	public long getAqId() {
@@ -58,9 +58,9 @@ public class AQ {
 		return volumen;
 	}
 
-	public void setVolumen(double volumen) {
-		this.volumen = volumen;
-	}
+//	public void setVolumen(double volumen) {
+//		this.volumen = volumen;
+//	}
 
 	public int getSizeWidth() {
 		return sizeWidth;
@@ -109,20 +109,25 @@ public class AQ {
 	public void setPh(double ph) {
 		this.ph = ph;
 	}
+	
+
+	public double getStockingDensity() {
+		return stockingDensity;
+	}
 
 	public List<FishTypeInAQ> getListOfFishes() {
-		return listOfFishes;
+		return fishesInAQList;
 	}
 
 	public void setListOfFishes(List<FishTypeInAQ> listOfFishes) {
-		this.listOfFishes = listOfFishes;
+		this.fishesInAQList = listOfFishes;
 	}
 
 	@Override
 	public String toString() {
 		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
 				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
-				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", listOfFishes=" + listOfFishes + "]";
+				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", listOfFishes=" + fishesInAQList + "]";
 	}
 
 //	public double getStockingDensity() {

@@ -77,7 +77,7 @@
   </generalization>  
   <association id="11">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="12" name="listOfFishes"/>      
+      <attribute id="12" name="fishesInAQList"/>      
       <multiplicity id="13" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    

@@ -14,6 +14,9 @@ public class FishType extends WaterAnimal {
 				pictureUrl, socialization);
 		this.cast = cast;
 	}
+	
+	public FishType() {
+	}
 
 	public Cast getCast() {
 		return cast;
