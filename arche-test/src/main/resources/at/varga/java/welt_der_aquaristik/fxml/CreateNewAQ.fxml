@@ -8,28 +8,38 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CreateNewAQController">
    <children>
-      <Button id="saveButton" fx:id="saveButton" layoutX="30.0" layoutY="338.0" mnemonicParsing="false" onAction="#save" text="Speichern" />
+      <Button id="saveButton" fx:id="saveButton" layoutX="385.0" layoutY="338.0" mnemonicParsing="false" onAction="#save" text="Speichern" />
       <Button id="breakButton" fx:id="breakButton" layoutX="479.0" layoutY="338.0" mnemonicParsing="false" onAction="#back" text="Abbrechen" />
-      <Button id="newFishButton" fx:id="newFishButton" layoutX="30.0" layoutY="259.0" mnemonicParsing="false" onAction="#addNewFish" prefHeight="31.0" prefWidth="187.0" text="Neuen Fisch hinzufügen" />
-      <TextField id="size2" fx:id="size2" layoutX="276.0" layoutY="97.0" prefHeight="31.0" prefWidth="49.0" />
-      <TextField id="size3" fx:id="size3" layoutX="345.0" layoutY="97.0" prefHeight="31.0" prefWidth="49.0" />
-      <TextField id="volume" fx:id="volume" layoutX="207.0" layoutY="43.0" />
-      <TextField fx:id="aqNameTextField" layoutX="207.0" layoutY="152.0" prefHeight="31.0" prefWidth="187.0" />
-      <GridPane layoutX="27.0" layoutY="32.0" prefHeight="161.0" prefWidth="187.0">
+      <GridPane layoutX="14.0" layoutY="53.0" prefHeight="223.0" prefWidth="408.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="11.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="80.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Name:" textAlignment="CENTER" wrappingWidth="174.86279296875" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Größe (LxBxH):" textAlignment="CENTER" wrappingWidth="173.78369140625" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volumen:" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Größe (LxBxH):" textAlignment="CENTER" wrappingWidth="173.78369140625" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volumen (l):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gh (°d):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ph:" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Temperatur (°C):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="2" />
+            <TextField id="volume" fx:id="volumeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField id="size2" fx:id="sizeWidth" GridPane.columnIndex="1" />
+            <TextField id="volume" fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="volume" fx:id="ghTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField id="volume" fx:id="phTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField id="size2" fx:id="sizeLength" GridPane.columnIndex="2" />
+            <TextField id="size3" fx:id="sizeHeight" GridPane.columnIndex="3" />
          </children>
       </GridPane>
-      <TextField id="size2" fx:id="size21" layoutX="207.0" layoutY="97.0" prefHeight="31.0" prefWidth="49.0" />
+      <Text layoutX="14.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Name:" textAlignment="CENTER" wrappingWidth="174.86279296875" />
+      <TextField fx:id="aqNameTextField" layoutX="196.0" layoutY="20.0" maxHeight="31.0" minHeight="31.0" prefHeight="31.0" prefWidth="232.0" />
    </children>
 </AnchorPane>

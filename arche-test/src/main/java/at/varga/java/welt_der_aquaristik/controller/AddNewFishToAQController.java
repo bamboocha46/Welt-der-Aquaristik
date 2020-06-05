@@ -74,7 +74,7 @@ public class AddNewFishToAQController {
 	@FXML
 	void save(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
 		AnchorPane popUpSaveMessage = null;
 		try {
 			popUpSaveMessage = loader.load();

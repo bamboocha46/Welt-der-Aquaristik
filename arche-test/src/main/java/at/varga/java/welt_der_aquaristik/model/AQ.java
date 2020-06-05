@@ -6,8 +6,7 @@ package at.varga.java.welt_der_aquaristik.model;
 import java.util.List;
 
 /**
- * @author eszte
- * It is a class for aquariums
+ * @author eszte It is a class for aquariums
  */
 public class AQ {
 
@@ -17,18 +16,24 @@ public class AQ {
 	private int sizeWidth;
 	private int sizeLength;
 	private int sizeHeight;
+	private int temperatur;
+	private double gH;
+	private double ph;
 	private double stockingDensity;
-	private List<FishType> listOfFishes;
+	private List<FishTypeInAQ> listOfFishes;
 
-	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, double stockingDensity,
-			List<FishType> listOfFishes) {
+	public AQ(long aqId, String titel, double volumen, int sizeWidth, int sizeLength, int sizeHeight, int temperatur,
+			double gH, double ph, double stockingDensity, List<FishTypeInAQ> listOfFishes) {
 		super();
 		this.aqId = aqId;
 		this.titel = titel;
+		this.volumen = volumen;
 		this.sizeWidth = sizeWidth;
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
-		this.volumen = (this.sizeHeight * this.sizeLength * this.sizeWidth) / 1000;
+		this.temperatur = temperatur;
+		this.gH = gH;
+		this.ph = ph;
 		this.stockingDensity = stockingDensity;
 		this.listOfFishes = listOfFishes;
 	}
@@ -51,6 +56,10 @@ public class AQ {
 
 	public double getVolumen() {
 		return volumen;
+	}
+
+	public void setVolumen(double volumen) {
+		this.volumen = volumen;
 	}
 
 	public int getSizeWidth() {
@@ -77,22 +86,52 @@ public class AQ {
 		this.sizeHeight = sizeHeight;
 	}
 
-	public double getStockingDensity() {
-		double summeFishSize = 0;
-		for (FishType f : listOfFishes) {
-			summeFishSize = +f.getSize();
-		}
-		stockingDensity = summeFishSize / volumen;
-		return stockingDensity;
+	public int getTemperatur() {
+		return temperatur;
 	}
 
+	public void setTemperatur(int temperatur) {
+		this.temperatur = temperatur;
+	}
 
-	public List<FishType> getListOfFishes() {
+	public double getgH() {
+		return gH;
+	}
+
+	public void setgH(double gH) {
+		this.gH = gH;
+	}
+
+	public double getPh() {
+		return ph;
+	}
+
+	public void setPh(double ph) {
+		this.ph = ph;
+	}
+
+	public List<FishTypeInAQ> getListOfFishes() {
 		return listOfFishes;
 	}
 
-	public void setListOfFishes(List<FishType> listOfFishes) {
+	public void setListOfFishes(List<FishTypeInAQ> listOfFishes) {
 		this.listOfFishes = listOfFishes;
 	}
+
+	@Override
+	public String toString() {
+		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
+				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
+				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", listOfFishes=" + listOfFishes + "]";
+	}
+
+//	public double getStockingDensity() {
+//		double summeFishSize = 0;
+//		for (FishType f : listOfFishes) {
+//			summeFishSize = +f.getSize();
+//		}
+//		stockingDensity = summeFishSize / volumen;
+//		return stockingDensity;
+//	}
 
 }

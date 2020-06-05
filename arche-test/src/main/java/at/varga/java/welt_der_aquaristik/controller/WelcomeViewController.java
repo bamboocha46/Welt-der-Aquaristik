@@ -21,19 +21,10 @@ import javafx.stage.Stage;
 public class WelcomeViewController {
 
 	@FXML
-	private Text titelText;
-
-	@FXML
-	private ChoiceBox<?> listOfAQsChioceBox;
+	private Button myAQsButton;
 
 	@FXML
 	private Button newAQButton;
-
-	@FXML
-	private Text textNameForMyAQs;
-
-	@FXML
-	private SplitMenuButton MyAQsMenuButton;
 
 	@FXML
 	private Button listOfFischesButton;
@@ -85,9 +76,9 @@ public class WelcomeViewController {
 
 	}
 
-	// This method opens an AQDateSheet
+	// This method opens the AQDateSheet Scene
 	@FXML
-	void openAnAQ(ActionEvent event) {
+	void openAQDateSheet(ActionEvent event) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_AQDATESHEET_FXML));
 		AnchorPane showAnAQ = null;

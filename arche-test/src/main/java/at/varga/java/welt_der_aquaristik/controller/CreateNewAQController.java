@@ -19,68 +19,44 @@ import javafx.stage.Stage;
 public class CreateNewAQController {
 
 	@FXML
-	private TextField volume;
+	private TextField volumeTextField;
+
+	@FXML
+	private TextField sizeLength;
 
 	@FXML
 	private TextField aqNameTextField;
 
 	@FXML
-	private Button newFishButton;
+	private TextField ghTextField;
 
 	@FXML
-	private TextField size3;
+	private TextField sizeWidth;
+
+	@FXML
+	private TextField temperaturTextField;
 
 	@FXML
 	private Button breakButton;
 
 	@FXML
-	private TextField size1;
-
-	@FXML
-	private TextField size2;
+	private TextField sizeHeight;
 
 	@FXML
 	private Button saveButton;
 
-//    @FXML
-//    void save(ActionEvent event) {
-//
-//    }
-//
-	// back to PrimarWindow
+	@FXML
+	private TextField phTextField;
+
+	// back to WelcomeWindow
 	@FXML
 	void back(ActionEvent event) throws IOException {
 //		FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_PRIMER_FXML));
 //		Stage stage = new Stage();
 //		stage.setScene(new Scene((Parent) loader.load()));
 //		stage.show();
-		Stage currentStage = (Stage)((Node)event.getTarget()).getScene().getWindow();
+		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 		currentStage.close();
-
-	}
-
-	// Method to add Fish(es) to the new AQ
-	@FXML
-	void addNewFish(ActionEvent event) {
-
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
-		AnchorPane addNewFishToAQ = null;
-		try {
-			addNewFishToAQ = loader.load();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		Stage addNewFishWindow = new Stage();
-		addNewFishWindow.setTitle("Neuen Fisch zur Aquarium hinzufügen");
-		addNewFishWindow.initModality(Modality.WINDOW_MODAL);
-		addNewFishWindow.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(addNewFishToAQ);
-		addNewFishWindow.setScene(scene);
-		addNewFishWindow.showAndWait();
 
 	}
 
@@ -90,7 +66,7 @@ public class CreateNewAQController {
 	void save(ActionEvent event) {
 
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUSAVE_FXML));
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
 		AnchorPane popUpSaveMessage = null;
 		try {
 			popUpSaveMessage = loader.load();

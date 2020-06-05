@@ -23,30 +23,43 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AQDateSheetController  implements Initializable {
+public class AQDateSheetController implements Initializable {
 
 	@FXML
 	private Button AddNewFishButton;
 	@FXML
 	private Button backButton;
+
+	// AQ parametrs elements
+	@FXML
+	private Text volumenText;
+	@FXML
+	private Text temperaturText;
+
+	@FXML
+	private Text sizeText;
+
+	@FXML
+	private Text phText;
+	@FXML
+	private Text stockingDensityText;
+	@FXML
+	private Text ghText;
+
+	// Table elements
 	@FXML
 	private TableView<FishTypeInAQ> fishTypeInAQTable;
-////	@FXML
-////	private TableColumn<FishTypeInAQ, Long> aqID;
-////	@FXML
-////	private TableColumn<FishTypeInAQ, FishType> fishTypeColumn;
-
-    @FXML
-    private TableColumn<FishTypeInAQ, String> breedColumn;
+	@FXML
+	private TableColumn<FishTypeInAQ, String> breedColumn;
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
 
 	// Method to add a new fish to the AQ
-	//opes just a new scene, donesent save any fishes yet
+	// opes just a new scene, donesent save any fishes yet
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
 
@@ -77,7 +90,7 @@ public class AQDateSheetController  implements Initializable {
 	void deleteFish(ActionEvent event) {
 
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUAREUSURE_FXML));
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
 		AnchorPane popUpAUSure = null;
 		try {
 			popUpAUSure = loader.load();
@@ -103,7 +116,7 @@ public class AQDateSheetController  implements Initializable {
 	void deleteAQ(ActionEvent event) {
 
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_PUAREUSURE_FXML));
+		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
 		AnchorPane popUpAUSure = null;
 		try {
 			popUpAUSure = loader.load();
@@ -129,45 +142,25 @@ public class AQDateSheetController  implements Initializable {
 		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 		currentStage.close();
 	}
-// constant examples
-	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GROUP, Cast.SALMLER);
-	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.SEPARETE, Cast.LABYRINTHFISH);
-	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGGRESSIVE, Cast.BARSCH);
+
+	// constant examples
+	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GROUP,
+			Cast.SALMLER);
+	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.SEPARETE,
+			Cast.LABYRINTHFISH);
+	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "",
+			Socialization.AGGRESSIVE, Cast.BARSCH);
 
 	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(
-	new FishTypeInAQ(fishFirst.getBreed(), 1, 10),
-	new FishTypeInAQ(fishSecond.getBreed(), 1, 15), 
-	new FishTypeInAQ(fishThird.getBreed(), 2, 1)
-	);
-//	
-//	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(
-//	new FishTypeInAQ(fishFirst.getBreed(), 10),
-//	new FishTypeInAQ(fishSecond.getBreed(), 15), 
-//	new FishTypeInAQ(fishThird.getBreed(), 1)
-//	);
-//
-//	
+			new FishTypeInAQ(fishFirst.getBreed(), 1, 10), new FishTypeInAQ(fishSecond.getBreed(), 1, 15),
+			new FishTypeInAQ(fishThird.getBreed(), 2, 1));
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 		fishTypeInAQTable.setItems(list);
-		
-	}
-	
-//	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(
-//			
-//			new FishTypeInAQ(fishFirst, 1, 10),
-//			new FishTypeInAQ(fishSecond, 1, 15), 
-//			new FishTypeInAQ(fishThird, 2, 1));
 
-//	@Override
-//	public void initialize(URL location, ResourceBundle resources) {
-//		fishTypeColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, FishType>("fishType"));
-//		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
-//		fishTypeInAQTable.setItems(list);
-//		
-//
-//	}
+	}
 
 }

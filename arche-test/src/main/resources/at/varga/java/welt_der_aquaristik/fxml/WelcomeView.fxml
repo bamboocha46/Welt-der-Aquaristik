@@ -14,17 +14,12 @@
          <children>
             <Button id="newAQButton" fx:id="newAQButton" layoutX="42.0" layoutY="171.0" mnemonicParsing="false" onAction="#openNewAQScene" prefHeight="84.0" prefWidth="177.0" text="Neues Aquarium" />
             <Button id="listOfFischesButton" fx:id="listOfFischesButton" layoutX="42.0" layoutY="270.0" mnemonicParsing="false" onAction="#openListOfFishesWindow" prefHeight="84.0" prefWidth="177.0" text="Liste der Fische" />
-            <Text id="titelText" fx:id="titelText" fontSmoothingType="LCD" layoutX="109.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welt der Aquaristik" textAlignment="CENTER" wrappingWidth="362.6708984375">
+            <Text id="titelText" fontSmoothingType="LCD" layoutX="109.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welt der Aquaristik" textAlignment="CENTER" wrappingWidth="362.6708984375">
                <font>
                   <Font size="38.0" />
                </font>
             </Text>
-            <SplitMenuButton id="MyAQsMenuButton" fx:id="MyAQsMenuButton" layoutX="42.0" layoutY="73.0" mnemonicParsing="false" onAction="#openAnAQ" prefHeight="84.0" prefWidth="177.0" text="Meine Aquariums">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </SplitMenuButton>
+            <Button id="newAQButton" fx:id="myAQsButton" layoutX="42.0" layoutY="75.0" mnemonicParsing="false" onAction="#openAQDateSheet" prefHeight="84.0" prefWidth="177.0" text="Meine Aquariums" />
          </children>
       </AnchorPane>
    </children>
