@@ -18,7 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class WelcomeViewController {
+public class WelcomeViewController extends BasicController {
 
 	@FXML
 	private Button myAQsButton;
@@ -32,71 +32,49 @@ public class WelcomeViewController {
 	// this method opens a new Window (CreateNewAQ)
 	@FXML
 	void openNewAQScene(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CREATENEWAQ_FXML));
-		AnchorPane addNewAQ = null;
-		try {
-			addNewAQ = loader.load();
-		} catch (IOException e) {
 
-			e.printStackTrace();
-		}
+		String path = Constants.PATH_TO_CREATENEWAQ_FXML;
+		String setTitel = "Neues Aquarium hinzufügen";
 
-		Stage createNewAQStage = new Stage();
-		createNewAQStage.setTitle("Neues Aquarium hinzufügen");
-		createNewAQStage.initModality(Modality.WINDOW_MODAL);
-		createNewAQStage.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(addNewAQ);
-		createNewAQStage.setScene(scene);
-		createNewAQStage.showAndWait();
+		showNewScene(path, setTitel);
+//		FXMLLoader loader = new FXMLLoader();
+//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CREATENEWAQ_FXML));
+//		AnchorPane addNewAQ = null;
+//		try {
+//			addNewAQ = loader.load();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		Stage createNewAQStage = new Stage();
+//		createNewAQStage.setTitle("Neues Aquarium hinzufügen");
+//		createNewAQStage.initModality(Modality.WINDOW_MODAL);
+//		createNewAQStage.initOwner(Main.primaryStage);
+//
+//		Scene scene = new Scene(addNewAQ);
+//		createNewAQStage.setScene(scene);
+//		createNewAQStage.showAndWait();
 	}
 
 	// this method opens a new Window (ListOfFishes)
 	@FXML
 	void openListOfFishesWindow(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_FISH_POOL_VIEW_FXML));
-		AnchorPane showListOfFishes = null;
-		try {
-			showListOfFishes = loader.load();
-		} catch (IOException e) {
+		String path = Constants.PATH_TO_FISH_POOL_VIEW_FXML;
+		String setTitel = "Liste der Fische";
 
-			e.printStackTrace();
-		}
-
-		Stage listOfFishes = new Stage();
-		listOfFishes.setTitle("Liste der Fische");
-		listOfFishes.initModality(Modality.WINDOW_MODAL);
-		listOfFishes.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(showListOfFishes);
-		listOfFishes.setScene(scene);
-		listOfFishes.showAndWait();
+		showNewScene(path, setTitel);
 
 	}
 
 	// This method opens the AQDateSheet Scene
 	@FXML
 	void openAQDateSheet(ActionEvent event) {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_AQDATESHEET_FXML));
-		AnchorPane showAnAQ = null;
-		try {
-			showAnAQ = loader.load();
-		} catch (IOException e) {
 
-			e.printStackTrace();
-		}
+		String path = Constants.PATH_TO_AQDATESHEET_FXML;
+		String setTitel = ".getName";
 
-		Stage aqDateSheet = new Stage();
-		aqDateSheet.setTitle(".getName");
-		aqDateSheet.initModality(Modality.WINDOW_MODAL);
-		aqDateSheet.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(showAnAQ);
-		aqDateSheet.setScene(scene);
-		aqDateSheet.showAndWait();
+		showNewScene(path, setTitel);
 
 	}
 

@@ -16,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class CreateNewAQController {
+public class CreateNewAQController extends BasicController {
 
 	@FXML
 	private TextField volumeTextField;
@@ -51,10 +51,7 @@ public class CreateNewAQController {
 	// back to WelcomeWindow
 	@FXML
 	void back(ActionEvent event) throws IOException {
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_PRIMER_FXML));
-//		Stage stage = new Stage();
-//		stage.setScene(new Scene((Parent) loader.load()));
-//		stage.show();
+
 		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
 		currentStage.close();
 
@@ -64,25 +61,12 @@ public class CreateNewAQController {
 	// just show popUp: SaveMessage
 	@FXML
 	void save(ActionEvent event) {
+		
+		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
+		String setTitel = "Speicherung";
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
-		AnchorPane popUpSaveMessage = null;
-		try {
-			popUpSaveMessage = loader.load();
-		} catch (IOException e) {
+		showNewScene(path, setTitel);
 
-			e.printStackTrace();
-		}
-
-		Stage puSave = new Stage();
-		puSave.setTitle("Speicherung");
-		puSave.initModality(Modality.WINDOW_MODAL);
-		puSave.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(popUpSaveMessage);
-		puSave.setScene(scene);
-		puSave.showAndWait();
 
 	}
 

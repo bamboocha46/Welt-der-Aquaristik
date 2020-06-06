@@ -22,7 +22,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
-public class AddNewFishToListController {
+public class AddNewFishToListController  extends BasicController{
 
 	ObservableList<Socialization> fishSocializationList = FXCollections.observableArrayList(Socialization.values());
 
@@ -97,25 +97,11 @@ public class AddNewFishToListController {
 		saved.setSocialization(socializationComboBox.getValue());
 
 		System.err.println(saved);
+		
+		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
+		String setTitel = "Speicherung";
+		showNewScene(path, setTitel);
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
-		AnchorPane popUpSaveMessage = null;
-		try {
-			popUpSaveMessage = loader.load();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		Stage puSave = new Stage();
-		puSave.setTitle("Speicherung");
-		puSave.initModality(Modality.WINDOW_MODAL);
-		puSave.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(popUpSaveMessage);
-		puSave.setScene(scene);
-		puSave.showAndWait();
 
 	}
 
