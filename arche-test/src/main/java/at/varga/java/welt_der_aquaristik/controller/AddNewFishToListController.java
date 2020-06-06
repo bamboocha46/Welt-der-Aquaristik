@@ -73,7 +73,7 @@ public class AddNewFishToListController {
 
 	@FXML
 	private void initialize() {
-		socializationComboBox.setValue(Socialization.AGGRESSIVE);
+		socializationComboBox.setValue(Socialization.AGRESSIV);
 		socializationComboBox.setItems(fishSocializationList);
 
 	}

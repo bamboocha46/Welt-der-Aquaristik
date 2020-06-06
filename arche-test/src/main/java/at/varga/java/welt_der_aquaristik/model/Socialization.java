@@ -6,7 +6,7 @@ package at.varga.java.welt_der_aquaristik.model;
  *         be keep alone
  */
 public enum Socialization {
-	AGGRESSIVE(1), GROUP(2), SEPARETE(3);
+	AGRESSIV(1), GRUPPENFISH(2), EINZELHALTUNG(3);
 
 	private final int SOCIALIZATION_ID;
 

@@ -29,12 +29,12 @@ import javafx.stage.Stage;
 public class CastAnabasController {
 
 	// FishTypes as examples
-	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GROUP,
+	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
 			Cast.SALMLER);
-	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.SEPARETE,
+	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.EINZELHALTUNG,
 			Cast.LABYRINTHFISH);
 	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "",
-			Socialization.AGGRESSIVE, Cast.BARSCH);
+			Socialization.AGRESSIV, Cast.BARSCH);
 
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
 
