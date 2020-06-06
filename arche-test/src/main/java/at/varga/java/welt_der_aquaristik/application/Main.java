@@ -1,5 +1,5 @@
 package at.varga.java.welt_der_aquaristik.application;
-
+import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.controller.WelcomeViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

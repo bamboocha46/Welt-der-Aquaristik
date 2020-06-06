@@ -32,7 +32,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class AQDateSheetController implements Initializable {
+public class AQDateSheetController extends BasicController implements Initializable  {
 
 	@FXML
 	private Button AddNewFishButton;
@@ -147,8 +147,8 @@ public class AQDateSheetController implements Initializable {
 	@FXML
 	void back(ActionEvent event) {
 
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
+		ActionEvent e= event;
+		backToPrScene (e);
 	}
 
 	// constant examples

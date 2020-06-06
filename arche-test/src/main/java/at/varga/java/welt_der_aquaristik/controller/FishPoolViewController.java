@@ -84,7 +84,6 @@ public class FishPoolViewController extends BasicController {
 		String setTitel = "Welse";
 
 		showNewScene(path, setTitel);
-		
 
 	}
 
@@ -94,7 +93,7 @@ public class FishPoolViewController extends BasicController {
 		String setTitel = "Lebendgebärende";
 
 		showNewScene(path, setTitel);
-		
+
 	}
 
 	@FXML
@@ -103,7 +102,7 @@ public class FishPoolViewController extends BasicController {
 		String setTitel = "Salmler";
 
 		showNewScene(path, setTitel);
-		
+
 	}
 
 	@FXML
@@ -112,14 +111,14 @@ public class FishPoolViewController extends BasicController {
 		String setTitel = "Andere Fishe";
 
 		showNewScene(path, setTitel);
-		
+
 	}
 
 	@FXML
 	void back(ActionEvent event) {
 
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
+		ActionEvent e = event;
+		backToPrScene(e);
 	}
 
 }

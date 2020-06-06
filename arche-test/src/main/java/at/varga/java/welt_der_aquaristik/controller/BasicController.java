@@ -44,5 +44,10 @@ public abstract class BasicController {
 	}
 	
 
+	public void backToPrScene (ActionEvent e) {
+		Stage currentStage = (Stage) ((Node) e.getTarget()).getScene().getWindow();
+		currentStage.close();
+		
+	}
 
 }

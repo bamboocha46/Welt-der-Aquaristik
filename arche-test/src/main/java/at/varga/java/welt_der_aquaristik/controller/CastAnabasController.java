@@ -75,12 +75,6 @@ public class CastAnabasController extends BasicController {
 //	}
 
 	@FXML
-	void back(ActionEvent event) {
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
-	}
-
-	@FXML
 	void openAddNewFishSceen(ActionEvent event) {
 
 		String path = Constants.PATH_TO_ADDNEWFISHTOLIST_FXML;
@@ -116,6 +110,12 @@ public class CastAnabasController extends BasicController {
 			}
 		}
 
+	}
+
+	@FXML
+	void back(ActionEvent event) {
+		ActionEvent e = event;
+		backToPrScene(e);
 	}
 
 }

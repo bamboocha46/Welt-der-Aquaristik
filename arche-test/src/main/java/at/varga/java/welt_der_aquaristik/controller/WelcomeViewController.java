@@ -37,24 +37,7 @@ public class WelcomeViewController extends BasicController {
 		String setTitel = "Neues Aquarium hinzufügen";
 
 		showNewScene(path, setTitel);
-//		FXMLLoader loader = new FXMLLoader();
-//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CREATENEWAQ_FXML));
-//		AnchorPane addNewAQ = null;
-//		try {
-//			addNewAQ = loader.load();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//		Stage createNewAQStage = new Stage();
-//		createNewAQStage.setTitle("Neues Aquarium hinzufügen");
-//		createNewAQStage.initModality(Modality.WINDOW_MODAL);
-//		createNewAQStage.initOwner(Main.primaryStage);
-//
-//		Scene scene = new Scene(addNewAQ);
-//		createNewAQStage.setScene(scene);
-//		createNewAQStage.showAndWait();
+
 	}
 
 	// this method opens a new Window (ListOfFishes)

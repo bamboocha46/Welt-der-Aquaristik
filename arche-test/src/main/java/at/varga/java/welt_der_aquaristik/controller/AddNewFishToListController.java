@@ -108,8 +108,8 @@ public class AddNewFishToListController  extends BasicController{
 	@FXML
 	void back(ActionEvent event) {
 
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
+		ActionEvent e= event;
+		backToPrScene (e);
 	}
 
 }

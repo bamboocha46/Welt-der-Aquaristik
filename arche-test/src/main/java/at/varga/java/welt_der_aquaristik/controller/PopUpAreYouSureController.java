@@ -6,7 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class PopUpAreYouSureController {
+public class PopUpAreYouSureController extends BasicController {
 
 	@FXML
 	private Button noButton;
@@ -14,8 +14,8 @@ public class PopUpAreYouSureController {
 	// noButton leads to previous Window
 	@FXML
 	void back(ActionEvent event) {
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
+		ActionEvent e = event;
+		backToPrScene(e);
 
 	}
 

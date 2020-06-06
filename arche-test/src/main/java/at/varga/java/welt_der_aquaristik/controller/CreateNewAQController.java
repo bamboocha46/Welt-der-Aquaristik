@@ -48,26 +48,24 @@ public class CreateNewAQController extends BasicController {
 	@FXML
 	private TextField phTextField;
 
-	// back to WelcomeWindow
-	@FXML
-	void back(ActionEvent event) throws IOException {
-
-		Stage currentStage = (Stage) ((Node) event.getTarget()).getScene().getWindow();
-		currentStage.close();
-
-	}
-
 	// doesnt save yet
 	// just show popUp: SaveMessage
 	@FXML
 	void save(ActionEvent event) {
-		
+
 		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
 		String setTitel = "Speicherung";
 
 		showNewScene(path, setTitel);
 
+	}
 
+	// back to WelcomeWindow
+	@FXML
+	void back(ActionEvent event) throws IOException {
+
+		ActionEvent e = event;
+		backToPrScene(e);
 	}
 
 }
