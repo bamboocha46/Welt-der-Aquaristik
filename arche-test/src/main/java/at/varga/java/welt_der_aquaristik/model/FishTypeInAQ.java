@@ -9,6 +9,7 @@ public class FishTypeInAQ {
 
 	//private SimpleObjectProperty<FishType> fishType;
 	private FishType fishType;
+	private long id;
 	private SimpleLongProperty aqID;
 	private SimpleStringProperty breed;
 	private SimpleIntegerProperty quantity;
@@ -49,6 +50,18 @@ public class FishTypeInAQ {
 	public Integer getQuantity() {
 		return quantity.get();
 	}
+
+
+	public long getId() {
+		return id;
+	}
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	
 	
 	
 

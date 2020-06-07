@@ -18,7 +18,7 @@
 		<hibernate.version>5.4.12.Final</hibernate.version>
 		<h2database.version>1.4.200</h2database.version>
 		<junit.version>5.3.1</junit.version>
-		
+
 	</properties>
 	<build>
 		<plugins>
@@ -76,6 +76,14 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+
+		<!-- Ich weiss nicht welche dependey soll ich verwenden -->
+		<!-- https://mvnrepository.com/artifact/com.mysql.jdbc/org.motechproject.com.mysql.jdbc -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.mysql.jdbc</groupId> -->
+<!-- 			<artifactId>org.motechproject.com.mysql.jdbc</artifactId> -->
+<!-- 			<version>5.1.32-r028</version> -->
+<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
