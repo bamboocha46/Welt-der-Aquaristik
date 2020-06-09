@@ -13,6 +13,7 @@ public class Constants {
 	public static final String PATH_TO_POP_UP_AREYOUSURE_FXML = "/at/varga/java/welt_der_aquaristik/fxml/PopUpAreYouSure.fxml";
 	public static final String PATH_TO_POP_UP_SAVE_FXML = "/at/varga/java/welt_der_aquaristik/fxml/PopUpSaveMessage.fxml";
 	// path to FistCast fxml files
+	public static final String PATH_TO_CAST_FISH_VIEW_FXML = "/at/varga/java/welt_der_aquaristik/fxml/CastFishView.fxml";
 	public static final String PATH_TO_CAST_ANABAS_FXML = "/at/varga/java/welt_der_aquaristik/fxml/CastAnabas.fxml";
 	public static final String PATH_TO_CAST_CATFISH_FXML = "/at/varga/java/welt_der_aquaristik/fxml/CastCatfish.fxml";
 	public static final String PATH_TO_COLDWATERFISH_FXML = "/at/varga/java/welt_der_aquaristik/fxml/CastColdWaterFish.fxml";

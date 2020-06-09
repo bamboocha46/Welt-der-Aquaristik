@@ -1,6 +1,10 @@
 package at.varga.java.welt_der_aquaristik.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
@@ -15,17 +19,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class AddNewFishToListController  extends BasicController{
+public class AddNewFishToListController extends BasicController {
 
 	ObservableList<Socialization> fishSocializationList = FXCollections.observableArrayList(Socialization.values());
 
+	// TextField for FishParameters
 	@FXML
 	private TextField minGhTextField;
 
@@ -63,13 +71,41 @@ public class AddNewFishToListController  extends BasicController{
 	private ComboBox<Socialization> socializationComboBox;
 
 	@FXML
+	private Button addPhotoButton;
+	@FXML
+	private TextField urlTextField;
+	@FXML
+	private ImageView photoImageView;
+
+
+
+	@FXML
 	private Button backButton;
 
 	@FXML
 	private Button saveButton;
 
-	// doesnt save yet
-	// just show popUp: SaveMessage
+	@FXML
+
+	void handleSelectFileAction(ActionEvent event) throws URISyntaxException {
+//		FileChooser fileChooser = new FileChooser();
+//
+//		fileChooser.setInitialDirectory(new File(getClass().getResource("/images").toURI()));
+//
+//		File file = fileChooser.showOpenDialog(addPhotoButton.getScene().getWindow());
+//		if (file != null) {
+//
+//			Path p = Paths.get(file.getPath());
+//
+//			// create path relative from resources, prepending '/' necessary for
+//			// getResource(...)
+//			urlTextField.setText("/images/" + p.getFileName().toString());
+//			Image image = new Image(getClass().getResourceAsStream(urlTextField.getText()));
+//			photoImageView.setImage(image);
+		System.err.println("feskgmkeg");
+
+//		}
+	}
 
 	@FXML
 	private void initialize() {
@@ -97,19 +133,20 @@ public class AddNewFishToListController  extends BasicController{
 		saved.setSocialization(socializationComboBox.getValue());
 
 		System.err.println(saved);
-		
+
 		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
 		String setTitel = "Speicherung";
 		showNewScene(path, setTitel);
 
-
 	}
+
+
 
 	@FXML
 	void back(ActionEvent event) {
 
-		ActionEvent e= event;
-		backToPrScene (e);
+		ActionEvent e = event;
+		backToPrScene(e);
 	}
 
 }
