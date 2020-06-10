@@ -172,9 +172,9 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	// AQs as example
 
-	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, 10, null);
-	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, 0.3, list);
-	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, 0.3, list2);
+	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, null);
+	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, list);
+	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, list2);
 
 	private List<AQ> aqsFromDB = new ArrayList<AQ>();
 

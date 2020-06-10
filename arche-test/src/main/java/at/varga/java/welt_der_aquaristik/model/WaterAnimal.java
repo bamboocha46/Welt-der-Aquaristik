@@ -1,4 +1,8 @@
 package at.varga.java.welt_der_aquaristik.model;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import at.varga.java.welt_der_aquaristik.model.Socialization;
 /**
  * @author eszte Abstractclass for Wateranimals
@@ -6,17 +10,28 @@ import at.varga.java.welt_der_aquaristik.model.Socialization;
 public abstract class WaterAnimal {
 
 	private long id;
+	@Column
 	private String breed;
+	@Column
 	private double size;
+	@Column
 	private double minAqVolumen;
+	@Column
 	private double maxAqVolumen;
+	@Column
 	private float minTemperatur;
+	@Column
 	private float maxTemperatur;
+	@Column
 	private float minPh;
+	@Column
 	private float maxPh;
+	@Column
 	private int minGH;
+	@Column
 	private int maxGH;
 	private String pictureUrl;
+	@Column
 	private Socialization socialization;
 	
 	public WaterAnimal() {
@@ -41,6 +56,8 @@ public abstract class WaterAnimal {
 		this.socialization = socialization;
 	}
 
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return id;
 	}

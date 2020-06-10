@@ -18,7 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class WelcomeViewController extends BasicController {
+public class WelcomeController extends BasicController {
 
 	@FXML
 	private Button myAQsButton;

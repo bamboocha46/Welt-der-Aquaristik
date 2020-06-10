@@ -1,10 +1,20 @@
 package at.varga.java.welt_der_aquaristik.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * @author eszte It is a class for fishes
  */
-public class FishType extends WaterAnimal {
+@Entity
+@Table (name = "FishType")
+public class FishType extends WaterAnimal implements Serializable {
 
+	private static final long serialVersionUID = -7861091170212727608L;
+	@Column
 	private Cast cast;
 
 	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, float minTemperatur,

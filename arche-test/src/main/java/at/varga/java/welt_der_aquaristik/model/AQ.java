@@ -3,27 +3,51 @@
  */
 package at.varga.java.welt_der_aquaristik.model;
 
+import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author eszte It is a class for aquariums
  */
-public class AQ {
+@Entity
+@Table(name = "AQs")
+public class AQ implements Serializable {
 
+	private static final long serialVersionUID = 6680534280756930387L;
 	private long aqId;
+	@Column
 	private String titel;
+	@Column
 	private double volumen;
+	@Column
 	private int sizeWidth;
+	@Column
 	private int sizeLength;
+	@Column
 	private int sizeHeight;
+	@Column
 	private int temperatur;
+	@Column
 	private double gH;
+	@Column
 	private double ph;
+	@Column
 	private double stockingDensity;
+//	@OneToMany(mappedBy = "AQ", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "AQ", orphanRemoval = true)
 	private List<FishTypeInAQ> fishesInAQList;
 
 	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur,
-			double gH, double ph, double stockingDensity, List<FishTypeInAQ> listOfFishes) {
+			double gH, double ph,  List<FishTypeInAQ> listOfFishes) {
 		super();
 		this.aqId = aqId;
 		this.titel = titel;
@@ -34,10 +58,15 @@ public class AQ {
 		this.temperatur = temperatur;
 		this.gH = gH;
 		this.ph = ph;
-		this.stockingDensity = stockingDensity;
+//		this.stockingDensity = stockingDensity; 
+//		for (FishTypeInAQ f: listOfFishes) {
+//			
+//		}
 		this.fishesInAQList = listOfFishes;
 	}
 
+	@Id
+	@GeneratedValue
 	public long getAqId() {
 		return aqId;
 	}

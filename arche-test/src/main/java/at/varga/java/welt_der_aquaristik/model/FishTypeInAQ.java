@@ -1,18 +1,41 @@
 package at.varga.java.welt_der_aquaristik.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+@Entity
+public class FishTypeInAQ implements Serializable {
 
-public class FishTypeInAQ {
-
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3045331482720240783L;
 	//private SimpleObjectProperty<FishType> fishType;
+	@OneToOne
+	@JoinColumn(name = "fk_FishType")
 	private FishType fishType;
 	private long id;
+	@ManyToOne
+//	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fk_AQ")
 	private SimpleLongProperty aqID;
+	@Column
 	private SimpleStringProperty breed;
+	@Column
 	private SimpleIntegerProperty quantity;
+	
 
 
 	public FishTypeInAQ(String breed, long aqID, int quantity) {
@@ -20,6 +43,7 @@ public class FishTypeInAQ {
 		this.breed = new SimpleStringProperty(breed);
 		this.aqID = new SimpleLongProperty(aqID);
 		this.quantity = new SimpleIntegerProperty(quantity);
+
 	}
 
 
@@ -51,7 +75,8 @@ public class FishTypeInAQ {
 		return quantity.get();
 	}
 
-
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return id;
 	}
@@ -61,13 +86,6 @@ public class FishTypeInAQ {
 		this.id = id;
 	}
 	
-	
-	
-	
-
-//	public void setQuantity(int quantity) {
-//		this.quantity = quantity;
-//	}
 
 //	@Override
 //	public String toString() {

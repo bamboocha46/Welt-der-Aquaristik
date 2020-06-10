@@ -1,6 +1,6 @@
 package at.varga.java.welt_der_aquaristik.application;
 import at.varga.java.welt_der_aquaristik.application.Constants;
-import at.varga.java.welt_der_aquaristik.controller.WelcomeViewController;
+import at.varga.java.welt_der_aquaristik.controller.WelcomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -17,7 +17,7 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource(Constants.PATH_TO_WELCOME_VIEW_FXML));
 			Parent root = loader.load();
-			WelcomeViewController controller = loader.getController();
+			WelcomeController controller = loader.getController();
 
 			// to so something with the controller
 			controller.getClass();
