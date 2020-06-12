@@ -24,23 +24,23 @@ public class AQ implements Serializable {
 
 	private static final long serialVersionUID = 6680534280756930387L;
 	private long aqId;
-	@Column
+
 	private String titel;
-	@Column
+	
 	private double volumen;
-	@Column
+
 	private int sizeWidth;
-	@Column
+
 	private int sizeLength;
-	@Column
+
 	private int sizeHeight;
-	@Column
+
 	private int temperatur;
-	@Column
+
 	private double gH;
-	@Column
+	
 	private double ph;
-	@Column
+	
 	private double stockingDensity;
 //	@OneToMany(mappedBy = "AQ", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@OneToMany(mappedBy = "AQ", orphanRemoval = true)
@@ -86,10 +86,6 @@ public class AQ implements Serializable {
 	public double getVolumen() {
 		return volumen;
 	}
-
-//	public void setVolumen(double volumen) {
-//		this.volumen = volumen;
-//	}
 
 	public int getSizeWidth() {
 		return sizeWidth;

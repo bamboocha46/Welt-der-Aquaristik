@@ -17,6 +17,9 @@
 		<maven.compiler.plugin>3.1</maven.compiler.plugin>
 		<hibernate.version>5.4.12.Final</hibernate.version>
 		<h2database.version>1.4.200</h2database.version>
+<!-- 		vonHandGecodet, würde überrascht, wenn es so funktionieren würde.  -->
+		<mysql.version>8.0.20</mysql.version>
+		<version>5.1.32-r028</version>
 		<junit.version>5.3.1</junit.version>
 
 	</properties>
@@ -83,6 +86,7 @@
 <!-- 			<groupId>com.mysql.jdbc</groupId> -->
 <!-- 			<artifactId>org.motechproject.com.mysql.jdbc</artifactId> -->
 <!-- 			<version>5.1.32-r028</version> -->
+
 <!-- 		</dependency> -->
 
 		<dependency>

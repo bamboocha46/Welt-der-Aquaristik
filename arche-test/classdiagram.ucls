@@ -106,9 +106,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="at.varga.java.welt_der_aquaristik.controller.CastAnabasController" 
+  <class id="11" language="java" name="at.varga.java.welt_der_aquaristik.controller.CastController" 
     project="Welt-der-Aquaristik" 
-    file="/Welt-der-Aquaristik/src/main/java/at/varga/java/welt_der_aquaristik/controller/CastAnabasController.java" 
+    file="/Welt-der-Aquaristik/src/main/java/at/varga/java/welt_der_aquaristik/controller/CastController.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="346" width="321" x="90" y="466"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -139,29 +139,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="at.varga.java.welt_der_aquaristik.controller.FishPoolViewController" 
-    project="Welt-der-Aquaristik" 
-    file="/Welt-der-Aquaristik/src/main/java/at/varga/java/welt_der_aquaristik/controller/FishPoolViewController.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="254" width="281" x="491" y="754"/>    
-    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="15" language="java" name="at.varga.java.welt_der_aquaristik.controller.WelcomeViewController" 
-    project="Welt-der-Aquaristik" 
-    file="/Welt-der-Aquaristik/src/main/java/at/varga/java/welt_der_aquaristik/controller/WelcomeViewController.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1350" y="863"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="16" language="java" name="at.varga.java.welt_der_aquaristik.application.Constants" 
+  <class id="14" language="java" name="at.varga.java.welt_der_aquaristik.application.Constants" 
     project="Welt-der-Aquaristik" 
     file="/Welt-der-Aquaristik/src/main/java/at/varga/java/welt_der_aquaristik/application/Constants.java" 
     binary="false" corner="BOTTOM_RIGHT">    
@@ -172,192 +150,284 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="17">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <association id="18">    
+  <association id="15">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="19" name="list2"/>      
-      <multiplicity id="20" minimum="0" maximum="2147483647"/>    
+      <attribute id="16" name="aq2">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="17" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="22" name="fishTypeFromDB"/>      
-      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+  <association id="18">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="19" name="fishFirst">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="20" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="22" name="list2">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="23" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="24">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="25" name="fishesInAQList"/>      
-      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
+      <attribute id="25" name="fishesInAQList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="26" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="27">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="28" name="fishTypeList"/>      
-      <multiplicity id="29" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="28" name="fishThird">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="30">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="31" name="socialization"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="31" name="fishSocializationList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="33">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="34" name="fishType"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="34" name="aq3">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="36">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="37" name="fishThird"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="37" name="fishSecond">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="39">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="40" name="list"/>      
-      <multiplicity id="41" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="40" name="fishFirst">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="41" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="42">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="43" name="fishThird"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="43" name="fishTypeFromDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="45">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="46" name="fishTypeFromDB"/>      
-      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+      <attribute id="46" name="fishThird">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="48">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="49" name="aq1"/>      
-      <multiplicity id="50" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="49" name="fishTypeList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="51">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="52" name="fishSecond"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="52" name="fishType">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="53" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="54">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="55" name="fishSocializationList"/>      
-      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="55" name="aq1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="57">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="58" name="fishFirst"/>      
-      <multiplicity id="59" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="58" name="fishSecond">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="60">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="61" name="fishFirst"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="61" name="fishThird">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="63">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="64" name="aq3"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
+      <attribute id="64" name="list">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="66">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="67" name="aq2"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="67" name="cast">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="68" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="69">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="70" name="fishFirst"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="72">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="73" name="fishSecond"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="75">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="76" name="fishThird"/>      
-      <multiplicity id="77" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="78">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="79" name="aqsFromDB"/>      
-      <multiplicity id="80" minimum="0" maximum="2147483647"/>    
+      <attribute id="70" name="aqsFromDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="81">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="82" name="fishSecond"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
+  <association id="72">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="73" name="socialization">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="76">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="77" name="fishTypeFromDB">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="85" name="cast"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+  <association id="79">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="80" name="fishSecond">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="83" name="fishFirst">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

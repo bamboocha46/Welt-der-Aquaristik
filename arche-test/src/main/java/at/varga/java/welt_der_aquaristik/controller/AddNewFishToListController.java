@@ -3,6 +3,7 @@ package at.varga.java.welt_der_aquaristik.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -77,34 +78,49 @@ public class AddNewFishToListController extends BasicController {
 	@FXML
 	private ImageView photoImageView;
 
-
-
 	@FXML
 	private Button backButton;
 
 	@FXML
 	private Button saveButton;
+	
+	private static String dataName;
+	private File source;
+	private final File DEST = new File(
+			"C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\eszter.jpg");
 
 	@FXML
-
 	void handleSelectFileAction(ActionEvent event) throws URISyntaxException {
-//		FileChooser fileChooser = new FileChooser();
-//
-//		fileChooser.setInitialDirectory(new File(getClass().getResource("/images").toURI()));
-//
-//		File file = fileChooser.showOpenDialog(addPhotoButton.getScene().getWindow());
-//		if (file != null) {
-//
-//			Path p = Paths.get(file.getPath());
-//
-//			// create path relative from resources, prepending '/' necessary for
-//			// getResource(...)
-//			urlTextField.setText("/images/" + p.getFileName().toString());
-//			Image image = new Image(getClass().getResourceAsStream(urlTextField.getText()));
-//			photoImageView.setImage(image);
-		System.err.println("feskgmkeg");
 
-//		}
+		FileChooser fileChooser = new FileChooser();
+
+		fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+//		fileChooser.setInitialDirectory(new File(getClass().getResource("/images").toURI()));
+
+		File file = fileChooser.showOpenDialog(addPhotoButton.getScene().getWindow());
+		if (file != null) {
+
+			source = file;
+			System.out.println(source.getPath());
+			Path p = Paths.get(file.getPath());
+
+			// create path relative from resources, prepending '/' necessary for
+			// getResource(...)
+			urlTextField.setText("/images/" + p.getFileName().toString());
+			// Image image = new
+			// Image(getClass().getResourceAsStream(urlTextField.getText()));
+			// photoImageView.setImage(image);
+			// System.err.println("feskgmkeg");
+
+			// source = new File(urlTextField.getText());
+			dataName= DEST.toString() + p.getFileName().toString();
+			System.out.println(dataName);
+		
+			
+			
+			
+		}
 	}
 
 	@FXML
@@ -117,36 +133,46 @@ public class AddNewFishToListController extends BasicController {
 	@FXML
 	void save(ActionEvent event) {
 
-		FishType saved = new FishType();
+//		FishType saved = new FishType();
+//
+//		saved.setCast(Cast.EIGENE_FISCH);
+//		saved.setBreed(breedTextField.getText());
+//		saved.setSize(Double.valueOf(sizeTextField.getText()));
+//		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
+//		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
+//		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
+//		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
+//		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
+//		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
+//		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
+//		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
+//		saved.setSocialization(socializationComboBox.getValue());
+//
+//		System.err.println(saved);
+//		
 
-		saved.setCast(Cast.EIGENE_FISCH);
-		saved.setBreed(breedTextField.getText());
-		saved.setSize(Double.valueOf(sizeTextField.getText()));
-		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
-		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
-		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
-		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
-		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
-		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
-		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
-		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
-		saved.setSocialization(socializationComboBox.getValue());
+		try {
+			copyFileUsingJava7Files(source, DEST);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		System.err.println(saved);
-
-		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
-		String setTitel = "Speicherung";
-		showNewScene(path, setTitel);
+//		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
+//		String setTitel = "Speicherung";
+//		showNewScene(path, setTitel);
 
 	}
-
-
 
 	@FXML
 	void back(ActionEvent event) {
 
 		ActionEvent e = event;
 		backToPrScene(e);
+	}
+
+	private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
+		
+		Files.copy(source.toPath(), dest.toPath());
 	}
 
 }

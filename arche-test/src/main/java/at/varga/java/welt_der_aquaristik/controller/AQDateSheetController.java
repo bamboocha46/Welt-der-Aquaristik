@@ -55,8 +55,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// MyAQsList elements
 	@FXML
 	private ComboBox<String> aqComboBox;
-	@FXML
-	private Button showChoosenAQ;
+
 
 	// Table elements
 	@FXML
@@ -143,13 +142,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		puAUS.showAndWait();
 	}
 
-	// closes actuelly window, leads to PrimerWindow
-	@FXML
-	void back(ActionEvent event) {
 
-		ActionEvent e= event;
-		backToPrScene (e);
-	}
 
 	// constant examples
 	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
@@ -202,7 +195,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	}
 
 	@FXML
-	void showChoosenButtonWasPressed(ActionEvent event) {
+	void showAQParameters(ActionEvent event) {
 
 		for (AQ a : aqsFromDB) {
 			if (a.getTitel().equals(aqComboBox.getValue())) {
@@ -216,6 +209,14 @@ public class AQDateSheetController extends BasicController implements Initializa
 			}
 		}
 
+	}
+	
+	// closes actuelly window, leads to PrimerWindow
+	@FXML
+	void back(ActionEvent event) {
+
+		ActionEvent e= event;
+		backToPrScene (e);
 	}
 
 }

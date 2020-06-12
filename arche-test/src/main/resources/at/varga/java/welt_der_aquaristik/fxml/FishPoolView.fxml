@@ -15,13 +15,7 @@
          </font>
       </Text>
       <Button fx:id="backButton" layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="150.0" text="Zurück" />
-      <Button fx:id="perchButton" layoutX="79.0" layoutY="83.0" mnemonicParsing="false" onAction="#showPerches" prefHeight="40.0" prefWidth="150.0" text="Barsche" />
-      <Button fx:id="anabasButton" layoutX="317.0" layoutY="135.0" mnemonicParsing="false" onAction="#showAnabasses" prefHeight="40.0" prefWidth="150.0" text="Labyrinthfische" />
-      <Button fx:id="coldWaterFishButton" layoutX="79.0" layoutY="135.0" mnemonicParsing="false" onAction="#showColdWaterFishes" prefHeight="40.0" prefWidth="150.0" text="Kaltwasserfische" />
-      <Button fx:id="catFishButton" layoutX="79.0" layoutY="245.0" mnemonicParsing="false" onAction="#showCatFishes" prefHeight="40.0" prefWidth="150.0" text="Welse" />
-      <Button fx:id="viviparousButton" layoutX="79.0" layoutY="191.0" mnemonicParsing="false" onAction="#showViviparouses" prefHeight="40.0" prefWidth="150.0" text="Lebendgebärende" />
-      <Button fx:id="darioButton" layoutX="317.0" layoutY="83.0" mnemonicParsing="false" onAction="#showDarios" prefHeight="40.0" prefWidth="150.0" text="Bärblinge" />
-      <Button fx:id="tetraButton" layoutX="317.0" layoutY="191.0" mnemonicParsing="false" onAction="#showTetras" prefHeight="40.0" prefWidth="150.0" text="Salmlern" />
-      <Button fx:id="otherFishButton" layoutX="317.0" layoutY="245.0" mnemonicParsing="false" onAction="#showOtherFish" prefHeight="40.0" prefWidth="150.0" text="Andere Fische" />
+      <Button fx:id="showCastViewButton" layoutX="355.0" layoutY="82.0" mnemonicParsing="false" onAction="#showCastView" text="Button" />
+      <ComboBox fx:id="castComboBox" layoutX="68.0" layoutY="82.0" prefHeight="31.0" prefWidth="223.0" />
    </children>
 </AnchorPane>

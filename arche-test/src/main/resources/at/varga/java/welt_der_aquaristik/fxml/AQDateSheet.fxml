@@ -58,7 +58,6 @@
          </effect>
       </TableView>
       <Text layoutX="328.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bewohner:" />
-      <ComboBox fx:id="aqComboBox" layoutX="34.0" layoutY="28.0" prefHeight="35.0" prefWidth="274.0" />
-      <Button fx:id="showChoosenAQ" layoutX="328.0" layoutY="28.0" mnemonicParsing="false" onAction="#showChoosenButtonWasPressed" prefHeight="35.0" prefWidth="165.0" text="Aquarium auswählen" textAlignment="CENTER" wrapText="true" />
+      <ComboBox fx:id="aqComboBox" layoutX="34.0" layoutY="28.0" onAction="#showAQParameters" prefHeight="35.0" prefWidth="274.0" />
    </children>
 </AnchorPane>

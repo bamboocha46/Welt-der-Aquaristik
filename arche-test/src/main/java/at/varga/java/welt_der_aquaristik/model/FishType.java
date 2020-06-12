@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class FishType extends WaterAnimal implements Serializable {
 
 	private static final long serialVersionUID = -7861091170212727608L;
-	@Column
+	
 	private Cast cast;
 
 	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, float minTemperatur,

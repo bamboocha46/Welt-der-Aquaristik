@@ -17,10 +17,6 @@ import javafx.beans.property.SimpleStringProperty;
 @Entity
 public class FishTypeInAQ implements Serializable {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 3045331482720240783L;
 	//private SimpleObjectProperty<FishType> fishType;
 	@OneToOne
@@ -31,9 +27,9 @@ public class FishTypeInAQ implements Serializable {
 //	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_AQ")
 	private SimpleLongProperty aqID;
-	@Column
+	
 	private SimpleStringProperty breed;
-	@Column
+	
 	private SimpleIntegerProperty quantity;
 	
 
