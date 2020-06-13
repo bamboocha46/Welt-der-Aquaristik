@@ -197,7 +197,6 @@ public class AddNewFishToAQController extends BasicController {
 				otherFishList.add(f.getBreed());
 			}
 		}
-
 		perchComboBox.setValue(perchList.get(0));
 		perchComboBox.setItems(perchList);
 
