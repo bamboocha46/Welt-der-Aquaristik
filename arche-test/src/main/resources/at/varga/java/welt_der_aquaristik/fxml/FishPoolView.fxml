@@ -15,7 +15,7 @@
          </font>
       </Text>
       <Button fx:id="backButton" layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="150.0" text="Zurück" />
-      <Button fx:id="showCastViewButton" layoutX="355.0" layoutY="82.0" mnemonicParsing="false" onAction="#showCastView" text="Button" />
+      <Button fx:id="showCastViewButton" layoutX="355.0" layoutY="82.0" mnemonicParsing="false" onAction="#showCastView" text="Zeige Fische" />
       <ComboBox fx:id="castComboBox" layoutX="68.0" layoutY="82.0" prefHeight="31.0" prefWidth="223.0" />
    </children>
 </AnchorPane>

@@ -133,23 +133,23 @@ public class AddNewFishToListController extends BasicController {
 	@FXML
 	void save(ActionEvent event) {
 
-//		FishType saved = new FishType();
-//
-//		saved.setCast(Cast.EIGENE_FISCH);
-//		saved.setBreed(breedTextField.getText());
-//		saved.setSize(Double.valueOf(sizeTextField.getText()));
-//		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
-//		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
-//		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
-//		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
-//		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
-//		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
-//		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
-//		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
-//		saved.setSocialization(socializationComboBox.getValue());
-//
-//		System.err.println(saved);
-//		
+		FishType saved = new FishType();
+
+		saved.setCast(Cast.EIGENE_FISCH);
+		saved.setBreed(breedTextField.getText());
+		saved.setSize(Double.valueOf(sizeTextField.getText()));
+		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
+		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
+		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
+		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
+		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
+		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
+		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
+		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
+		saved.setSocialization(socializationComboBox.getValue());
+
+		System.out.println(saved);
+	
 
 		try {
 			copyFileUsingJava7Files(source, DEST);

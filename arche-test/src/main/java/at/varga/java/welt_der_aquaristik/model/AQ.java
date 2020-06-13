@@ -26,7 +26,7 @@ public class AQ implements Serializable {
 	private long aqId;
 
 	private String titel;
-	
+
 	private double volumen;
 
 	private int sizeWidth;
@@ -38,20 +38,20 @@ public class AQ implements Serializable {
 	private int temperatur;
 
 	private double gH;
-	
+
 	private double ph;
-	
+
 	private double stockingDensity;
 //	@OneToMany(mappedBy = "AQ", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@OneToMany(mappedBy = "AQ", orphanRemoval = true)
 	private List<FishTypeInAQ> fishesInAQList;
 
-	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur,
-			double gH, double ph,  List<FishTypeInAQ> listOfFishes) {
+	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
+			double ph, List<FishTypeInAQ> listOfFishes) {
 		super();
 		this.aqId = aqId;
 		this.titel = titel;
-		this.volumen = sizeWidth*sizeLength*sizeHeight/1000;
+		this.volumen = sizeWidth * sizeLength * sizeHeight / 1000;
 		this.sizeWidth = sizeWidth;
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
@@ -63,6 +63,13 @@ public class AQ implements Serializable {
 //			
 //		}
 		this.fishesInAQList = listOfFishes;
+	}
+
+	public AQ() {
+	}
+
+	public AQ(int sizeWidth, int sizeLength, int sizeHeight) {
+		this.volumen = sizeWidth * sizeLength * sizeHeight / 1000;
 	}
 
 	@Id
@@ -86,6 +93,10 @@ public class AQ implements Serializable {
 	public double getVolumen() {
 		return volumen;
 	}
+
+//	public void setVolumen(double volumen) {
+//		this.volumen = volumen;
+//	}
 
 	public int getSizeWidth() {
 		return sizeWidth;
@@ -134,7 +145,6 @@ public class AQ implements Serializable {
 	public void setPh(double ph) {
 		this.ph = ph;
 	}
-	
 
 	public double getStockingDensity() {
 		return stockingDensity;
