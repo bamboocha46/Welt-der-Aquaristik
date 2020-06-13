@@ -135,7 +135,7 @@ public class AddNewFishToListController extends BasicController {
 
 		FishType saved = new FishType();
 
-		saved.setCast(Cast.EIGENE_FISCH);
+		saved.setCast(Cast.ANDERE_FISCH);
 		saved.setBreed(breedTextField.getText());
 		saved.setSize(Double.valueOf(sizeTextField.getText()));
 		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));

@@ -145,24 +145,24 @@ public class AQDateSheetController extends BasicController implements Initializa
 	
 		
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
-		AnchorPane popUpAUSure = null;
-		try {
-			popUpAUSure = loader.load();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		Stage puAUS = new Stage();
-		puAUS.setTitle("Bist sicher?");
-		puAUS.initModality(Modality.WINDOW_MODAL);
-		puAUS.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(popUpAUSure);
-		puAUS.setScene(scene);
-		puAUS.showAndWait();
+//		FXMLLoader loader = new FXMLLoader();
+//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
+//		AnchorPane popUpAUSure = null;
+//		try {
+//			popUpAUSure = loader.load();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		Stage puAUS = new Stage();
+//		puAUS.setTitle("Bist sicher?");
+//		puAUS.initModality(Modality.WINDOW_MODAL);
+//		puAUS.initOwner(Main.primaryStage);
+//
+//		Scene scene = new Scene(popUpAUSure);
+//		puAUS.setScene(scene);
+//		puAUS.showAndWait();
 	}
 
 
