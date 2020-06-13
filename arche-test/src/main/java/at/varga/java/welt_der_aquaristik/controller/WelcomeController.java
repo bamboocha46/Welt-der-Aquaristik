@@ -55,7 +55,7 @@ public class WelcomeController extends BasicController {
 	void openAQDateSheet(ActionEvent event) {
 
 		String path = Constants.PATH_TO_AQDATESHEET_FXML;
-		String setTitel = ".getName";
+		String setTitel = "Aquariums";
 
 		showNewScene(path, setTitel);
 

@@ -36,6 +36,8 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	@FXML
 	private Button AddNewFishButton;
+    @FXML
+    private Button deleteFishButton;
 	@FXML
 	private Button backButton;
 
@@ -95,6 +97,13 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// just show PUAreUSure
 	@FXML
 	void deleteFish(ActionEvent event) {
+		
+		
+		System.out.println("getselecteditem : "+ fishTypeInAQTable.getSelectionModel().getSelectedItem());
+		System.out.println("codefromsteckoverflow :" + fishTypeInAQTable.getSelectionModel().getSelectedItems());
+		System.out.println("getUserDate :" + fishTypeInAQTable.getUserData());
+		System.out.println("getselectionsmodel: " + fishTypeInAQTable.getSelectionModel());
+		
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
@@ -117,10 +126,24 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	}
 
-	// does not delete any fish yet
+	// does not delete any AQ yet
 	// just show PUAreUSure
 	@FXML
 	void deleteAQ(ActionEvent event) {
+		long id;
+		for (AQ a : aqsFromDB) {
+			if (a.getTitel().equals(aqComboBox.getValue())) {
+				id = a.getAqId();
+				for (AQ a1 : aqsFromDB) {
+					if(a1.getAqId() == id) {
+						a1 = null;
+					}
+				}
+			}
+		}
+	
+	
+		
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));

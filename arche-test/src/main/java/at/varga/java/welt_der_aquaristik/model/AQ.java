@@ -56,7 +56,7 @@ public class AQ implements Serializable {
 		this.sizeLength = sizeLength;
 		this.sizeHeight = sizeHeight;
 		this.temperatur = temperatur;
-		this.gH = gH;
+		this.gH = gH; 
 		this.ph = ph;
 //		this.stockingDensity = stockingDensity; 
 //		for (FishTypeInAQ f: listOfFishes) {
