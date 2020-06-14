@@ -1,0 +1,101 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* stylling welcomeView */
+.AnchorPane {
+    -fx-background-image:url("aq.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	
+} 
+
+.Titel {
+	-fx-text-fill: white;
+	-fx-font-family: Verdana;
+	-fx-font-style: italic;
+	-fx-font-size: 38.0px;
+	
+}
+
+.Button {
+	-fx-background-image:url("fishMotiv.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	-fx-text-fill: white;
+	-fx-font-size: 18.0px;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+  	-fx-border-radius: 3px;
+}
+
+/* styling fischpoolView */
+.FishPoolAP {
+	-fx-background-image:url("fc.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+}
+
+.ComboBox { 
+	-fx-background-color: lightblue;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+}
+
+/* styling CreateNewAQ */
+.CreateNewAQAP {
+	-fx-background-image:url("garni.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+}
+
+.Text {
+	-fx-text-fill: white;
+	-fx-font-size: 18.0px;
+}
+
+.GridPane {
+	-fx-background-color: lightblue;
+}
+/* styling AQDateSheet */
+.AQDateSheetAP{
+	-fx-background-image:url("kuckuckjpg.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	
+}
+
+.ButtonAQD{
+	-fx-background-image:url("fishMotiv.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	-fx-text-fill: white;
+	-fx-font-size: 14.0px;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+  	-fx-border-radius: 3px;
+}
+
+/* styling AQDateSheet */
+.AddNewFishToAQAP{
+	-fx-background-image:url("sg.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	
+}
+
+.CastViewAP {
+	-fx-background-image:url("sg.jpg");
+}
+
+
+
+
+
+
+
+
+
+
+
+

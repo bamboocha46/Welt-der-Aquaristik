@@ -16,6 +16,7 @@ import at.varga.java.welt_der_aquaristik.model.Socialization;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -83,7 +85,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		}
 
 		Stage addNewFishWindow = new Stage();
-		addNewFishWindow.setTitle("Neuen Fisch zur Aquarium hinzufügen");
+		addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() +  " Aquarium hinzufügen");
 		addNewFishWindow.initModality(Modality.WINDOW_MODAL);
 		addNewFishWindow.initOwner(Main.primaryStage);
 
@@ -97,32 +99,17 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// just show PUAreUSure
 	@FXML
 	void deleteFish(ActionEvent event) {
+//		System.out.println("getselecteditem : "+ fishTypeInAQTable.getSelectionModel().getSelectedItem());
+//		System.out.println("codefromsteckoverflow :" + fishTypeInAQTable.getSelectionModel().getSelectedItems());
+//		System.out.println("getUserDate :" + fishTypeInAQTable.getUserData());
+//		System.out.println("getselectionsmodel: " + fishTypeInAQTable.getSelectionModel());
 		
 		
-		System.out.println("getselecteditem : "+ fishTypeInAQTable.getSelectionModel().getSelectedItem());
-		System.out.println("codefromsteckoverflow :" + fishTypeInAQTable.getSelectionModel().getSelectedItems());
-		System.out.println("getUserDate :" + fishTypeInAQTable.getUserData());
-		System.out.println("getselectionsmodel: " + fishTypeInAQTable.getSelectionModel());
 		
-
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
-		AnchorPane popUpAUSure = null;
-		try {
-			popUpAUSure = loader.load();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		Stage puAUS = new Stage();
-		puAUS.setTitle("Bist sicher?");
-		puAUS.initModality(Modality.WINDOW_MODAL);
-		puAUS.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(popUpAUSure);
-		puAUS.setScene(scene);
-		puAUS.showAndWait();
+		String path = Constants.PATH_TO_POP_UP_AREYOUSURE_FXML;
+		String setTitel = "Bist sicher?";
+		showNewScene(path, setTitel);
+		
 
 	}
 
@@ -171,7 +158,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
 			Cast.SALMLER);
 	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.EINZELHALTUNG,
-			Cast.LABYRINTHFISH);
+			Cast.LABYRINTHFISCH);
 	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "",
 			Socialization.AGRESSIV, Cast.BARSCH);
 
@@ -202,6 +189,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 		fishTypeInAQTable.setItems(list);
+		
 
 		// MyAQS List
 		aqsFromDB.add(aq1);
@@ -233,6 +221,10 @@ public class AQDateSheetController extends BasicController implements Initializa
 		}
 
 	}
+	
+
+	 
+
 	
 	// closes actuelly window, leads to PrimerWindow
 	@FXML

@@ -7,6 +7,7 @@ import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -43,9 +44,9 @@ public class WelcomeController extends BasicController {
 	// this method opens a new Window (ListOfFishes)
 	@FXML
 	void openListOfFishesWindow(ActionEvent event) {
+
 		String path = Constants.PATH_TO_FISH_POOL_VIEW_FXML;
 		String setTitel = "Liste der Fische";
-
 		showNewScene(path, setTitel);
 
 	}

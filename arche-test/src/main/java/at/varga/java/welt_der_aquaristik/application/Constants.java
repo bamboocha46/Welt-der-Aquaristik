@@ -18,6 +18,6 @@ public class Constants {
 
 	
 	// path to css files
-	public static final String PATH_TO_APPLICATION_CSS = "/at/varga/java/welt_der_aquaristik/css/application.css";
+	public static final String PATH_TO_APPLICATION_CSS = "/at/varga/java/welt_der_aquaristik/css/welcome.css";
 
 }

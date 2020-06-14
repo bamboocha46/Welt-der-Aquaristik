@@ -19,7 +19,7 @@ public class Main extends Application {
 			Parent root = loader.load();
 			WelcomeController controller = loader.getController();
 
-			// to so something with the controller
+			// to do something with the controller
 			controller.getClass();
 
 			Scene scene = new Scene(root, 600, 400);

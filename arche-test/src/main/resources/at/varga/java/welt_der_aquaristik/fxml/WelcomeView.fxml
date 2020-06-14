@@ -10,16 +10,40 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.WelcomeController">
    <children>
-      <AnchorPane id="StartScreen" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="AnchorPane" stylesheets="@../css/welcome.css">
          <children>
-            <Button id="newAQButton" fx:id="newAQButton" layoutX="42.0" layoutY="171.0" mnemonicParsing="false" onAction="#openNewAQScene" prefHeight="84.0" prefWidth="177.0" text="Neues Aquarium" />
-            <Button id="listOfFischesButton" fx:id="listOfFischesButton" layoutX="42.0" layoutY="270.0" mnemonicParsing="false" onAction="#openListOfFishesWindow" prefHeight="84.0" prefWidth="177.0" text="Liste der Fische" />
-            <Text id="titelText" fontSmoothingType="LCD" layoutX="109.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welt der Aquaristik" textAlignment="CENTER" wrappingWidth="362.6708984375">
+            <Text fontSmoothingType="LCD" layoutX="109.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Titel" text="Welt der Aquaristik" textAlignment="CENTER" wrappingWidth="362.6708984375">
                <font>
                   <Font size="38.0" />
                </font>
+               <fill>
+                  <RadialGradient centerX="1.0" centerY="1.0" focusAngle="222.0" focusDistance="-1.0" radius="1.0">
+                     <stops>
+                        <Stop color="#01c0ff" />
+                        <Stop color="#01c0ff" offset="0.5434782608695652" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
             </Text>
-            <Button id="newAQButton" fx:id="myAQsButton" layoutX="42.0" layoutY="75.0" mnemonicParsing="false" onAction="#openAQDateSheet" prefHeight="84.0" prefWidth="177.0" text="Meine Aquariums" />
+            <GridPane layoutX="27.0" layoutY="284.0" prefHeight="113.0" prefWidth="552.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="myAQsButton" mnemonicParsing="false" onAction="#openAQDateSheet" prefHeight="84.0" prefWidth="177.0" styleClass="Button" text="Meine Aquariums">
+                     <font>
+                        <Font size="19.0" />
+                     </font></Button>
+                  <Button fx:id="newAQButton" mnemonicParsing="false" onAction="#openNewAQScene" prefHeight="84.0" prefWidth="177.0" styleClass="Button" text="Neues Aquarium" GridPane.columnIndex="1" />
+                  <Button fx:id="listOfFischesButton" mnemonicParsing="false" onAction="#openListOfFishesWindow" prefHeight="84.0" prefWidth="177.0" styleClass="Button" text="Liste der Fische" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
          </children>
       </AnchorPane>
    </children>

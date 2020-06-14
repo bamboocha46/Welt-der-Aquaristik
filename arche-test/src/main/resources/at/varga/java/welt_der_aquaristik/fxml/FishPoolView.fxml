@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
@@ -7,15 +8,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.FishPoolController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="FishPoolAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.FishPoolController">
    <children>
-      <Text layoutX="171.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste der Fische" wrappingWidth="257.6708984375">
+      <Text layoutX="26.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Titel" text="Liste der Fische" textAlignment="CENTER" wrappingWidth="573.6708984375">
          <font>
-            <Font size="38.0" />
+            <Font name="Comic Sans MS Italic" size="32.0" />
          </font>
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.7475728155339807" focusAngle="22.0" focusDistance="1.0" radius="1.0">
+               <stops>
+                  <Stop color="#07adf0" />
+                  <Stop color="#07adf0" offset="0.007246376811594203" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
       </Text>
-      <Button fx:id="backButton" layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="150.0" text="Zurück" />
-      <Button fx:id="showCastViewButton" layoutX="355.0" layoutY="82.0" mnemonicParsing="false" onAction="#showCastView" text="Zeige Fische" />
-      <ComboBox fx:id="castComboBox" layoutX="68.0" layoutY="82.0" prefHeight="31.0" prefWidth="223.0" />
+      <Button fx:id="backButton" layoutX="420.0" layoutY="326.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="150.0" styleClass="Button" text="Zurück" />
+      <Button fx:id="showCastViewButton" layoutX="420.0" layoutY="93.0" mnemonicParsing="false" onAction="#showCastView" prefHeight="40.0" prefWidth="150.0" styleClass="Button" text="Zeige Fische" />
+      <ComboBox fx:id="castComboBox" layoutX="78.0" layoutY="93.0" prefHeight="40.0" prefWidth="258.0" styleClass="ComboBox" />
    </children>
 </AnchorPane>

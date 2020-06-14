@@ -32,11 +32,33 @@ public class CastController extends BasicController {
 	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
 			Cast.SALMLER);
 	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "",
-			Socialization.EINZELHALTUNG, Cast.LABYRINTHFISH);
+			Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
 	FishType fishThird = new FishType(3, "balbla", 15, 150, 1555000, 24, 28, 5.5f, 7.2f, 2, 15, "",
 			Socialization.AGRESSIV, Cast.BARSCH);
 	FishType fish4 = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
 			Cast.BARSCH);
+	FishType fish5 = new FishType(4, "fish1", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.ANDERE_FISCH);
+	FishType fish6 = new FishType(5, "fish2", 115, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.BARSCH);
+	FishType fish7 = new FishType(6, "fish3", 1115, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.BAERBLING);
+	FishType fish8 = new FishType(7, "fish4", 11115, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.KALTWASSERFISCH);
+	FishType fish9 = new FishType(8, "fish5", 155, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.LABYRINTHFISCH);
+	FishType fish10 = new FishType(9, "fish6", 22, 1500, 10000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.LABYRINTHFISCH);
+	FishType fish11 = new FishType(10, "fish7", 35, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.GRUPPENFISH,
+			Cast.LEBENDGEBAERENDE);
+	FishType fish12 = new FishType(11, "fish8", 45, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.SALMLER);
+	FishType fish13 = new FishType(12, "fish9", 55, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.GRUPPENFISH,
+			Cast.WELS);
+	FishType fish14 = new FishType(13, "fish10", 175, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.LABYRINTHFISCH);
+	FishType fish15 = new FishType(14, "fish11", 1, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.LABYRINTHFISCH);
 
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
 
@@ -64,7 +86,7 @@ public class CastController extends BasicController {
 	private TextField socialisationsTextField;
 
 	// List as example (because i dont have DB yet)
-	ObservableList<FishType> fishTypeList = FXCollections.observableArrayList(fishFirst, fishSecond, fishThird);
+//	ObservableList<FishType> fishTypeList = FXCollections.observableArrayList(fishFirst, fishSecond, fishThird);
 
 	ObservableList<String> fishBreedList = FXCollections.observableArrayList();
 
@@ -83,21 +105,30 @@ public class CastController extends BasicController {
 	@FXML
 	public void initialize(String cast) {
 
-		System.out.println("castCombobox value:" + cast);
+		// System.out.println("castCombobox value:" + cast);
 
 		fishTypeFromDB.add(fishFirst);
 		fishTypeFromDB.add(fishSecond);
 		fishTypeFromDB.add(fishThird);
 		fishTypeFromDB.add(fish4);
+		fishTypeFromDB.add(fish5);
+		fishTypeFromDB.add(fish6);
+		fishTypeFromDB.add(fish7);
+		fishTypeFromDB.add(fish8);
+		fishTypeFromDB.add(fish9);
+		fishTypeFromDB.add(fish10);
+		fishTypeFromDB.add(fish11);
+		fishTypeFromDB.add(fish12);
+		fishTypeFromDB.add(fish13);
+		fishTypeFromDB.add(fish14);
+		fishTypeFromDB.add(fish15);
 
 		for (FishType f : fishTypeFromDB) {
 			if (f.getCast().toString().equals(cast)) {
 				fishArtList.add(f);
-				System.out.println("bent vagyok az ifben" + f);
+				// System.out.println("bent vagyok az ifben" + f);
 			}
-		}
-
-		for (FishType f : fishArtList) {
+		}for (FishType f : fishArtList) {
 			fishBreedList.add(f.getBreed());
 		}
 
@@ -110,7 +141,39 @@ public class CastController extends BasicController {
 
 	}
 
-	//fill up the field of Fishtype with parameters from DB
+	// EZVOLT A JO
+
+//	@FXML
+//	public void initialize(String cast) {
+//
+//		System.out.println("castCombobox value:" + cast);
+//
+//		fishTypeFromDB.add(fishFirst);
+//		fishTypeFromDB.add(fishSecond);
+//		fishTypeFromDB.add(fishThird);
+//		fishTypeFromDB.add(fish4);
+//
+//		for (FishType f : fishTypeFromDB) {
+//			if (f.getCast().toString().equals(cast)) {
+//				fishArtList.add(f);
+//				System.out.println("bent vagyok az ifben" + f);
+//			}
+//		}
+//
+//		for (FishType f : fishArtList) {
+//			fishBreedList.add(f.getBreed());
+//		}
+//
+//		// This initialization doesent work, if it is only ONE fish im fishBreedList
+////		if (fishBreedList != null) {
+////			fishTypeComboBox.setValue(fishBreedList.get(0));
+////		}
+//
+//		fishTypeComboBox.setItems(fishBreedList);
+//
+//	}
+
+	// fill up the field of Fishtype with parameters from DB
 	@FXML
 	void showFishType(ActionEvent event) {
 
@@ -141,6 +204,7 @@ public class CastController extends BasicController {
 	void back(ActionEvent event) {
 		ActionEvent e = event;
 		backToPrScene(e);
+
 	}
 
 }

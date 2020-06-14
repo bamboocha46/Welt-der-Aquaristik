@@ -15,12 +15,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CastController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="CastViewAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CastController">
    <children>
       <Text layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fischart:" />
-      <ComboBox fx:id="fishTypeComboBox" layoutX="86.0" layoutY="16.0" onAction="#showFishType" prefHeight="31.0" prefWidth="281.0" />
+      <ComboBox fx:id="fishTypeComboBox" layoutX="86.0" layoutY="16.0" onAction="#showFishType" prefHeight="31.0" prefWidth="281.0" styleClass="ComboBox" />
       <Text layoutX="24.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" />
-      <GridPane layoutX="20.0" layoutY="162.0" prefHeight="215.0" prefWidth="348.0">
+      <GridPane layoutX="20.0" layoutY="162.0" prefHeight="215.0" prefWidth="348.0" styleClass="GridPane">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,10 +48,10 @@
             <TextField fx:id="socialisationsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="backButton" layoutX="440.0" layoutY="330.0" mnemonicParsing="false" onAction="#back" prefHeight="55.0" prefWidth="105.0" text="Zurück" />
+      <Button fx:id="backButton" layoutX="440.0" layoutY="330.0" mnemonicParsing="false" onAction="#back" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Zurück" />
       <ImageView fitHeight="108.0" fitWidth="174.0" layoutX="194.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="addNewFishButton" layoutX="440.0" layoutY="242.0" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="55.0" prefWidth="105.0" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="deleteFishTypeButton" layoutX="440.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="55.0" prefWidth="105.0" text="Fischart löschen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="editFishTypeButton" layoutX="440.0" layoutY="88.0" mnemonicParsing="false" onAction="#editFishType" prefHeight="55.0" prefWidth="105.0" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="addNewFishButton" layoutX="440.0" layoutY="242.0" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="deleteFishTypeButton" layoutX="440.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Fischart löschen" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="editFishTypeButton" layoutX="440.0" layoutY="88.0" mnemonicParsing="false" onAction="#editFishType" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
