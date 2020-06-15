@@ -95,14 +95,14 @@ public class FishPoolController extends BasicController {
 //			Cast.WELS.getCastName());
 	
 	public ObservableList<String> list = FXCollections.observableArrayList(
-			Cast.ANDERE_FISCH.toString(), 
-			Cast.BARSCH.toString(), 
-			Cast.BAERBLING.toString(), 
-			Cast.KALTWASSERFISCH.toString(), 
-			Cast.LABYRINTHFISCH.toString(), 
-			Cast.LEBENDGEBAERENDE.toString(), 
-			Cast.SALMLER.toString(), 
-			Cast.WELS.toString());
+			Cast.ANDERE_FISCH.getCastName(), 
+			Cast.BARSCH.getCastName(), 
+			Cast.BAERBLING.getCastName(), 
+			Cast.KALTWASSERFISCH.getCastName(), 
+			Cast.LABYRINTHFISCH.getCastName(), 
+			Cast.LEBENDGEBAERENDE.getCastName(), 
+			Cast.SALMLER.getCastName(), 
+			Cast.WELS.getCastName());
 	
 //	public ObservableList<String> list = FXCollections.observableArrayList("Barsch", "Kaltwasserfisch", "Lebendgebärende");
 	

@@ -124,7 +124,7 @@ public class CastController extends BasicController {
 		fishTypeFromDB.add(fish15);
 
 		for (FishType f : fishTypeFromDB) {
-			if (f.getCast().toString().equals(cast)) {
+			if (f.getCast().getCastName().equals(cast)) {
 				fishArtList.add(f);
 				// System.out.println("bent vagyok az ifben" + f);
 			}
@@ -184,7 +184,7 @@ public class CastController extends BasicController {
 				temperaturTextField.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
 				gHTextField.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
 				phTextField.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
-				socialisationsTextField.setText(String.valueOf(f.getSocialization()));
+				socialisationsTextField.setText(f.getSocialization().getName());
 			}
 		}
 
