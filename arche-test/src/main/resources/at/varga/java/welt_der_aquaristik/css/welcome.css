@@ -84,6 +84,11 @@
   	-fx-border-radius: 3px;
 }
 
+.TextAQDateSheet{
+	-fx-text-fill: white;
+	-fx-font-size: 14.0px;
+}
+
 /* styling AddNewFishToAQ */
 .AddNewFishToAQAP{
 	-fx-background-image:url("sg.jpg");

@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
@@ -84,11 +85,12 @@ public class AddNewFishToListController extends BasicController {
 	@FXML
 	private Button saveButton;
 	
-	private static String dataName;
+	private String dataName;
 	private File source;
-	private final File DEST = new File(
-			"C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\eszter.jpg");
-
+	
+	public static final String ORIGINAL_PATH = "C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\picture_";
+	private File dest = new File(ORIGINAL_PATH);
+	
 	@FXML
 	void handleSelectFileAction(ActionEvent event) throws URISyntaxException {
 
@@ -114,8 +116,15 @@ public class AddNewFishToListController extends BasicController {
 			// System.err.println("feskgmkeg");
 
 			// source = new File(urlTextField.getText());
-			dataName= DEST.toString() + p.getFileName().toString();
+			
+			
+			dataName= dest.toString() + "IMG" + System.currentTimeMillis() +p.getFileName().toString();
+			
 			System.out.println(dataName);
+			
+			dest = new File(dataName);
+			
+			System.err.println(dest.toString());
 		
 			
 			
@@ -133,26 +142,26 @@ public class AddNewFishToListController extends BasicController {
 	@FXML
 	void save(ActionEvent event) {
 
-		FishType saved = new FishType();
-
-		saved.setCast(Cast.ANDERE_FISCH);
-		saved.setBreed(breedTextField.getText());
-		saved.setSize(Double.valueOf(sizeTextField.getText()));
-		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
-		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
-		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
-		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
-		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
-		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
-		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
-		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
-		saved.setSocialization(socializationComboBox.getValue());
-
-		System.out.println(saved);
+//		FishType saved = new FishType();
+//
+//		saved.setCast(Cast.ANDERE_FISCH);
+//		saved.setBreed(breedTextField.getText());
+//		saved.setSize(Double.valueOf(sizeTextField.getText()));
+//		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
+//		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
+//		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
+//		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
+//		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
+//		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
+//		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
+//		saved.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
+//		saved.setSocialization(socializationComboBox.getValue());
+//
+//		System.out.println(saved);
 	
 
 		try {
-			copyFileUsingJava7Files(source, DEST);
+			copyFileUsingJava7Files(source, dest);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -170,9 +179,11 @@ public class AddNewFishToListController extends BasicController {
 		backToPrScene(e);
 	}
 
-	private static void copyFileUsingJava7Files(File source, File dest) throws IOException {
+	private void copyFileUsingJava7Files(File source, File dest) throws IOException {
 		
 		Files.copy(source.toPath(), dest.toPath());
+		dataName = "";
+		this.dest = new File(ORIGINAL_PATH);
 	}
 
 }

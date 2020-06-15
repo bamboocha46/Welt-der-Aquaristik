@@ -22,7 +22,11 @@ public class FishTypeInAQ implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "fk_FishType")
 	private FishType fishType;
+	
 	private long id;
+	
+//	private double fishSummeSize;
+	
 	@ManyToOne
 //	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_AQ")
@@ -39,6 +43,7 @@ public class FishTypeInAQ implements Serializable {
 		this.breed = new SimpleStringProperty(breed);
 		this.aqID = new SimpleLongProperty(aqID);
 		this.quantity = new SimpleIntegerProperty(quantity);
+//		this.fishSummeSize = this.fishType.getSize()* quantity;
 
 	}
 
@@ -81,11 +86,12 @@ public class FishTypeInAQ implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
 
-//	@Override
-//	public String toString() {
-//		return "FishTypeInAQ [fish=" + fish + ", aqID=" + aqID + ", quantity=" + quantity + "]";
+
+//	public double getFishSummeSize() {
+//		return fishSummeSize;
 //	}
+
+	
 
 }
