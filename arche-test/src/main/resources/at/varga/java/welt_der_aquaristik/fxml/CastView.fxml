@@ -17,9 +17,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="CastViewAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CastController">
    <children>
-      <Text layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fischart:" />
+      <Text fill="WHITE" layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CastField" text="Fischart:" />
       <ComboBox fx:id="fishTypeComboBox" layoutX="86.0" layoutY="16.0" onAction="#showFishType" prefHeight="31.0" prefWidth="281.0" styleClass="ComboBox" />
-      <Text layoutX="24.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" />
+      <Text fill="#f2f2f2" layoutX="24.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CastField" text="Beschreibung" />
       <GridPane layoutX="20.0" layoutY="162.0" prefHeight="215.0" prefWidth="348.0" styleClass="GridPane">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,12 +34,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Größe: " wrappingWidth="117.65869140625" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aquarium Größe:" wrappingWidth="116.6708984375" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Temperatur (°C): " wrappingWidth="116.6708984375" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ph-wert: " wrappingWidth="115.6708984375" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GH-wert:" wrappingWidth="113.6708984375" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Verhalten:" wrappingWidth="115.6708984375" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Größe: " wrappingWidth="117.65869140625" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Aquarium Größe:" wrappingWidth="116.6708984375" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Temperatur (°C): " wrappingWidth="116.6708984375" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Ph-wert: " wrappingWidth="115.6708984375" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" GH-wert:" wrappingWidth="113.6708984375" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Verhalten:" wrappingWidth="115.6708984375" GridPane.rowIndex="5" />
             <TextField fx:id="sizeTextField" GridPane.columnIndex="1" />
             <TextField fx:id="aqSizeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -48,10 +48,10 @@
             <TextField fx:id="socialisationsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="backButton" layoutX="440.0" layoutY="330.0" mnemonicParsing="false" onAction="#back" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Zurück" />
+      <Button fx:id="backButton" layoutX="439.0" layoutY="297.0" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Zurück" />
       <ImageView fitHeight="108.0" fitWidth="174.0" layoutX="194.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="addNewFishButton" layoutX="440.0" layoutY="242.0" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="deleteFishTypeButton" layoutX="440.0" layoutY="163.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Fischart löschen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="editFishTypeButton" layoutX="440.0" layoutY="88.0" mnemonicParsing="false" onAction="#editFishType" prefHeight="55.0" prefWidth="105.0" styleClass="Button" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="addNewFishButton" layoutX="439.0" layoutY="207.0" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="deleteFishTypeButton" layoutX="439.0" layoutY="120.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Fischart löschen" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="editFishTypeButton" layoutX="439.0" layoutY="32.0" mnemonicParsing="false" onAction="#editFishType" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

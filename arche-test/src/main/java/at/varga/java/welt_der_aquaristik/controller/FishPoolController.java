@@ -128,6 +128,7 @@ public class FishPoolController extends BasicController {
 			stage.initOwner(Main.primaryStage);
 
 			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			stage.setScene(scene);
 			stage.showAndWait();
 		} catch (IOException e) {

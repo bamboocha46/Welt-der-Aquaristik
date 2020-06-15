@@ -90,6 +90,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		addNewFishWindow.initOwner(Main.primaryStage);
 
 		Scene scene = new Scene(addNewFishToAQ);
+		scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 		addNewFishWindow.setScene(scene);
 		addNewFishWindow.showAndWait();
 

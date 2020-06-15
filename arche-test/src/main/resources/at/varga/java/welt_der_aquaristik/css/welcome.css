@@ -1,19 +1,6 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-/* stylling welcomeView */
-.AnchorPane {
-    -fx-background-image:url("aq.jpg");
-	-fx-background-size: 100.0% 100.0%;
-	-fx-background-position: center center;
-	
-} 
 
-.Titel {
-	-fx-text-fill: white;
-	-fx-font-family: Verdana;
-	-fx-font-style: italic;
-	-fx-font-size: 38.0px;
-	
-}
+/* Generar Styles */
 
 .Button {
 	-fx-background-image:url("fishMotiv.jpg");
@@ -27,18 +14,41 @@
   	-fx-border-radius: 3px;
 }
 
+.ComboBox { 
+	-fx-background-color: LightSkyBlue;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+}
+
+.GridPane {
+	-fx-background-color: LightSkyBlue;
+	-fx-opacity: 0.9;
+}
+
+
+/* stylling welcomeView */
+.AnchorPane {
+    -fx-background-image:url("aq.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	-fx-opacity: 0.97;
+	
+} 
+
+.Titel {
+	-fx-text-fill: white;
+	-fx-font-family: Verdana;
+	-fx-font-style: italic;
+	-fx-font-size: 38.0px;
+	
+}
+
 /* styling fischpoolView */
 .FishPoolAP {
 	-fx-background-image:url("fc.jpg");
 	-fx-background-size: 100.0% 100.0%;
 	-fx-background-position: center center;
-}
-
-.ComboBox { 
-	-fx-background-color: lightblue;
-	-fx-border-style: solid;
-	-fx-border-width: 3px;
-  	-fx-border-color: white;
 }
 
 /* styling CreateNewAQ */
@@ -53,9 +63,7 @@
 	-fx-font-size: 18.0px;
 }
 
-.GridPane {
-	-fx-background-color: lightblue;
-}
+
 /* styling AQDateSheet */
 .AQDateSheetAP{
 	-fx-background-image:url("kuckuckjpg.jpg");
@@ -76,19 +84,67 @@
   	-fx-border-radius: 3px;
 }
 
-/* styling AQDateSheet */
+/* styling AddNewFishToAQ */
 .AddNewFishToAQAP{
 	-fx-background-image:url("sg.jpg");
 	-fx-background-size: 100.0% 100.0%;
 	-fx-background-position: center center;
 	
 }
+.AddNewFishToAQField{
+	-fx-text-fill: white;
+	-fx-font-size: 16.0px;
+}
 
+/* styling CastView */
 .CastViewAP {
 	-fx-background-image:url("sg.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+}
+
+.CastButton{
+	-fx-background-image:url("fishMotiv.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	-fx-text-fill: white;
+	-fx-font-size: 14.0px;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+  	-fx-border-radius: 3px;
+}
+
+.CastField{
+	-fx-text-fill: white;
+	-fx-font-size: 16.0px;
 }
 
 
+
+/* styling AddNewFishToList */
+.AddNewFishToListAP {
+	-fx-background-image:url("nyomi.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: left top;
+}
+
+.AddNewFishToListButton {
+	-fx-background-image:url("fishMotiv.jpg");
+	-fx-background-size: 100.0% 100.0%;
+	-fx-background-position: center center;
+	-fx-text-fill: white;
+	-fx-font-size: 14.0px;
+	-fx-border-style: solid;
+	-fx-border-width: 3px;
+  	-fx-border-color: white;
+  	-fx-border-radius: 3px;
+}
+
+.AddNewFishToListField {
+	-fx-text-fill: black;
+	-fx-font-size: 13.0px;
+}
 
 
 
