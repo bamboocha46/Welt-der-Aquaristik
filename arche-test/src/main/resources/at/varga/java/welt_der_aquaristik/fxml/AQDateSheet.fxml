@@ -58,6 +58,6 @@
          </effect>
       </TableView>
       <Text fill="WHITE" layoutX="328.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="TextAQDateSheet" text="Bewohner:" />
-      <ComboBox fx:id="aqComboBox" layoutX="34.0" layoutY="28.0" onAction="#showAQParameters" prefHeight="35.0" prefWidth="274.0" styleClass="ComboBox" />
+      <ComboBox fx:id="aqComboBox" layoutX="34.0" layoutY="28.0" prefHeight="35.0" prefWidth="274.0" styleClass="ComboBox" />
    </children>
 </AnchorPane>

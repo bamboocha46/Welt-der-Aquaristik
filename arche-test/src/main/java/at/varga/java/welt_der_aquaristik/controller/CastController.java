@@ -8,6 +8,7 @@ import com.sun.prism.paint.Color;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
@@ -62,8 +63,10 @@ public class CastController extends BasicController {
 
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
 
+//	@FXML
+//	private ComboBox<String> fishTypeComboBox;
 	@FXML
-	private ComboBox<String> fishTypeComboBox;
+	private ComboBox<FishType> fishTypeComboBox;
 
 	@FXML
 	private Button backButton;
@@ -88,8 +91,8 @@ public class CastController extends BasicController {
 	// List as example (because i dont have DB yet)
 //	ObservableList<FishType> fishTypeList = FXCollections.observableArrayList(fishFirst, fishSecond, fishThird);
 
-	ObservableList<String> fishBreedList = FXCollections.observableArrayList();
-
+	// ObservableList<String> fishBreedList = FXCollections.observableArrayList();
+	ObservableList<FishType> fishBreedList = FXCollections.observableArrayList();
 	List<FishType> fishArtList = new ArrayList<FishType>();
 
 	@FXML
@@ -128,67 +131,63 @@ public class CastController extends BasicController {
 				fishArtList.add(f);
 				// System.out.println("bent vagyok az ifben" + f);
 			}
-		}for (FishType f : fishArtList) {
-			fishBreedList.add(f.getBreed());
 		}
+		for (FishType f : fishArtList) {
+			fishBreedList.add(f);
+		}
+//		for (FishType f : fishArtList) {
+//			fishBreedList.add(f.getBreed());
+//		}
 
 		// This initialization doesent work, if it is only ONE fish im fishBreedList
 //		if (fishBreedList != null) {
 //			fishTypeComboBox.setValue(fishBreedList.get(0));
 //		}
 
+//		fishTypeComboBox.setItems(fishBreedList);
+		fishTypeComboBox.setValue(fishBreedList.get(0));
+		showFishType(fishBreedList.get(0));
 		fishTypeComboBox.setItems(fishBreedList);
+	}
+	
+	@FXML
+	void handleAQSelected(ActionEvent event) {
+		
+		System.out.println(event.getSource());
+		
+		FishType f = ((ComboBox<FishType>)event.getSource()).getValue();
 
+		showFishType(f);
+		
 	}
 
-	// EZVOLT A JO
+	// fill up the field of Fishtype with parameters from DB
+	
+	void showFishType(FishType f) {
+		sizeTextField.setText(String.valueOf(f.getSize()));
+		aqSizeTextField.setText(String.valueOf(f.getMinAqVolumen() + " - " + f.getMaxAqVolumen()));
+		temperaturTextField.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
+		gHTextField.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
+		phTextField.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
+		socialisationsTextField.setText(f.getSocialization().getName());
+	}
 
+//	// fill up the field of Fishtype with parameters from DB
 //	@FXML
-//	public void initialize(String cast) {
+//	void showFishType(ActionEvent event) {
 //
-//		System.out.println("castCombobox value:" + cast);
-//
-//		fishTypeFromDB.add(fishFirst);
-//		fishTypeFromDB.add(fishSecond);
-//		fishTypeFromDB.add(fishThird);
-//		fishTypeFromDB.add(fish4);
-//
-//		for (FishType f : fishTypeFromDB) {
-//			if (f.getCast().toString().equals(cast)) {
-//				fishArtList.add(f);
-//				System.out.println("bent vagyok az ifben" + f);
+//		for (FishType f : fishArtList) {
+//			if (f.getBreed().equals(fishTypeComboBox.getValue())) {
+//				sizeTextField.setText(String.valueOf(f.getSize()));
+//				aqSizeTextField.setText(String.valueOf(f.getMinAqVolumen() + " - " + f.getMaxAqVolumen()));
+//				temperaturTextField.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
+//				gHTextField.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
+//				phTextField.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
+//				socialisationsTextField.setText(f.getSocialization().getName());
 //			}
 //		}
 //
-//		for (FishType f : fishArtList) {
-//			fishBreedList.add(f.getBreed());
-//		}
-//
-//		// This initialization doesent work, if it is only ONE fish im fishBreedList
-////		if (fishBreedList != null) {
-////			fishTypeComboBox.setValue(fishBreedList.get(0));
-////		}
-//
-//		fishTypeComboBox.setItems(fishBreedList);
-//
 //	}
-
-	// fill up the field of Fishtype with parameters from DB
-	@FXML
-	void showFishType(ActionEvent event) {
-
-		for (FishType f : fishArtList) {
-			if (f.getBreed().equals(fishTypeComboBox.getValue())) {
-				sizeTextField.setText(String.valueOf(f.getSize()));
-				aqSizeTextField.setText(String.valueOf(f.getMinAqVolumen() + " - " + f.getMaxAqVolumen()));
-				temperaturTextField.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
-				gHTextField.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
-				phTextField.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
-				socialisationsTextField.setText(f.getSocialization().getName());
-			}
-		}
-
-	}
 
 	@FXML
 	void deleteFish(ActionEvent event) {

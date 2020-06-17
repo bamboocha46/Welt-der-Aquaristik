@@ -10,11 +10,11 @@ import javax.persistence.Table;
  * @author eszte It is a class for fishes
  */
 @Entity
-@Table (name = "FishType")
+@Table(name = "FishType")
 public class FishType extends WaterAnimal implements Serializable {
 
 	private static final long serialVersionUID = -7861091170212727608L;
-	
+
 	private Cast cast;
 
 	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, float minTemperatur,
@@ -24,7 +24,7 @@ public class FishType extends WaterAnimal implements Serializable {
 				pictureUrl, socialization);
 		this.cast = cast;
 	}
-	
+
 	public FishType() {
 	}
 

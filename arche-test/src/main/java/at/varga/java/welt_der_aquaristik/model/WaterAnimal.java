@@ -168,10 +168,7 @@ public abstract class WaterAnimal {
 
 	@Override
 	public String toString() {
-		return "WaterAnimal [id=" + id + ", breed=" + breed + ", size=" + size + ", minAqVolumen=" + minAqVolumen
-				+ ", maxAqVolumen=" + maxAqVolumen + ", minTemperatur=" + minTemperatur + ", maxTemperatur="
-				+ maxTemperatur + ", minPh=" + minPh + ", maxPh=" + maxPh + ", minGH=" + minGH + ", maxGH=" + maxGH
-				+ ", pictureUrl=" + pictureUrl + ", socialization=" + socialization + "]";
-	}
+		return breed;
+		}
 
 }

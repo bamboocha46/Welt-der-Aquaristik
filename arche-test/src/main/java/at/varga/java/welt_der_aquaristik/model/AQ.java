@@ -160,10 +160,8 @@ public class AQ implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
-				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
-				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", listOfFishes=" + fishesInAQList + "]";
-	}
+		return titel;
+		}
 
 //	public double getStockingDensity() {
 //		double summeFishSize = 0;
