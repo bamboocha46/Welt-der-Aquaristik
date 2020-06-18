@@ -13,19 +13,18 @@ import javax.persistence.Persistence;
 
 import org.hibernate.service.spi.ServiceException;
 
-import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 
 /**
  * @author eszte
  *
  */
-public class AQRepositoryJPA implements IAQRepository {
+public class FishTypeInAQRepositoryJPA implements IFishTypeInAQRepository {
 
 	private static final String PERSISTENCE_UNIT_NAME = "aqdb1";
 
 	@Override
-	public void add(AQ aq) throws ServiceException {
+	public void add(FishTypeInAQ fishTypeInAQ) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
@@ -33,7 +32,7 @@ public class AQRepositoryJPA implements IAQRepository {
 
 		transaction.begin();
 
-		em.persist(aq);
+		em.persist(fishTypeInAQ);
 
 		transaction.commit();
 
@@ -41,12 +40,12 @@ public class AQRepositoryJPA implements IAQRepository {
 
 		emf.close();
 
-		System.out.println("Inserted Photo: " + aq.getAqId());
+		System.out.println("Inserted FishTypeInAQ: " + fishTypeInAQ.getId());
 
 	}
 
 	@Override
-	public AQ update(AQ aq) throws ServiceException {
+	public FishTypeInAQ update(FishTypeInAQ fishTypeInAQ) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
@@ -54,7 +53,7 @@ public class AQRepositoryJPA implements IAQRepository {
 
 		transaction.begin();
 
-		AQ mergedAQ = em.merge(aq);
+		FishTypeInAQ mergedFishTypeInAQ = em.merge(fishTypeInAQ);
 
 		transaction.commit();
 
@@ -62,63 +61,64 @@ public class AQRepositoryJPA implements IAQRepository {
 
 		emf.close();
 
-		System.out.println("Inserted AQ: " + aq.getAqId());
+		System.out.println("Inserted FishTypeInAQ: " + fishTypeInAQ.getId());
 
-		return mergedAQ;
+		return mergedFishTypeInAQ;
 	}
 
 	@Override
-	public List<AQ> getAll() throws ServiceException {
+	public List<FishTypeInAQ> getAll() throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Read all AQs");
+		System.out.println("Read all FishTypesInAQ");
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<AQ> aqList = (List<AQ>) em.createQuery("select * from AQ")
+		List<FishTypeInAQ> fishTypeInAQList = (List<FishTypeInAQ>) em.createQuery("select * from FishTypeInAQ")
 				.getResultList();
 
 		transaction.commit();
 		em.close();
 		emf.close();
-		return aqList;
+		return fishTypeInAQList;
 	}
 
 	@Override
-	public Optional<AQ> get(long id) throws ServiceException {
+	public Optional<FishTypeInAQ> get(long id) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Read an AQ");
+		System.out.println("Read one FishType from Aq");
 		transaction.begin();
 
-		AQ aq = em.find(AQ.class, id);
+		FishTypeInAQ fishTypeInAQ = em.find(FishTypeInAQ.class, id);
 
 		transaction.commit();
 		em.close();
 		emf.close();
-		return Optional.ofNullable(aq);
+		return Optional.ofNullable(fishTypeInAQ);
 	}
 
 	@Override
-	public void delete(AQ aq) throws ServiceException {
+	public void delete(FishTypeInAQ fishTypeInAQ) throws ServiceException {
+
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Delete AQ: " + aq.getAqId());
+		System.out.println("Delete FishTypeInAQ: " + fishTypeInAQ.getId());
 		transaction.begin();
 
-		if (!em.contains(aq))
-			aq = em.merge(aq);
+		if (!em.contains(fishTypeInAQ))
+			fishTypeInAQ = em.merge(fishTypeInAQ);
 
-		em.remove(aq);
+		em.remove(fishTypeInAQ);
 
 		transaction.commit();
 		em.close();

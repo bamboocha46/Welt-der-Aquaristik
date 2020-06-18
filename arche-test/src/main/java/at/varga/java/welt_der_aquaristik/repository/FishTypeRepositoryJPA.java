@@ -1,6 +1,3 @@
-/**
- * 
- */
 package at.varga.java.welt_der_aquaristik.repository;
 
 import java.util.List;
@@ -13,18 +10,15 @@ import javax.persistence.Persistence;
 
 import org.hibernate.service.spi.ServiceException;
 
-import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
+import at.varga.java.welt_der_aquaristik.model.AQ;
+import at.varga.java.welt_der_aquaristik.model.FishType;
 
-/**
- * @author eszte
- *
- */
-public class FishTypeInAQJPA implements IFishTypeInAQRepository {
-
+public class FishTypeRepositoryJPA implements IFishTypeRepository {
+	
 	private static final String PERSISTENCE_UNIT_NAME = "aqdb1";
 
 	@Override
-	public void add(FishTypeInAQ fishTypeInAQ) throws ServiceException {
+	public void add(FishType fishType) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
@@ -32,7 +26,7 @@ public class FishTypeInAQJPA implements IFishTypeInAQRepository {
 
 		transaction.begin();
 
-		em.persist(fishTypeInAQ);
+		em.persist(fishType);
 
 		transaction.commit();
 
@@ -40,12 +34,12 @@ public class FishTypeInAQJPA implements IFishTypeInAQRepository {
 
 		emf.close();
 
-		System.out.println("Inserted FishTypeInAQ: " + fishTypeInAQ.getId());
+		System.out.println("Inserted Photo: " + fishType.getId());
 
 	}
 
 	@Override
-	public FishTypeInAQ update(FishTypeInAQ fishTypeInAQ) throws ServiceException {
+	public FishType update(FishType fishType) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
@@ -53,72 +47,71 @@ public class FishTypeInAQJPA implements IFishTypeInAQRepository {
 
 		transaction.begin();
 
-		FishTypeInAQ mergedFishTypeInAQ = em.merge(fishTypeInAQ);
+		FishType mergedFishType = em.merge(fishType);
 
 		transaction.commit();
 
 		em.close();
 
 		emf.close();
+		
+		System.out.println("Inserted FishType: " + fishType.getId());
 
-		System.out.println("Inserted FishTypeInAQ: " + fishTypeInAQ.getId());
-
-		return mergedFishTypeInAQ;
+		return mergedFishType;
 	}
 
 	@Override
-	public List<FishTypeInAQ> getAll() throws ServiceException {
+	public List<FishType> getAll() throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Read all FishTypesInAQ");
+		System.out.println("Read all FishTypes");
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<FishTypeInAQ> fishTypeInAQList = (List<FishTypeInAQ>) em.createQuery("select * from FishTypeInAQ")
+		List<FishType> fishTypeList = (List<FishType>) em.createQuery("select * from FISHTYPE")
 				.getResultList();
 
 		transaction.commit();
 		em.close();
 		emf.close();
-		return fishTypeInAQList;
+		return fishTypeList;
 	}
 
 	@Override
-	public Optional<FishTypeInAQ> get(long id) throws ServiceException {
+	public Optional<FishType> get(long id) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Read one FishType from Aq");
+		System.out.println("Read an FishType");
 		transaction.begin();
 
-		FishTypeInAQ fishTypeInAQ = em.find(FishTypeInAQ.class, id);
+		FishType fishType = em.find(FishType.class, id);
 
 		transaction.commit();
 		em.close();
 		emf.close();
-		return Optional.ofNullable(fishTypeInAQ);
+		return Optional.ofNullable(fishType);
 	}
 
 	@Override
-	public void delete(FishTypeInAQ fishTypeInAQ) throws ServiceException {
-
+	public void delete(FishType fishType) throws ServiceException {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
 		EntityManager em = emf.createEntityManager();
 
 		EntityTransaction transaction = em.getTransaction();
 
-		System.out.println("Delete FishTypeInAQ: " + fishTypeInAQ.getId());
+		System.out.println("Delete FishType: " + fishType.getId());
 		transaction.begin();
 
-		if (!em.contains(fishTypeInAQ))
-			fishTypeInAQ = em.merge(fishTypeInAQ);
+		if (!em.contains(fishType))
+			fishType = em.merge(fishType);
 
-		em.remove(fishTypeInAQ);
+		em.remove(fishType);
 
 		transaction.commit();
 		em.close();

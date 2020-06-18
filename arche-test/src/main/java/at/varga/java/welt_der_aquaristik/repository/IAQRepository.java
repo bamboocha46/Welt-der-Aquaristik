@@ -9,7 +9,6 @@ import java.util.Optional;
 import org.hibernate.service.spi.ServiceException;
 
 import at.varga.java.welt_der_aquaristik.model.AQ;
-import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 
 /**
  * @author eszte

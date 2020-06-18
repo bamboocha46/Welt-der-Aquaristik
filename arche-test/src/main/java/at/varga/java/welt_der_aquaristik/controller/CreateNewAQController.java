@@ -4,7 +4,9 @@ import java.io.IOException;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
+import at.varga.java.welt_der_aquaristik.service.AQService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CreateNewAQController extends BasicController {
+	
+	AQService aqService = new AQService();
 
 	@FXML
 	private TextField volumeTextField;
@@ -65,6 +69,11 @@ public class CreateNewAQController extends BasicController {
 		saved.setTemperatur(Integer.valueOf(temperaturTextField.getText()));
 		saved.setgH(Double.valueOf(ghTextField.getText()));
 		saved.setPh(Double.valueOf(phTextField.getText()));
+		try {
+			aqService.add(saved);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		
 		System.out.println("AQgespeichert: " + saved);
 

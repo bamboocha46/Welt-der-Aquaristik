@@ -8,11 +8,13 @@ import java.util.ResourceBundle;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 import at.varga.java.welt_der_aquaristik.model.Socialization;
+import at.varga.java.welt_der_aquaristik.service.AQService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -70,6 +72,8 @@ public class AQDateSheetController extends BasicController implements Initializa
 	private TableColumn<FishTypeInAQ, String> breedColumn;
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
+	
+	AQService aqService = new AQService();
 
 	// Method to add a new fish to the AQ
 	// opes just a new scene, donesent save any fishes yet
@@ -102,6 +106,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@FXML
 	void deleteFish(ActionEvent event) {
 
+
 		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
 		System.out
 				.println("fishbreed to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getBreed());
@@ -123,17 +128,13 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	@FXML
 	void deleteAQ(ActionEvent event) {
-		long id;
-		for (AQ a : aqsFromDB) {
-			if (a.getTitel().equals(aqComboBox.getValue())) {
-				id = a.getAqId();
-				for (AQ a1 : aqsFromDB) {
-					if (a1.getAqId() == id) {
-						a1 = null;
-					}
-				}
-			}
+		
+		try {
+			aqService.delete(aqComboBox.getValue());
+		} catch (ServiceException e1) {
+			e1.printStackTrace();
 		}
+
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
