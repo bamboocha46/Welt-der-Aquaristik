@@ -83,10 +83,15 @@
 		</dependency>
 
 
+		<!-- <dependency> -->
+		<!-- <groupId>mysql</groupId> -->
+		<!-- <artifactId>mysql-connector-java</artifactId> -->
+		<!-- <version>5.1.40</version> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.40</version>
+			<version>5.1.47</version>
 		</dependency>
 
 		<!-- Ich weiss nicht welche dependey soll ich verwenden -->

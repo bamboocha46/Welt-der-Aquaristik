@@ -61,7 +61,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// MyAQsList elements
 //	@FXML
 //	private ComboBox<String> aqComboBox;
-	
+
 	@FXML
 	private ComboBox<AQ> aqComboBox;
 
@@ -72,7 +72,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	private TableColumn<FishTypeInAQ, String> breedColumn;
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
-	
+
 	AQService aqService = new AQService();
 
 	// Method to add a new fish to the AQ
@@ -106,7 +106,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@FXML
 	void deleteFish(ActionEvent event) {
 
-
 		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
 		System.out
 				.println("fishbreed to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getBreed());
@@ -128,13 +127,12 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	@FXML
 	void deleteAQ(ActionEvent event) {
-		
+
 		try {
 			aqService.delete(aqComboBox.getValue());
 		} catch (ServiceException e1) {
 			e1.printStackTrace();
 		}
-
 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
@@ -156,33 +154,36 @@ public class AQDateSheetController extends BasicController implements Initializa
 		puAUS.showAndWait();
 	}
 
-	// constant examples
-	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
-			Cast.SALMLER);
-	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "",
-			Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
-	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
-			Cast.BARSCH);
-
-	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(
-			new FishTypeInAQ(fishFirst.getBreed(), 1, 10), 
-			new FishTypeInAQ(fishSecond.getBreed(), 1, 15),
-			new FishTypeInAQ(fishThird.getBreed(), 2, 1));
-
-	public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(
-			new FishTypeInAQ("Blau barsch", 1, 10),
-			new FishTypeInAQ("Silber Barsch", 1, 15),
-			new FishTypeInAQ("Quietschende Badeente", 2, 42));
-
 	// AQs as example
-
 	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, null);
-	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, list);
-	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, list2);
+	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, null);
+	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, null);
+
+	// constant examples Fishes
+	FishType fishFirst = new FishType
+			(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH, Cast.SALMLER);
+	FishType fishSecond = new FishType
+			(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
+	FishType fishThird = new FishType
+			(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV, Cast.BARSCH);
+
+	// constant examples FishTypes
+//	FishTypeInAQ fishTypeInAq1 = new FishTypeInAQ(fishFirst.getBreed(), aq1, 10);
+//	FishTypeInAQ fishTypeInAq2 = new FishTypeInAQ(fishSecond.getBreed(), aq1, 15);
+//	FishTypeInAQ fishTypeInAq3 = new FishTypeInAQ(fishThird.getBreed(), aq2, 1);
+	
+	FishTypeInAQ fishTypeInAq1 = new FishTypeInAQ(aq1, fishFirst.getBreed(), 10);
+	FishTypeInAQ fishTypeInAq2 = new FishTypeInAQ(aq1, fishSecond.getBreed(), 15);
+	FishTypeInAQ fishTypeInAq3 = new FishTypeInAQ(aq2, fishThird.getBreed(), 1);
+
+	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(fishTypeInAq1, fishTypeInAq2);
+	public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(fishTypeInAq3);
+
+
 
 //	private List<AQ> aqsFromDB = new ArrayList<AQ>();
 	private ObservableList<AQ> aqsFromDB = FXCollections.observableArrayList();
-	
+
 //	ObservableList<String> aqTitelList = FXCollections.observableArrayList(aq1.getTitel(), aq2.getTitel(),
 //			aq3.getTitel());
 
@@ -191,13 +192,16 @@ public class AQDateSheetController extends BasicController implements Initializa
 		// FishTabelle
 		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
-		//fishTypeInAQTable.setItems(list);
+		// fishTypeInAQTable.setItems(list);
 
 		// MyAQS List
 		aqsFromDB.add(aq1);
 		aqsFromDB.add(aq2);
 		aqsFromDB.add(aq3);
 		
+		//2020.06.19
+		aq1.setListOfFishes(list);
+		aq2.setListOfFishes(list2);
 
 //		aqComboBox.setValue(aq1.getTitel());
 //		aqComboBox.setItems(aqTitelList);
@@ -207,35 +211,33 @@ public class AQDateSheetController extends BasicController implements Initializa
 		aqComboBox.setOnAction(this::handleAQSelected);
 
 	}
-	
+
 	@FXML
 	void handleAQSelected(ActionEvent event) {
-		
+
 		System.out.println(event.getSource());
-		
-		AQ a = ((ComboBox<AQ>)event.getSource()).getValue();
+
+		AQ a = ((ComboBox<AQ>) event.getSource()).getValue();
 
 		showAQParameters(a);
-		
+
 	}
-	
+
 	void showAQParameters(AQ a) {
-		
-		
+
 //		for (AQ a : aqsFromDB) {
 //			if (a.getTitel().equals(aqComboBox.getValue())) {
-				sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
-				volumenText.setText(String.valueOf(a.getVolumen()) + "l");
-				temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
-				ghText.setText(String.valueOf(a.getgH()) + "°d");
-				phText.setText(String.valueOf(a.getPh()));
-				stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-				fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
+		sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
+		volumenText.setText(String.valueOf(a.getVolumen()) + "l");
+		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
+		ghText.setText(String.valueOf(a.getgH()) + "°d");
+		phText.setText(String.valueOf(a.getPh()));
+		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
+		fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
 //			}
 //		}
- 
+
 	}
-	
 
 //	@FXML
 //	void showAQParameters(ActionEvent event) {

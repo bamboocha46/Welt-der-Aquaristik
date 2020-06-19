@@ -3,15 +3,17 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="aqdb1" transaction-type="RESOURCE_LOCAL">
-		  <provider>org.hibernate.ejb.HibernatePersistence</provider>
+		  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>at.varga.java.welt_der_aquaristik.model.FishTypeInAQ</class>
+		<class>at.varga.java.welt_der_aquaristik.model.FishType</class>
+		<class>at.varga.java.welt_der_aquaristik.model.AQ</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/aqdb1"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/aqdb1?useSSL=false&amp;serverTimezone=UTC"/>
 			<property name="javax.persistence.jdbc.user" value="Eszter"/>
 			<property name="javax.persistence.jdbc.password" value="Password88"/>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL55Dialect" />
 		</properties>
 	</persistence-unit>
 </persistence>
