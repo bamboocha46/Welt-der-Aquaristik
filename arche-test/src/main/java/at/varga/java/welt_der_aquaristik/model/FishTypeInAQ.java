@@ -32,18 +32,28 @@ public class FishTypeInAQ implements Serializable {
 
 	private AQ aq;
 
-	private String breed;
+	//private String breed;
 
 	private int quantity;
 	
-	
+	public FishTypeInAQ() {
 
-	public FishTypeInAQ(AQ aq, String breed, int quantity) {
-		super();
-		this.aq = aq;
-		this.breed = breed;
-		this.quantity = quantity;
 	}
+
+//	public FishTypeInAQ(AQ aq, String breed, int quantity) {
+//		super();
+//		this.aq = aq;
+//		this.breed = breed;
+//		this.quantity = quantity;
+//	}
+	
+	public FishTypeInAQ(AQ aq, int quantity) {
+	super();
+	this.aq = aq;
+	this.quantity = quantity;
+}
+	
+	
 
 //	public FishTypeInAQ(String breed, AQ aq, int quantity) {
 //		super();
@@ -54,9 +64,15 @@ public class FishTypeInAQ implements Serializable {
 //
 //	}
 
-	public FishTypeInAQ() {
-
+	
+	public FishTypeInAQ(FishType fishType, long id, AQ aq, int quantity) {
+		super();
+		this.fishType = fishType;
+		this.id = id;
+		this.aq = aq;
+		this.quantity = quantity;
 	}
+
 	@OneToOne
 	@JoinColumn(name = "fk_FishType")
 	public FishType getFishType() {
@@ -86,13 +102,13 @@ public class FishTypeInAQ implements Serializable {
 		this.aq = aq;
 	}
 
-	public String getBreed() {
-		return breed;
-	}
-
-	public void setBreed(String breed) {
-		this.breed = breed;
-	}
+//	public String getBreed() {
+//		return breed;
+//	}
+//
+//	public void setBreed(String breed) {
+//		this.breed = breed;
+//	}
 
 	public int getQuantity() {
 		return quantity;
@@ -101,6 +117,13 @@ public class FishTypeInAQ implements Serializable {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	@Override
+	public String toString() {
+		return this.fishType.toString();
+	}
+	
+	
 
 	
 //	public SimpleStringProperty getBreed() {

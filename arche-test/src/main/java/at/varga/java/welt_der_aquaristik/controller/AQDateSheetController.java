@@ -15,6 +15,7 @@ import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 import at.varga.java.welt_der_aquaristik.model.Socialization;
 import at.varga.java.welt_der_aquaristik.service.AQService;
+import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,6 +39,28 @@ import javafx.stage.Stage;
 
 public class AQDateSheetController extends BasicController implements Initializable {
 
+	AQService aqService = new AQService();
+	FishTypeInAQService fishTypeInAQService = new FishTypeInAQService();
+
+	// AQs as example
+	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, null);
+	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, null);
+	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, null);
+
+	// constant examples Fishes
+	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
+			Cast.SALMLER);
+	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "",
+			Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
+	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
+			Cast.BARSCH);
+
+//		public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(fishTypeInAq1, fishTypeInAq2);
+//		public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(fishTypeInAq3);
+
+	private List<AQ> aqListFromDB = new ArrayList<AQ>();
+	private ObservableList<AQ> aqListForView = FXCollections.observableArrayList();
+
 	@FXML
 	private Button AddNewFishButton;
 	@FXML
@@ -58,9 +81,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 	private Text stockingDensityText;
 	@FXML
 	private Text ghText;
-	// MyAQsList elements
-//	@FXML
-//	private ComboBox<String> aqComboBox;
 
 	@FXML
 	private ComboBox<AQ> aqComboBox;
@@ -73,10 +93,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
 
-	AQService aqService = new AQService();
-
 	// Method to add a new fish to the AQ
-	// opes just a new scene, donesent save any fishes yet
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
 
@@ -107,17 +124,15 @@ public class AQDateSheetController extends BasicController implements Initializa
 	void deleteFish(ActionEvent event) {
 
 		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
-		System.out
-				.println("fishbreed to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getBreed());
 
 		long deletendFish = fishTypeInAQTable.getSelectionModel().getSelectedItem().getId();
 
-//		for (FishTypeInAQ fi : fishTypesInAQFromDB) {
-//			if (fi.getId()==deletendFish) {
-//				fi=null;
-//			}
-//
-//		}
+		try {
+			fishTypeInAQService.deleteFishTypeInAQ(fishTypeInAQTable.getSelectionModel().getSelectedItem());
+			System.out.println("Fish deleted from DB");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 
 		String path = Constants.PATH_TO_POP_UP_AREYOUSURE_FXML;
 		String setTitel = "Bist sicher?";
@@ -129,7 +144,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	void deleteAQ(ActionEvent event) {
 
 		try {
-			aqService.delete(aqComboBox.getValue());
+			aqService.deleteAQ(aqComboBox.getValue());
 		} catch (ServiceException e1) {
 			e1.printStackTrace();
 		}
@@ -154,39 +169,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 		puAUS.showAndWait();
 	}
 
-	// AQs as example
-	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, null);
-	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, null);
-	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, null);
-
-	// constant examples Fishes
-	FishType fishFirst = new FishType
-			(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH, Cast.SALMLER);
-	FishType fishSecond = new FishType
-			(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "", Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
-	FishType fishThird = new FishType
-			(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV, Cast.BARSCH);
-
-	// constant examples FishTypes
-//	FishTypeInAQ fishTypeInAq1 = new FishTypeInAQ(fishFirst.getBreed(), aq1, 10);
-//	FishTypeInAQ fishTypeInAq2 = new FishTypeInAQ(fishSecond.getBreed(), aq1, 15);
-//	FishTypeInAQ fishTypeInAq3 = new FishTypeInAQ(fishThird.getBreed(), aq2, 1);
-	
-	FishTypeInAQ fishTypeInAq1 = new FishTypeInAQ(aq1, fishFirst.getBreed(), 10);
-	FishTypeInAQ fishTypeInAq2 = new FishTypeInAQ(aq1, fishSecond.getBreed(), 15);
-	FishTypeInAQ fishTypeInAq3 = new FishTypeInAQ(aq2, fishThird.getBreed(), 1);
-
-	public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(fishTypeInAq1, fishTypeInAq2);
-	public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(fishTypeInAq3);
-
-
-
-//	private List<AQ> aqsFromDB = new ArrayList<AQ>();
-	private ObservableList<AQ> aqsFromDB = FXCollections.observableArrayList();
-
-//	ObservableList<String> aqTitelList = FXCollections.observableArrayList(aq1.getTitel(), aq2.getTitel(),
-//			aq3.getTitel());
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// FishTabelle
@@ -195,19 +177,25 @@ public class AQDateSheetController extends BasicController implements Initializa
 		// fishTypeInAQTable.setItems(list);
 
 		// MyAQS List
-		aqsFromDB.add(aq1);
-		aqsFromDB.add(aq2);
-		aqsFromDB.add(aq3);
-		
-		//2020.06.19
-		aq1.setListOfFishes(list);
-		aq2.setListOfFishes(list2);
+		try {
+			aqListFromDB = aqService.getAllAQ();
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (AQ a : aqListFromDB) {
+			aqListForView.add(a);
+		}
+
+//		// 2020.06.19
+//		aq1.setListOfFishes(list);
+//		aq2.setListOfFishes(list2);
 
 //		aqComboBox.setValue(aq1.getTitel());
 //		aqComboBox.setItems(aqTitelList);
 		aqComboBox.setValue(aq1);
 		showAQParameters(aq1);
-		aqComboBox.setItems(aqsFromDB);
+		aqComboBox.setItems(aqListForView);
 		aqComboBox.setOnAction(this::handleAQSelected);
 
 	}

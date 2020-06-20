@@ -8,11 +8,13 @@ import com.sun.prism.paint.Color;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 import at.varga.java.welt_der_aquaristik.model.Socialization;
+import at.varga.java.welt_der_aquaristik.service.FishTypeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +30,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CastController extends BasicController {
+	
+	FishTypeService fishTypeService = new FishTypeService();
 
 	// FishTypes as examples
 	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
@@ -129,7 +133,6 @@ public class CastController extends BasicController {
 		for (FishType f : fishTypeFromDB) {
 			if (f.getCast().getCastName().equals(cast)) {
 				fishArtList.add(f);
-				// System.out.println("bent vagyok az ifben" + f);
 			}
 		}
 		for (FishType f : fishArtList) {
@@ -191,12 +194,27 @@ public class CastController extends BasicController {
 
 	@FXML
 	void deleteFish(ActionEvent event) {
+		
+		
+		try {
+			fishTypeService.deleteFishType(fishTypeComboBox.getValue());
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
 		System.out.println("Fish deleted");
+		
+		//COMBOBOX +DATENTEXTFIElDS UPDATE
 	}
 
 	@FXML
 	void editFishType(ActionEvent event) {
-
+		try {
+			fishTypeService.updateFishType(fishTypeComboBox.getValue());
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		System.out.println(fishTypeComboBox.getValue() + " edited");
+		
 	}
 
 	@FXML

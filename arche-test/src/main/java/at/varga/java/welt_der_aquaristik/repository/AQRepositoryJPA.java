@@ -41,7 +41,7 @@ public class AQRepositoryJPA implements IAQRepository {
 
 		emf.close();
 
-		System.out.println("Inserted Photo: " + aq.getAqId());
+		System.out.println("Inserted AQ: " + aq.getAqId());
 
 	}
 
@@ -78,8 +78,11 @@ public class AQRepositoryJPA implements IAQRepository {
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<AQ> aqList = (List<AQ>) em.createQuery("select * from AQ")
-				.getResultList();
+		//FROM User u WHERE  u.email = :email
+		List<AQ> aqList = (List<AQ>) em.createQuery("FROM aqdb1.aqs")
+		.getResultList();
+//		List<AQ> aqList = (List<AQ>) em.createQuery("SELECT * FROM aqdb1.aqs")
+//				.getResultList();
 
 		transaction.commit();
 		em.close();

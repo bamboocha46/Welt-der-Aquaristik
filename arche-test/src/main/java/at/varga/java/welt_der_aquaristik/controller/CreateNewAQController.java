@@ -20,7 +20,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class CreateNewAQController extends BasicController {
-	
+
 	AQService aqService = new AQService();
 
 	@FXML
@@ -57,24 +57,28 @@ public class CreateNewAQController extends BasicController {
 	// just show popUp: SaveMessage
 	@FXML
 	void save(ActionEvent event) {
-		
-		AQ saved = new AQ(Integer.valueOf(sizeWidth.getText()), Integer.valueOf(sizeLength.getText()), Integer.valueOf(sizeHeight.getText()));
+
+		AQ saved = new AQ(Integer.valueOf(sizeWidth.getText()), Integer.valueOf(sizeLength.getText()),
+				Integer.valueOf(sizeHeight.getText()));
 		saved.setTitel(aqNameTextField.getText());
 		saved.setSizeWidth(Integer.valueOf(sizeWidth.getText()));
 		saved.setSizeLength(Integer.valueOf(sizeLength.getText()));
 		saved.setSizeHeight(Integer.valueOf(sizeHeight.getText()));
-		int volumen = Integer.valueOf(sizeWidth.getText())*(Integer.valueOf(sizeLength.getText())*(Integer.valueOf(sizeHeight.getText())/1000));
+		int volumen = Integer.valueOf(sizeWidth.getText())
+				* (Integer.valueOf(sizeLength.getText()) * (Integer.valueOf(sizeHeight.getText()) / 1000));
 		volumeTextField.setText(String.valueOf(volumen));
 //		saved.setVolumen(volumen);
 		saved.setTemperatur(Integer.valueOf(temperaturTextField.getText()));
 		saved.setgH(Double.valueOf(ghTextField.getText()));
 		saved.setPh(Double.valueOf(phTextField.getText()));
+
 		try {
-			aqService.add(saved);
+			aqService.addAQ(saved);
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		
+
+		saved=null;
 		System.out.println("AQgespeichert: " + saved);
 
 		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;

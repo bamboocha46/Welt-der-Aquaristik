@@ -17,6 +17,8 @@ public enum Socialization {
 	public String getName() {
 		return name;
 	}
+	
+	
 
 }
 

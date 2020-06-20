@@ -11,15 +11,15 @@ public class FishTypeInAQService {
 	
 	private FishTypeInAQRepositoryJPA repository = new FishTypeInAQRepositoryJPA();
 	
-	public void add (FishTypeInAQ fishTypeInAQ) throws ServiceException {
+	public void addFishTypeInAQ (FishTypeInAQ fishTypeInAQ) throws ServiceException {
 		repository.add(fishTypeInAQ);
 	}
-	public FishTypeInAQ update(FishTypeInAQ fishTypeInAQ) throws ServiceException {
+	public FishTypeInAQ updateFishTypeInAQ(FishTypeInAQ fishTypeInAQ) throws ServiceException {
 
 		return repository.update(fishTypeInAQ);
 	}
 
-	public List<FishTypeInAQ> getAll() throws ServiceException {
+	public List<FishTypeInAQ> getAllFishTypeInAQ() throws ServiceException {
 
 		List<FishTypeInAQ> fishTypeInAQList = repository.getAll();
 		return fishTypeInAQList;
@@ -27,7 +27,7 @@ public class FishTypeInAQService {
 	}
 
 	
-	public void delete(FishTypeInAQ fishTypeInAQ) throws ServiceException {
+	public void deleteFishTypeInAQ(FishTypeInAQ fishTypeInAQ) throws ServiceException {
 		
 		repository.delete(fishTypeInAQ);
 	}
