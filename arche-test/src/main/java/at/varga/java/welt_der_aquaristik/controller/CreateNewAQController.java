@@ -2,6 +2,7 @@ package at.varga.java.welt_der_aquaristik.controller;
 
 import java.io.IOException;
 
+import at.varga.java.welt_der_aquaristik.application.Validator;
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
@@ -72,20 +73,60 @@ public class CreateNewAQController extends BasicController {
 		saved.setgH(Double.valueOf(ghTextField.getText()));
 		saved.setPh(Double.valueOf(phTextField.getText()));
 
-		try {
-			aqService.addAQ(saved);
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		}
+		int temperatur;
+		int width;
+		int length;
+		int height;
+		double gh;
+		double ph;
 
-		saved=null;
-		System.out.println("AQgespeichert: " + saved);
+		boolean isImputFormatCorrect = true;
+		try {
+			temperatur = Integer.parseInt(temperaturTextField.getText());
+			width = Integer.parseInt(sizeWidth.getText());
+			length = Integer.parseInt(sizeLength.getText());
+			height = Integer.parseInt(sizeHeight.getText());
+			gh = Double.parseDouble(ghTextField.getText());
+			ph = Double.parseDouble(phTextField.getText());
+		} catch (NumberFormatException ex) {
+			isImputFormatCorrect = false;
+		}
+		// Controll if AQ parameters are OK
+		if (isImputFormatCorrect) {
+			if (isNotNull(saved)) {
+				if (Validator.isTemperaturCorrect(saved.getTemperatur())) {
+					if (Validator.isGHCorrect(saved.getgH())) {
+						if (Validator.isPHCorrect(saved.getPh())) {
+							try {
+								aqService.addAQ(saved);
+							} catch (ServiceException e) {
+								e.printStackTrace();
+							}
+							System.out.println("AQgespeichert: " + saved);
+							saved = null;
+
+						} else
+							System.out.println("ph is not correct");
+
+					} else
+						System.out.println("gh ist not correct");
+				} else
+					System.out.println("temperatur ist not correct");
+			} else
+				System.out.println("AQnull");
+		} else
+			System.out.println("input is not corrert");
 
 		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
 		String setTitel = "Speicherung";
 
 		showNewScene(path, setTitel);
 
+	}
+
+	private boolean isNotNull(AQ saved) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	// back to WelcomeWindow
