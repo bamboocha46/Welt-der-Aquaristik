@@ -13,6 +13,7 @@
 			<property name="javax.persistence.jdbc.user" value="Eszter"/>
 			<property name="javax.persistence.jdbc.password" value="Password88"/>
 			<property name="javax.persistence.schema-generation.database.action" value="update"/>
+<!-- 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/> -->
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL55Dialect" />
 		</properties>
 	</persistence-unit>

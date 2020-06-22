@@ -62,7 +62,13 @@ public class AQ implements Serializable {
 //		for (FishTypeInAQ f: listOfFishes) {
 //			
 //		}
+		
 		this.fishesInAQList = listOfFishes;
+	}
+	
+	public AQ (long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
+			double ph) {
+		
 	}
 
 	public AQ() {
@@ -94,6 +100,10 @@ public class AQ implements Serializable {
 		return volumen;
 	}
 
+	public void setAQVolumen(int sizeWidth, int sizeLength, int sizeHeight) {
+		this.volumen = sizeWidth * sizeLength * sizeHeight / 1000;
+	}
+	
 	public void setVolumen(double volumen) {
 		this.volumen = volumen;
 	}
@@ -164,11 +174,21 @@ public void setStockingDensity(double stockingDensity) {
 	public void setListOfFishes(List<FishTypeInAQ> listOfFishes) {
 		this.fishesInAQList = listOfFishes;
 	}
+//
+//	@Override
+//	public String toString() {
+//		return titel;
+//		}
 
 	@Override
 	public String toString() {
-		return titel;
-		}
+		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
+				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
+				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", fishesInAQList=" + fishesInAQList
+				+ "]";
+	}
+	
+	
 
 //	public double getStockingDensity() {
 //		double summeFishSize = 0;

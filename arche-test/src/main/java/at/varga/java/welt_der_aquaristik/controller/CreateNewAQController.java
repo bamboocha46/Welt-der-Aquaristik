@@ -59,19 +59,21 @@ public class CreateNewAQController extends BasicController {
 	@FXML
 	void save(ActionEvent event) {
 
-		AQ saved = new AQ(Integer.valueOf(sizeWidth.getText()), Integer.valueOf(sizeLength.getText()),
-				Integer.valueOf(sizeHeight.getText()));
+		AQ saved = new AQ();
 		saved.setTitel(aqNameTextField.getText());
 		saved.setSizeWidth(Integer.valueOf(sizeWidth.getText()));
 		saved.setSizeLength(Integer.valueOf(sizeLength.getText()));
 		saved.setSizeHeight(Integer.valueOf(sizeHeight.getText()));
-		int volumen = Integer.valueOf(sizeWidth.getText())
-				* (Integer.valueOf(sizeLength.getText()) * (Integer.valueOf(sizeHeight.getText()) / 1000));
-		volumeTextField.setText(String.valueOf(volumen));
-//		saved.setVolumen(volumen);
+//		double volumen = Integer.valueOf(sizeWidth.getText())
+//				* (Integer.valueOf(sizeLength.getText()) * (Integer.valueOf(sizeHeight.getText()) / 1000));
+//		volumeTextField.setText(String.valueOf(volumen));
+//		double volumen = 27;
+//
+		saved.setAQVolumen(Integer.valueOf(sizeWidth.getText()),Integer.valueOf(sizeLength.getText()), Integer.valueOf(sizeHeight.getText()) );
 		saved.setTemperatur(Integer.valueOf(temperaturTextField.getText()));
 		saved.setgH(Double.valueOf(ghTextField.getText()));
 		saved.setPh(Double.valueOf(phTextField.getText()));
+		System.out.println(saved);
 
 		int temperatur;
 		int width;
@@ -93,7 +95,7 @@ public class CreateNewAQController extends BasicController {
 		}
 		// Controll if AQ parameters are OK
 		if (isImputFormatCorrect) {
-			if (isNotNull(saved)) {
+		//	if (isNotNull(saved)) {
 				if (Validator.isTemperaturCorrect(saved.getTemperatur())) {
 					if (Validator.isGHCorrect(saved.getgH())) {
 						if (Validator.isPHCorrect(saved.getPh())) {
@@ -112,8 +114,8 @@ public class CreateNewAQController extends BasicController {
 						System.out.println("gh ist not correct");
 				} else
 					System.out.println("temperatur ist not correct");
-			} else
-				System.out.println("AQnull");
+//			} else
+//				System.out.println("AQ is null");
 		} else
 			System.out.println("input is not corrert");
 

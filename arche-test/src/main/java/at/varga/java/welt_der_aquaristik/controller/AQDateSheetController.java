@@ -211,6 +211,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	}
 
+
 	void showAQParameters(AQ a) {
 
 //		for (AQ a : aqsFromDB) {
@@ -221,7 +222,9 @@ public class AQDateSheetController extends BasicController implements Initializa
 		ghText.setText(String.valueOf(a.getgH()) + "°d");
 		phText.setText(String.valueOf(a.getPh()));
 		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
+		if(a.getListOfFishes()!=null) {
 		fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
+		} 
 //			}
 //		}
 
