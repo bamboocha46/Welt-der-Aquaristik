@@ -30,9 +30,9 @@ public class FishType implements Serializable {
 
 	private double maxAqVolumen;
 
-	private float minTemperatur;
+	private int minTemperatur;
 
-	private float maxTemperatur;
+	private int maxTemperatur;
 
 	private float minPh;
 
@@ -47,7 +47,7 @@ public class FishType implements Serializable {
 	private Socialization socialization;
 
 	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen,
-			float minTemperatur, float maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
+			int minTemperatur, int maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
 			Socialization socialization, Cast cast) {
 		super();
 		this.id = id;
@@ -137,22 +137,22 @@ public class FishType implements Serializable {
 	}
 
 
-	public float getMinTemperatur() {
+	public int getMinTemperatur() {
 		return minTemperatur;
 	}
 
 
-	public void setMinTemperatur(float minTemperatur) {
+	public void setMinTemperatur(int minTemperatur) {
 		this.minTemperatur = minTemperatur;
 	}
 
 
-	public float getMaxTemperatur() {
+	public int getMaxTemperatur() {
 		return maxTemperatur;
 	}
 
 
-	public void setMaxTemperatur(float maxTemperatur) {
+	public void setMaxTemperatur(int maxTemperatur) {
 		this.maxTemperatur = maxTemperatur;
 	}
 

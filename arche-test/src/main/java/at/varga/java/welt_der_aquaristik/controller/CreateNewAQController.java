@@ -82,6 +82,7 @@ public class CreateNewAQController extends BasicController {
 		double gh;
 		double ph;
 
+		// Control if AQ parameters are OK
 		boolean isImputFormatCorrect = true;
 		try {
 			temperatur = Integer.parseInt(temperaturTextField.getText());
@@ -93,7 +94,6 @@ public class CreateNewAQController extends BasicController {
 		} catch (NumberFormatException ex) {
 			isImputFormatCorrect = false;
 		}
-		// Controll if AQ parameters are OK
 		if (isImputFormatCorrect) {
 		//	if (isNotNull(saved)) {
 				if (Validator.isTemperaturCorrect(saved.getTemperatur())) {

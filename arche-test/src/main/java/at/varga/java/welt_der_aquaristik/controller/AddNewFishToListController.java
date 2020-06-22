@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.application.Validator;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
@@ -141,8 +142,8 @@ public class AddNewFishToListController extends BasicController {
 		saved.setSize(Double.valueOf(sizeTextField.getText()));
 		saved.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
 		saved.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
-		saved.setMinTemperatur(Float.valueOf(minTemperaturTextField.getText()));
-		saved.setMaxTemperatur(Float.valueOf(maxTemperaturTextField.getText()));
+		saved.setMinTemperatur(Integer.valueOf(minTemperaturTextField.getText()));
+		saved.setMaxTemperatur(Integer.valueOf(maxTemperaturTextField.getText()));
 		saved.setMinPh(Float.valueOf(minPhTextField.getText()));
 		saved.setMaxPh(Float.valueOf(maxPhTextField.getText()));
 		saved.setMinGH(Integer.valueOf(minGhTextField.getText()));
@@ -150,22 +151,75 @@ public class AddNewFishToListController extends BasicController {
 		saved.setPictureUrl(null);
 		saved.setSocialization(socializationComboBox.getSelectionModel().getSelectedItem());
 
-		System.out.println(saved);
+		double minAQVolumen;
+		double maxAQVolumen;
+		int minTemperatur;
+		int maxTemperatur;
+		double minPH;
+		double maxPH;
+		double mingH;
+		double maxgH;
+		// Control if Fish parameters are ok
+		boolean isImputFormatCorrect = true;
+		try {
+			minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
+			maxAQVolumen = Double.parseDouble(aqMaxVolumenTextField.getText());
+			minTemperatur = Integer.parseInt(minTemperaturTextField.getText());
+			maxTemperatur = Integer.parseInt(maxTemperaturTextField.getText());
+			minPH = Double.parseDouble(minPhTextField.getText());
+			maxPH = Double.parseDouble(maxPhTextField.getText());
+			mingH = Double.parseDouble(minGhTextField.getText());
+			maxgH = Double.parseDouble(maxGhTextField.getText());
+		} catch (NumberFormatException ex) {
+			isImputFormatCorrect = false;
+		}
 
+		if (isImputFormatCorrect) {
+			if (Validator.isTemperaturCorrect(saved.getMinTemperatur())) {
+				if (Validator.isTemperaturCorrect(saved.getMaxTemperatur())) {
+					if (Validator.isGHCorrect(saved.getMinGH())) {
+						if (Validator.isGHCorrect(saved.getMaxGH())) {
+							if (Validator.isPHCorrect(saved.getMinPh())) {
+								if (Validator.isPHCorrect(saved.getMaxPh())) {
+									try {
+										fishTypeService.addFishType(saved);
+									} catch (ServiceException e) {
+										e.printStackTrace();
+									}
+
+									System.out.println(saved + " saved in DB");
+									saved = null;
+
+
+								} else
+									System.out.println("maxPH is not correct");
+
+							} else
+								System.out.println("minPh is not correct");
+
+						} else
+							System.out.println("maxGH is not correct");
+
+					} else
+						System.out.println("minGH is not correct");
+
+				} else
+					System.out.println("maxTemperatur is not correct");
+
+			} else
+				System.out.println("minTemperatur is not correct");
+
+		} else
+			System.out.println("User input is/are not correct (int != int /double != double)");
+
+		
 //		try {
 //			copyFileUsingJava7Files(source, dest);
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
-		
-		try {
-			fishTypeService.addFishType(saved);
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		}
 
-		saved=null;
-
+	
 //		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
 //		String setTitel = "Speicherung";
 //		showNewScene(path, setTitel);

@@ -174,19 +174,19 @@ public void setStockingDensity(double stockingDensity) {
 	public void setListOfFishes(List<FishTypeInAQ> listOfFishes) {
 		this.fishesInAQList = listOfFishes;
 	}
-//
-//	@Override
-//	public String toString() {
-//		return titel;
-//		}
 
 	@Override
 	public String toString() {
-		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
-				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
-				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", fishesInAQList=" + fishesInAQList
-				+ "]";
-	}
+		return titel;
+		}
+
+//	@Override
+//	public String toString() {
+//		return "AQ [aqId=" + aqId + ", titel=" + titel + ", volumen=" + volumen + ", sizeWidth=" + sizeWidth
+//				+ ", sizeLength=" + sizeLength + ", sizeHeight=" + sizeHeight + ", temperatur=" + temperatur + ", gH="
+//				+ gH + ", ph=" + ph + ", stockingDensity=" + stockingDensity + ", fishesInAQList=" + fishesInAQList
+//				+ "]";
+//	}
 	
 	
 
