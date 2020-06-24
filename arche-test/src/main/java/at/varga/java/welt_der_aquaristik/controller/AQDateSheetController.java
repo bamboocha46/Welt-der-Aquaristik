@@ -51,7 +51,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 //	private ObservableList<AQ> aqListForView = FXCollections.observableArrayList();
 	private ObservableList<AQ> aqListFromDB = FXCollections.observableArrayList();
 
-	
 	@FXML
 	private Button AddNewFishButton;
 	@FXML
@@ -212,16 +211,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-//		 MyAQS List
-//		try {
-//			aqListFromDB = aqService.getAllAQ();
-//		} catch (ServiceException e) {
-//			e.printStackTrace();
-//		}
-//		for (AQ a : aqListFromDB) {
-//			aqListForView.add(a);
-//		}
-
 		// MyAQS List
 		try {
 			aqListFromDB.addAll(aqService.getAllAQ());
@@ -241,38 +230,12 @@ public class AQDateSheetController extends BasicController implements Initializa
 					}
 				});
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
-		// fishTypeInAQTable.setItems(list);
 
 		aqComboBox.setItems(aqListFromDB);
-//		aqComboBox.setItems(aqListForView);
+		aqComboBox.setValue(aqListFromDB.get(0));
+		showAQParameters(aqListFromDB.get(0));
 		aqComboBox.setOnAction(this::handleAQSelected);
 	}
-
-//	@Override
-//	public void initialize(URL location, ResourceBundle resources) {
-//		// FishTabelle
-//		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
-//		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
-//
-//		// MyAQS List
-//		try {
-//			aqListFromDB = aqService.getAllAQ();
-//		} catch (ServiceException e) {
-//			e.printStackTrace();
-//		}
-//		for (AQ a : aqListFromDB) {
-//			aqListForView.add(a);
-//		}
-//		aqComboBox.setValue(aqListForView.get(4));
-//		showAQParameters(aqListForView.get(4));
-//		aqComboBox.setItems(aqListForView);
-//		aqComboBox.setOnAction(this::handleAQSelected);
-////		aqComboBox.setValue(aq1);
-////		showAQParameters(aq1);
-////		aqComboBox.setItems(aqListForView);
-////		aqComboBox.setOnAction(this::handleAQSelected);
-//
-//	}
 
 	@FXML
 	void handleAQSelected(ActionEvent event) {

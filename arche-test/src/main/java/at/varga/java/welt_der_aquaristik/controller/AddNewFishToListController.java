@@ -163,9 +163,6 @@ public class AddNewFishToListController extends BasicController {
 		socializationComboBox.setValue(Socialization.AGRESSIV);
 		socializationComboBox.setItems(fishSocializationList);
 
-//		castFinalTextField.setText("???");
-//		givenCastField.setText("???");
-
 	}
 
 	@FXML
@@ -183,7 +180,7 @@ public class AddNewFishToListController extends BasicController {
 		double maxPH;
 		double mingH;
 		double maxgH;
-		
+
 		boolean isInputFormatCorrect = true;
 		try {
 			minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
@@ -200,7 +197,8 @@ public class AddNewFishToListController extends BasicController {
 			System.out.println("WrongInput");
 
 		}
-		// If inputFormat is correct (also Integer is int, Double ich double, float is float), input will be set to FishType
+		// inputFormat is correct (also Integer is int, Double ich double, float is
+		// float), input will be set to FishType
 		if (isInputFormatCorrect) {
 			saved.setCast(castCastFormat);
 			saved.setBreed(String.valueOf(breedTextField.getText()));
@@ -220,11 +218,11 @@ public class AddNewFishToListController extends BasicController {
 			showPopUp("Falsche Eingabe, bitte korrigieren!");
 		}
 
-		//Input must be controll, if they are OK for a fish
-		//Temp.: 4-35°C
-		//Ph:6.5 0 8.2
-		//GH: 0-30°d
-		//If User input is wrong -> User get a PopUp
+		// Input must be controll, if they are OK for a fish
+		// Temp.: 4-35°C
+		// Ph:6.5 0 8.2
+		// GH: 0-30°d
+		// If User input is wrong -> User get a PopUp
 		if (isInputFormatCorrect) {
 			if (Validator.isTemperaturCorrect(saved.getMinTemperatur())) {
 				if (Validator.isTemperaturCorrect(saved.getMaxTemperatur())) {
@@ -279,29 +277,6 @@ public class AddNewFishToListController extends BasicController {
 //		showNewScene(path, setTitel);
 
 	}
-
-//	private void showPopUp(String text) {
-//		try {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
-//			Parent root = loader.load();
-//
-//			PopUpSaveMessageController popUpSavectrl = loader.getController();
-//			popUpSavectrl.setPopUpText(text);
-//
-//			Stage stage = new Stage();
-//			stage.setTitle("Pop Up");
-//			stage.initModality(Modality.WINDOW_MODAL);
-//			stage.initOwner(Main.primaryStage);
-//
-//			Scene scene = new Scene(root);
-//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-//			stage.setScene(scene);
-//			stage.showAndWait();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//	}
 
 	@FXML
 	void back(ActionEvent event) {
