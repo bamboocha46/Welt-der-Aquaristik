@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 public class FishPoolController extends BasicController {
 
 //	@FXML
-//	private ComboBox<String> castComboBox;
+//	private ComboBox<Cast> castComboBox;
 	@FXML
 	private ComboBox<String> castComboBox;
 	@FXML

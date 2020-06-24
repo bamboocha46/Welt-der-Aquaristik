@@ -94,28 +94,16 @@ public class CastController extends BasicController {
 		}
 
 	}
-
+	
+//	@FXML
+//	public void giveMeCastInString(String cast) {
+//		this.cast = cast;
+//	}
+	
 	@FXML
 	public void initialize(String cast) {
 		this.cast = cast;
 
-		// System.out.println("castCombobox value:" + cast);
-
-//		fishTypeFromDB.add(fishFirst);
-//		fishTypeFromDB.add(fishSecond);
-//		fishTypeFromDB.add(fishThird);
-//		fishTypeFromDB.add(fish4);
-//		fishTypeFromDB.add(fish5);
-//		fishTypeFromDB.add(fish6);
-//		fishTypeFromDB.add(fish7);
-//		fishTypeFromDB.add(fish8);
-//		fishTypeFromDB.add(fish9);
-//		fishTypeFromDB.add(fish10);
-//		fishTypeFromDB.add(fish11);
-//		fishTypeFromDB.add(fish12);
-//		fishTypeFromDB.add(fish13);
-//		fishTypeFromDB.add(fish14);
-//		fishTypeFromDB.add(fish15);
 		try {
 			fishTypeFromDB = fishTypeService.getAllFishType();
 		} catch (ServiceException e) {

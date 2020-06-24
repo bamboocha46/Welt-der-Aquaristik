@@ -14,12 +14,18 @@ public class PopUpSaveMessageController extends BasicController {
     	
     }
     
+    public void setPopUpText (String text) {
+    	saveMassageLabel.setText(text);
+    }
+    
 	@FXML
 	private void initialize() {
 		
 		if (isSaveOk =true) {
 		saveMassageLabel.setText("erfolderlich gespeichert");
-		} else saveMassageLabel.setText("Falsche Eingabe, bitte korrigieren!");
+		} else if (isSaveOk = false) {
+			saveMassageLabel.setText("Falsche Eingabe, bitte korrigieren!");
+		}
 
 	}
 
