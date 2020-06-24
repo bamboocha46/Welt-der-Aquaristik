@@ -34,7 +34,7 @@ public class FishTypeRepositoryJPA implements IFishTypeRepository {
 
 		emf.close();
 
-		System.out.println("Inserted Photo: " + fishType.getId());
+		System.out.println("Inserted FishType: " + fishType.getId());
 
 	}
 
@@ -71,8 +71,10 @@ public class FishTypeRepositoryJPA implements IFishTypeRepository {
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<FishType> fishTypeList = (List<FishType>) em.createQuery("select * from FISHTYPE")
+		List<FishType> fishTypeList = (List<FishType>) em.createQuery("FROM FishType", FishType.class)
 				.getResultList();
+//		List<FishType> fishTypeList = (List<FishType>) em.createQuery("select ft from FishType ft")
+//		.getResultList();
 
 		transaction.commit();
 		em.close();

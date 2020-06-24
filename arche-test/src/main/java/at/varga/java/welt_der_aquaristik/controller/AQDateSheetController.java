@@ -24,6 +24,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -93,33 +94,82 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
 
+//	// Method to add a new fish to the AQ
+//	@FXML
+//	void addANewFishToAQ(ActionEvent event) {
+//		try {
+//			FXMLLoader loader = new FXMLLoader();
+//			loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
+//			AnchorPane addNewFishToAQ = null;
+//
+//			addNewFishToAQ = loader.load();
+//
+//			Stage addNewFishWindow = new Stage();
+//			addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
+//			addNewFishWindow.initModality(Modality.WINDOW_MODAL);
+//			addNewFishWindow.initOwner(Main.primaryStage);
+//
+//			Scene scene = new Scene(addNewFishToAQ);
+//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+//			addNewFishWindow.setScene(scene);
+//			addNewFishWindow.showAndWait();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//	}
 	// Method to add a new fish to the AQ
+//	@FXML
+//	void addANewFishToAQ(ActionEvent event) {
+//		try {
+//			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
+//			Parent root = loader.load();
+//
+//			AddNewFishToAQController addNewFishToAQController = loader.getController();
+//			addNewFishToAQController.giveMeAQId(aqComboBox.getValue().getAqId());
+//
+//			Stage addNewFishWindow = new Stage();
+//			addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
+//			addNewFishWindow.initModality(Modality.WINDOW_MODAL);
+//			addNewFishWindow.initOwner(Main.primaryStage);
+//
+//			Scene scene = new Scene(root);
+//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+//			addNewFishWindow.setScene(scene);
+//			addNewFishWindow.showAndWait();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//	}
+	// Controller gives AQId to next Controller: AddNewFishToAQController
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
-
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
-		AnchorPane addNewFishToAQ = null;
 		try {
-			addNewFishToAQ = loader.load();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
+			Parent root = loader.load();
+
+			AddNewFishToAQController addNewFishToAQController = loader.getController();
+			addNewFishToAQController.giveMeAQ(aqComboBox.getValue());
+
+			Stage addNewFishWindow = new Stage();
+			addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
+			addNewFishWindow.initModality(Modality.WINDOW_MODAL);
+			addNewFishWindow.initOwner(Main.primaryStage);
+
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			addNewFishWindow.setScene(scene);
+			addNewFishWindow.showAndWait();
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
-		Stage addNewFishWindow = new Stage();
-		addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
-		addNewFishWindow.initModality(Modality.WINDOW_MODAL);
-		addNewFishWindow.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(addNewFishToAQ);
-		scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-		addNewFishWindow.setScene(scene);
-		addNewFishWindow.showAndWait();
-
 	}
 
-	// FishTypesINAQFromDB is missed!
 	@FXML
 	void deleteFish(ActionEvent event) {
 
@@ -174,25 +224,16 @@ public class AQDateSheetController extends BasicController implements Initializa
 		// FishTabelle
 		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
-		// fishTypeInAQTable.setItems(list);
 
 		// MyAQS List
 		try {
 			aqListFromDB = aqService.getAllAQ();
 		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for (AQ a : aqListFromDB) {
 			aqListForView.add(a);
 		}
-
-//		// 2020.06.19
-//		aq1.setListOfFishes(list);
-//		aq2.setListOfFishes(list2);
-
-//		aqComboBox.setValue(aq1.getTitel());
-//		aqComboBox.setItems(aqTitelList);
 		aqComboBox.setValue(aq1);
 		showAQParameters(aq1);
 		aqComboBox.setItems(aqListForView);
@@ -211,20 +252,26 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	}
 
-
 	void showAQParameters(AQ a) {
 
-//		for (AQ a : aqsFromDB) {
-//			if (a.getTitel().equals(aqComboBox.getValue())) {
 		sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
 		volumenText.setText(String.valueOf(a.getVolumen()) + "l");
 		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
 		ghText.setText(String.valueOf(a.getgH()) + "°d");
 		phText.setText(String.valueOf(a.getPh()));
 		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-		if(a.getListOfFishes()!=null) {
-		fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
-		} 
+		if (a.getListOfFishes() != null) {
+			fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
+		}
+
+		// Eszter: Kapiere ich nicht 2020.06.23
+		// jprie: Observable list erstellen, nicht nur casten!
+
+//		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
+//
+//		list.addAll(a.getListOfFishes());
+//
+//		fishTypeInAQTable.setItems(list);
 //			}
 //		}
 
@@ -232,26 +279,13 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 //	@FXML
 //	void showAQParameters(ActionEvent event) {
-//
 ////		double summeFishLengts = 0;
 ////		for (FishTypeInAQ a : list) {
 ////			summeFishLengts += a.getFishSummeSize();
 ////		}
 ////		
 ////		System.out.println("SummeFischLängen: " + summeFishLengts);
-//		
-//		for (AQ a : aqsFromDB) {
-//			if (a.getTitel().equals(aqComboBox.getValue())) {
-//				sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
-//				volumenText.setText(String.valueOf(a.getVolumen()) + "l");
-//				temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
-//				ghText.setText(String.valueOf(a.getgH()) + "°d");
-//				phText.setText(String.valueOf(a.getPh()));
 //				stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-//				fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
-//			}
-//		}
-//		
 //	}
 
 	// closes actuelly window, leads to PrimerWindow

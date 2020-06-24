@@ -30,6 +30,8 @@ import javafx.stage.Stage;
 
 public class FishPoolController extends BasicController {
 
+//	@FXML
+//	private ComboBox<String> castComboBox;
 	@FXML
 	private ComboBox<String> castComboBox;
 	@FXML
@@ -67,32 +69,7 @@ public class FishPoolController extends BasicController {
 			Cast.LABYRINTHFISCH);
 	FishType fish15 = new FishType(14, "fish11", 1, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
 			Cast.LABYRINTHFISCH);
-//
-//	public ObservableList<String> list = FXCollections.observableArrayList(String.valueOf(fishFirst.getCast()),
-//			String.valueOf(fishSecond.getCast()),
-//			String.valueOf(fishThird.getCast()),
-//			String.valueOf(fish5.getCast()),
-//			String.valueOf(fish6.getCast()),
-//			String.valueOf(fish7.getCast()),
-//			String.valueOf(fish8.getCast()),
-//			String.valueOf(fish9.getCast()),
-//			String.valueOf(fish10.getCast()),
-//			String.valueOf(fish11.getCast()),
-//			String.valueOf(fish12.getCast()),
-//			String.valueOf(fish13.getCast()),
-//			String.valueOf(fish14.getCast()),
-//			String.valueOf(fish15.getCast()));
-	
 
-//	public ObservableList<String> list = FXCollections.observableArrayList(
-//			Cast.ANDERE_FISCH.getCastName(), 
-//			Cast.BARSCH.getCastName(), 
-//			Cast.BÄRBLING.getCastName(), 
-//			Cast.KALTWASSERFISCH.getCastName(), 
-//			Cast.LABYRINTHFISCH.getCastName(), 
-//			Cast.LEBENDGEBÄRENDE.getCastName(), 
-//			Cast.SALMLER.getCastName(), 
-//			Cast.WELS.getCastName());
 	
 	public ObservableList<String> list = FXCollections.observableArrayList(
 			Cast.ANDERE_FISCH.getCastName(), 
@@ -104,7 +81,16 @@ public class FishPoolController extends BasicController {
 			Cast.SALMLER.getCastName(), 
 			Cast.WELS.getCastName());
 	
-//	public ObservableList<String> list = FXCollections.observableArrayList("Barsch", "Kaltwasserfisch", "Lebendgebärende");
+//	public ObservableList<Cast> list = FXCollections.observableArrayList(
+//			Cast.ANDERE_FISCH, 
+//			Cast.BARSCH, 
+//			Cast.BAERBLING, 
+//			Cast.KALTWASSERFISCH, 
+//			Cast.LABYRINTHFISCH, 
+//			Cast.LEBENDGEBAERENDE, 
+//			Cast.SALMLER, 
+//			Cast.WELS);
+
 	
 	@FXML
 	private void initialize() {

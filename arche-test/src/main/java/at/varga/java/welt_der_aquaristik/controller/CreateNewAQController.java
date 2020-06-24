@@ -54,6 +54,8 @@ public class CreateNewAQController extends BasicController {
 	@FXML
 	private TextField phTextField;
 
+	private boolean isSaveOk =false;
+
 	// doesnt save yet
 	// just show popUp: SaveMessage
 	@FXML
@@ -64,12 +66,8 @@ public class CreateNewAQController extends BasicController {
 		saved.setSizeWidth(Integer.valueOf(sizeWidth.getText()));
 		saved.setSizeLength(Integer.valueOf(sizeLength.getText()));
 		saved.setSizeHeight(Integer.valueOf(sizeHeight.getText()));
-//		double volumen = Integer.valueOf(sizeWidth.getText())
-//				* (Integer.valueOf(sizeLength.getText()) * (Integer.valueOf(sizeHeight.getText()) / 1000));
-//		volumeTextField.setText(String.valueOf(volumen));
-//		double volumen = 27;
-//
-		saved.setAQVolumen(Integer.valueOf(sizeWidth.getText()),Integer.valueOf(sizeLength.getText()), Integer.valueOf(sizeHeight.getText()) );
+		saved.setAQVolumen(Integer.valueOf(sizeWidth.getText()), Integer.valueOf(sizeLength.getText()),
+				Integer.valueOf(sizeHeight.getText()));
 		saved.setTemperatur(Integer.valueOf(temperaturTextField.getText()));
 		saved.setgH(Double.valueOf(ghTextField.getText()));
 		saved.setPh(Double.valueOf(phTextField.getText()));
@@ -95,34 +93,66 @@ public class CreateNewAQController extends BasicController {
 			isImputFormatCorrect = false;
 		}
 		if (isImputFormatCorrect) {
-		//	if (isNotNull(saved)) {
-				if (Validator.isTemperaturCorrect(saved.getTemperatur())) {
-					if (Validator.isGHCorrect(saved.getgH())) {
-						if (Validator.isPHCorrect(saved.getPh())) {
-							try {
-								aqService.addAQ(saved);
-							} catch (ServiceException e) {
-								e.printStackTrace();
-							}
-							System.out.println("AQgespeichert: " + saved);
-							saved = null;
-
-						} else
-							System.out.println("ph is not correct");
+			// if (isNotNull(saved)) {
+			if (Validator.isTemperaturCorrect(saved.getTemperatur())) {
+				if (Validator.isGHCorrect(saved.getgH())) {
+					if (Validator.isPHCorrect(saved.getPh())) {
+						try {
+							aqService.addAQ(saved);
+						} catch (ServiceException e) {
+							e.printStackTrace();
+						}
+						System.out.println("AQgespeichert: " + saved);
+						saved = null;
+//						String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
+//						String setTitel = "Speicherung";
+//
+//						showNewScene(path, setTitel);
+						isSaveOk = true;
+						System.out.println("issaveOK: " + isSaveOk);
 
 					} else
-						System.out.println("gh ist not correct");
+						System.out.println("ph is not correct");
+					isSaveOk = false;
+
 				} else
-					System.out.println("temperatur ist not correct");
+					System.out.println("gh ist not correct");
+					isSaveOk = false;
+			} else
+				System.out.println("temperatur ist not correct");
+				isSaveOk = false;
 //			} else
 //				System.out.println("AQ is null");
 		} else
 			System.out.println("input is not corrert");
+			isSaveOk = false;
 
-		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
-		String setTitel = "Speicherung";
+//		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
+//		String setTitel = "Speicherung";
+//
+//		showNewScene(path, setTitel);
 
-		showNewScene(path, setTitel);
+			System.out.println(": issaveok" + isSaveOk );
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
+			Parent root = loader.load();
+
+			PopUpSaveMessageController popUpSavectrl = loader.getController();
+			popUpSavectrl.saveOk(this.isSaveOk);
+
+			Stage stage = new Stage();
+			stage.setTitle("Pop Up");
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(Main.primaryStage);
+
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			stage.setScene(scene);
+			stage.showAndWait();
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 
 	}
 

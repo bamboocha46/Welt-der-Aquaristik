@@ -78,13 +78,10 @@ public class AQRepositoryJPA implements IAQRepository {
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		//FROM User u WHERE  u.email = :email
-//		List<AQ> aqList = (List<AQ>) em.createQuery("FROM aqdb1.aqs")
-//		.getResultList();
+
 		List<AQ> aqList = (List<AQ>) em.createQuery("FROM AQ", AQ.class)
 		.getResultList();
-//		List<AQ> aqList = (List<AQ>) em.createQuery("SELECT * FROM aqdb1.aqs")
-//				.getResultList();
+
 
 		transaction.commit();
 		em.close();

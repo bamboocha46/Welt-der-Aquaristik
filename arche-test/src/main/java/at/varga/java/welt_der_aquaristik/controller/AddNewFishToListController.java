@@ -24,6 +24,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -49,6 +50,8 @@ public class AddNewFishToListController extends BasicController {
 
 	@FXML
 	private TextField castFinalTextField;
+	@FXML
+	private Text givenCastField;
 
 	@FXML
 	private TextField sizeTextField;
@@ -92,6 +95,7 @@ public class AddNewFishToListController extends BasicController {
 
 	private String dataName;
 	private File source;
+	private Cast castCastFormat;
 
 	public static final String ORIGINAL_PATH = "C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\picture_";
 	private File dest = new File(ORIGINAL_PATH);
@@ -125,10 +129,41 @@ public class AddNewFishToListController extends BasicController {
 		}
 	}
 
+	public void giveMeCast(String cast) {
+		castCastFormat=getTypeCast(cast);
+
+	}
+	
+	public Cast getTypeCast(String cast) {
+		
+		if (cast.equals("Barsch")) {
+			return Cast.BARSCH;
+		} else if (cast.equals("Bärbling")) {
+			return Cast.BAERBLING;
+		} else if (cast.equals("Kaltwasserfisch")) {
+			return Cast.KALTWASSERFISCH;
+		} else if (cast.equals("Labyrinthfisch")) {
+			return Cast.LABYRINTHFISCH;
+		} else if (cast.equals("Lebendgebärende")) {
+			return Cast.LEBENDGEBAERENDE;
+		} else if (cast.equals("Salmler")) {
+			return Cast.SALMLER;
+		} else if (cast.equals("Wels")) {
+			return Cast.WELS;
+		} else if (cast.equals("Anderer Fisch")) {
+			return Cast.ANDERE_FISCH;
+		} else
+		System.out.println("No given Cast.getCastNameFormat");
+		return null;
+
+	}
+
 	@FXML
 	private void initialize() {
 		socializationComboBox.setValue(Socialization.AGRESSIV);
 		socializationComboBox.setItems(fishSocializationList);
+//		castFinalTextField.setText("???");
+//		givenCastField.setText("???");
 
 	}
 
@@ -160,7 +195,7 @@ public class AddNewFishToListController extends BasicController {
 		double mingH;
 		double maxgH;
 		// Control if Fish parameters are ok
-		boolean isImputFormatCorrect = true;
+		boolean isInputFormatCorrect = true;
 		try {
 			minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
 			maxAQVolumen = Double.parseDouble(aqMaxVolumenTextField.getText());
@@ -171,10 +206,10 @@ public class AddNewFishToListController extends BasicController {
 			mingH = Double.parseDouble(minGhTextField.getText());
 			maxgH = Double.parseDouble(maxGhTextField.getText());
 		} catch (NumberFormatException ex) {
-			isImputFormatCorrect = false;
+			isInputFormatCorrect = false;
 		}
 
-		if (isImputFormatCorrect) {
+		if (isInputFormatCorrect) {
 			if (Validator.isTemperaturCorrect(saved.getMinTemperatur())) {
 				if (Validator.isTemperaturCorrect(saved.getMaxTemperatur())) {
 					if (Validator.isGHCorrect(saved.getMinGH())) {
@@ -189,7 +224,6 @@ public class AddNewFishToListController extends BasicController {
 
 									System.out.println(saved + " saved in DB");
 									saved = null;
-
 
 								} else
 									System.out.println("maxPH is not correct");
@@ -212,14 +246,12 @@ public class AddNewFishToListController extends BasicController {
 		} else
 			System.out.println("User input is/are not correct (int != int /double != double)");
 
-		
 //		try {
 //			copyFileUsingJava7Files(source, dest);
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
 
-	
 //		String path = Constants.PATH_TO_POP_UP_SAVE_FXML;
 //		String setTitel = "Speicherung";
 //		showNewScene(path, setTitel);

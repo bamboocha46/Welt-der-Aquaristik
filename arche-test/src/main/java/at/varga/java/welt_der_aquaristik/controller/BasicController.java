@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * @author eszte
  *
  */
-
+//jprie: Könnte man als Utility-Klasse mir static Methoden implementieren, da/solange Du keinen State brauchst
 public abstract class BasicController {
 
 	public void showNewScene(String path, String setTitel) {

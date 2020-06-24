@@ -10,8 +10,10 @@ package at.varga.java.welt_der_aquaristik.model;
  */
 public enum Cast {
 
-	BARSCH(1), BAERBLING(2), KALTWASSERFISCH(3), LABYRINTHFISCH(4), LEBENDGEBAERENDE(5), SALMLER(6), WELS(7),
-	ANDERE_FISCH(8);
+//	BARSCH(1), BAERBLING(2), KALTWASSERFISCH(3), LABYRINTHFISCH(4), LEBENDGEBAERENDE(5), SALMLER(6), WELS(7),
+//	ANDERE_FISCH(8);
+	BARSCH(0), BAERBLING(1), KALTWASSERFISCH(2), LABYRINTHFISCH(3), LEBENDGEBAERENDE(4), SALMLER(5), WELS(6),
+	ANDERE_FISCH(7);
 
 	private final int CAST_ID;
 
@@ -24,27 +26,27 @@ public enum Cast {
 	}
 
 	public String getCastName() {
-		if (CAST_ID == 1) {
+		if (CAST_ID == 0) {
 			return "Barsch";
-		} else if (CAST_ID == 2) {
+		} else if (CAST_ID == 1) {
 			return "Bärbling";
-		} else if (CAST_ID == 3) {
+		} else if (CAST_ID == 2) {
 			return "Kaltwasserfisch";
-		} else if (CAST_ID == 4) {
+		} else if (CAST_ID == 3) {
 			return "Labyrinthfisch";
-		}  else if (CAST_ID == 5) {
+		} else if (CAST_ID == 4) {
 			return "Lebendgebärende";
-		}  else if (CAST_ID == 6) {
+		} else if (CAST_ID == 5) {
 			return "Salmler";
-		}  else if (CAST_ID == 7) {
+		} else if (CAST_ID == 6) {
 			return "Wels";
-		}  else if (CAST_ID == 8) {
+		} else if (CAST_ID == 7) {
 			return "Anderer Fisch";
 		}
 		return null;
 
 	}
-//	
+
 //	@Override
 //	public String toString() {
 //		return null;
