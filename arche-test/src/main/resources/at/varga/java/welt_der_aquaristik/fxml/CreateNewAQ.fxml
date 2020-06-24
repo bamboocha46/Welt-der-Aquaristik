@@ -20,22 +20,19 @@
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Aquarium Größe (LxBxH):" textAlignment="CENTER" wrappingWidth="173.78369140625" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Volumen (l):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Gh (°d):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="4" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Ph:" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="5" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Temperatur (°C):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="3" />
-            <TextField id="volume" fx:id="volumeTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Gh (°d):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Ph:" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Temperatur (°C):" textAlignment="CENTER" wrappingWidth="173.73193359375" GridPane.rowIndex="2" />
             <TextField id="size2" fx:id="sizeWidth" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField id="volume" fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField id="volume" fx:id="ghTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField id="volume" fx:id="phTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField id="volume" fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField id="volume" fx:id="ghTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField id="volume" fx:id="phTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField id="size2" fx:id="sizeLength" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <TextField id="size3" fx:id="sizeHeight" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Text" text="Aquarium Name:" textAlignment="CENTER" wrappingWidth="174.86279296875" />

@@ -183,6 +183,7 @@ public class AddNewFishToListController extends BasicController {
 		double maxPH;
 		double mingH;
 		double maxgH;
+		
 		boolean isInputFormatCorrect = true;
 		try {
 			minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
@@ -279,28 +280,28 @@ public class AddNewFishToListController extends BasicController {
 
 	}
 
-	private void showPopUp(String text) {
-		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
-			Parent root = loader.load();
-
-			PopUpSaveMessageController popUpSavectrl = loader.getController();
-			popUpSavectrl.setPopUpText(text);
-
-			Stage stage = new Stage();
-			stage.setTitle("Pop Up");
-			stage.initModality(Modality.WINDOW_MODAL);
-			stage.initOwner(Main.primaryStage);
-
-			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-			stage.setScene(scene);
-			stage.showAndWait();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-	}
+//	private void showPopUp(String text) {
+//		try {
+//			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
+//			Parent root = loader.load();
+//
+//			PopUpSaveMessageController popUpSavectrl = loader.getController();
+//			popUpSavectrl.setPopUpText(text);
+//
+//			Stage stage = new Stage();
+//			stage.setTitle("Pop Up");
+//			stage.initModality(Modality.WINDOW_MODAL);
+//			stage.initOwner(Main.primaryStage);
+//
+//			Scene scene = new Scene(root);
+//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+//			stage.setScene(scene);
+//			stage.showAndWait();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//	}
 
 	@FXML
 	void back(ActionEvent event) {
