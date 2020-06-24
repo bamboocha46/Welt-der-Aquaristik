@@ -16,6 +16,8 @@ import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 import at.varga.java.welt_der_aquaristik.model.Socialization;
 import at.varga.java.welt_der_aquaristik.service.AQService;
 import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,6 +31,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -37,31 +40,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class AQDateSheetController extends BasicController implements Initializable {
 
 	AQService aqService = new AQService();
 	FishTypeInAQService fishTypeInAQService = new FishTypeInAQService();
 
-	// AQs as example
-	AQ aq1 = new AQ(1, "Amazonas", 60, 180, 60, 26, 15, 7.5, null);
-	AQ aq2 = new AQ(2, "Nano", 30, 30, 30, 24, 8, 7.3, null);
-	AQ aq3 = new AQ(3, "LieblingsAQ", 60, 60, 30, 22, 10, 7.7, null);
+//	private List<AQ> aqListFromDB = new ArrayList<AQ>();
+//	private ObservableList<AQ> aqListForView = FXCollections.observableArrayList();
+	private ObservableList<AQ> aqListFromDB = FXCollections.observableArrayList();
 
-	// constant examples Fishes
-	FishType fishFirst = new FishType(1, "Neon", 5, 120, 1000, 23, 28, 5f, 7.5f, 2, 20, "", Socialization.GRUPPENFISH,
-			Cast.SALMLER);
-	FishType fishSecond = new FishType(2, "Betta", 7, 30, 100, 24, 30, 5.5f, 7.5f, 2, 20, "",
-			Socialization.EINZELHALTUNG, Cast.LABYRINTHFISCH);
-	FishType fishThird = new FishType(3, "Skalar", 15, 150, 1000, 24, 28, 5.5f, 7.2f, 2, 15, "", Socialization.AGRESSIV,
-			Cast.BARSCH);
-
-//		public ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList(fishTypeInAq1, fishTypeInAq2);
-//		public ObservableList<FishTypeInAQ> list2 = FXCollections.observableArrayList(fishTypeInAq3);
-
-	private List<AQ> aqListFromDB = new ArrayList<AQ>();
-	private ObservableList<AQ> aqListForView = FXCollections.observableArrayList();
-
+	
 	@FXML
 	private Button AddNewFishButton;
 	@FXML
@@ -221,25 +211,68 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// FishTabelle
-		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
-		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
+
+//		 MyAQS List
+//		try {
+//			aqListFromDB = aqService.getAllAQ();
+//		} catch (ServiceException e) {
+//			e.printStackTrace();
+//		}
+//		for (AQ a : aqListFromDB) {
+//			aqListForView.add(a);
+//		}
 
 		// MyAQS List
 		try {
-			aqListFromDB = aqService.getAllAQ();
+			aqListFromDB.addAll(aqService.getAllAQ());
+
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		for (AQ a : aqListFromDB) {
-			aqListForView.add(a);
-		}
-		aqComboBox.setValue(aq1);
-		showAQParameters(aq1);
-		aqComboBox.setItems(aqListForView);
-		aqComboBox.setOnAction(this::handleAQSelected);
 
+		// FishTabelle
+		breedColumn.setCellValueFactory(
+				new Callback<TableColumn.CellDataFeatures<FishTypeInAQ, String>, ObservableValue<String>>() {
+
+					@Override
+					public ObservableValue<String> call(CellDataFeatures<FishTypeInAQ, String> param) {
+
+						return new SimpleStringProperty(param.getValue().getFishType().getBreed());
+					}
+				});
+		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
+		// fishTypeInAQTable.setItems(list);
+
+		aqComboBox.setItems(aqListFromDB);
+//		aqComboBox.setItems(aqListForView);
+		aqComboBox.setOnAction(this::handleAQSelected);
 	}
+
+//	@Override
+//	public void initialize(URL location, ResourceBundle resources) {
+//		// FishTabelle
+//		breedColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, String>("breed"));
+//		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
+//
+//		// MyAQS List
+//		try {
+//			aqListFromDB = aqService.getAllAQ();
+//		} catch (ServiceException e) {
+//			e.printStackTrace();
+//		}
+//		for (AQ a : aqListFromDB) {
+//			aqListForView.add(a);
+//		}
+//		aqComboBox.setValue(aqListForView.get(4));
+//		showAQParameters(aqListForView.get(4));
+//		aqComboBox.setItems(aqListForView);
+//		aqComboBox.setOnAction(this::handleAQSelected);
+////		aqComboBox.setValue(aq1);
+////		showAQParameters(aq1);
+////		aqComboBox.setItems(aqListForView);
+////		aqComboBox.setOnAction(this::handleAQSelected);
+//
+//	}
 
 	@FXML
 	void handleAQSelected(ActionEvent event) {
@@ -260,22 +293,41 @@ public class AQDateSheetController extends BasicController implements Initializa
 		ghText.setText(String.valueOf(a.getgH()) + "°d");
 		phText.setText(String.valueOf(a.getPh()));
 		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-		if (a.getListOfFishes() != null) {
-			fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
-		}
 
-		// Eszter: Kapiere ich nicht 2020.06.23
 		// jprie: Observable list erstellen, nicht nur casten!
 
-//		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
-//
-//		list.addAll(a.getListOfFishes());
-//
-//		fishTypeInAQTable.setItems(list);
-//			}
-//		}
+		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
+
+		list.addAll(a.getListOfFishes());
+
+		fishTypeInAQTable.setItems(list);
 
 	}
+
+//	void showAQParameters(AQ a) {
+//
+//		sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
+//		volumenText.setText(String.valueOf(a.getVolumen()) + "l");
+//		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
+//		ghText.setText(String.valueOf(a.getgH()) + "°d");
+//		phText.setText(String.valueOf(a.getPh()));
+//		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
+//		if (a.getListOfFishes() != null) {
+//			fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
+//		}
+//
+//		// Eszter: Kapiere ich nicht 2020.06.23
+//		// jprie: Observable list erstellen, nicht nur casten!
+//
+////		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
+////
+////		list.addAll(a.getListOfFishes());
+////
+////		fishTypeInAQTable.setItems(list);
+////			}
+////		}
+//
+//	}
 
 //	@FXML
 //	void showAQParameters(ActionEvent event) {

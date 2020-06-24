@@ -65,6 +65,9 @@ public class FishType implements Serializable {
 		this.pictureUrl = pictureUrl;
 		this.socialization = socialization;
 	}
+	
+	public FishType() {
+	}
 
 
 //	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, float minTemperatur,
@@ -83,9 +86,6 @@ public class FishType implements Serializable {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public FishType() {
 	}
 
 	public Cast getCast() {
