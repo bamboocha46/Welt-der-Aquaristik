@@ -239,7 +239,7 @@ public class AddNewFishToAQController extends BasicController {
 			// If UserInput is wrong, User get a PopUp
 		} else {
 			showPopUp("Falsche Eingabe, bitte korrigieren!");
-			System.out.println("Wrong UserInput int!=int");
+			System.out.println("Wrong UserInput int!=int"); 
 		}
 
 	}

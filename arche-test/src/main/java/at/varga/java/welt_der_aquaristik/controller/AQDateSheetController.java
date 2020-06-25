@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
@@ -83,56 +85,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
 
-//	// Method to add a new fish to the AQ
-//	@FXML
-//	void addANewFishToAQ(ActionEvent event) {
-//		try {
-//			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(Main.class.getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
-//			AnchorPane addNewFishToAQ = null;
-//
-//			addNewFishToAQ = loader.load();
-//
-//			Stage addNewFishWindow = new Stage();
-//			addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
-//			addNewFishWindow.initModality(Modality.WINDOW_MODAL);
-//			addNewFishWindow.initOwner(Main.primaryStage);
-//
-//			Scene scene = new Scene(addNewFishToAQ);
-//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-//			addNewFishWindow.setScene(scene);
-//			addNewFishWindow.showAndWait();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//	}
-	// Method to add a new fish to the AQ
-//	@FXML
-//	void addANewFishToAQ(ActionEvent event) {
-//		try {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_ADDNEWFISHTOAQ_FXML));
-//			Parent root = loader.load();
-//
-//			AddNewFishToAQController addNewFishToAQController = loader.getController();
-//			addNewFishToAQController.giveMeAQId(aqComboBox.getValue().getAqId());
-//
-//			Stage addNewFishWindow = new Stage();
-//			addNewFishWindow.setTitle("Neuen Fisch zur " + aqComboBox.getValue() + " Aquarium hinzufügen");
-//			addNewFishWindow.initModality(Modality.WINDOW_MODAL);
-//			addNewFishWindow.initOwner(Main.primaryStage);
-//
-//			Scene scene = new Scene(root);
-//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-//			addNewFishWindow.setScene(scene);
-//			addNewFishWindow.showAndWait();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//	}
 	// Controller gives AQId to next Controller: AddNewFishToAQController
 	@FXML
 	void addANewFishToAQ(ActionEvent event) {
@@ -183,30 +135,58 @@ public class AQDateSheetController extends BasicController implements Initializa
 	void deleteAQ(ActionEvent event) {
 
 		try {
-			aqService.deleteAQ(aqComboBox.getValue());
-		} catch (ServiceException e1) {
-			e1.printStackTrace();
-		}
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
+			Parent root = loader.load();
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
-		AnchorPane popUpAUSure = null;
-		try {
-			popUpAUSure = loader.load();
+			PopUpAreYouSureController popUpAreUSure = loader.getController();
+			popUpAreUSure.giveMeAQ(aqComboBox.getValue());
+			
+			Stage popUpAUS = new Stage();
+			popUpAUS.setTitle("Bist du sicher?");
+			popUpAUS.initModality(Modality.WINDOW_MODAL);
+			popUpAUS.initOwner(Main.primaryStage);
+			
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			popUpAUS.setScene(scene);
+			popUpAUS.showAndWait();
+
+			closeSceene(event);
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
-		Stage puAUS = new Stage();
-		puAUS.setTitle("Bist sicher?");
-		puAUS.initModality(Modality.WINDOW_MODAL);
-		puAUS.initOwner(Main.primaryStage);
-
-		Scene scene = new Scene(popUpAUSure);
-		puAUS.setScene(scene);
-		puAUS.showAndWait();
 	}
+
+//	@FXML
+//	void deleteAQ(ActionEvent event) {
+//
+//		try {
+//			aqService.deleteAQ(aqComboBox.getValue());
+//		} catch (ServiceException e1) {
+//			e1.printStackTrace();
+//		}
+//
+//		FXMLLoader loader = new FXMLLoader();
+//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
+//		AnchorPane popUpAUSure = null;
+//		try {
+//			popUpAUSure = loader.load();
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		Stage puAUS = new Stage();
+//		puAUS.setTitle("Bist sicher?");
+//		puAUS.initModality(Modality.WINDOW_MODAL);
+//		puAUS.initOwner(Main.primaryStage);
+//
+//		Scene scene = new Scene(popUpAUSure);
+//		puAUS.setScene(scene);
+//		puAUS.showAndWait();
+//	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -266,42 +246,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 		fishTypeInAQTable.setItems(list);
 
 	}
-
-//	void showAQParameters(AQ a) {
-//
-//		sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
-//		volumenText.setText(String.valueOf(a.getVolumen()) + "l");
-//		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
-//		ghText.setText(String.valueOf(a.getgH()) + "°d");
-//		phText.setText(String.valueOf(a.getPh()));
-//		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-//		if (a.getListOfFishes() != null) {
-//			fishTypeInAQTable.setItems((ObservableList<FishTypeInAQ>) a.getListOfFishes());
-//		}
-//
-//		// Eszter: Kapiere ich nicht 2020.06.23
-//		// jprie: Observable list erstellen, nicht nur casten!
-//
-////		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
-////
-////		list.addAll(a.getListOfFishes());
-////
-////		fishTypeInAQTable.setItems(list);
-////			}
-////		}
-//
-//	}
-
-//	@FXML
-//	void showAQParameters(ActionEvent event) {
-////		double summeFishLengts = 0;
-////		for (FishTypeInAQ a : list) {
-////			summeFishLengts += a.getFishSummeSize();
-////		}
-////		
-////		System.out.println("SummeFischLängen: " + summeFishLengts);
-//				stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
-//	}
 
 	// closes actuelly window, leads to PrimerWindow
 	@FXML

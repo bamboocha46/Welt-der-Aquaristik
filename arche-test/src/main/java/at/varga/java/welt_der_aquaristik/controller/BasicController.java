@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,7 +49,7 @@ public abstract class BasicController {
 		}
 
 	}
-	
+
 	public void showPopUp(String text) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
@@ -75,9 +76,12 @@ public abstract class BasicController {
 	public void backToPrScene(ActionEvent e) {
 		Stage currentStage = (Stage) ((Node) e.getTarget()).getScene().getWindow();
 		currentStage.close();
-		
-		
 
+	}
+	
+	
+	public void closeSceene(ActionEvent event){
+	    ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
 	}
 
 }
