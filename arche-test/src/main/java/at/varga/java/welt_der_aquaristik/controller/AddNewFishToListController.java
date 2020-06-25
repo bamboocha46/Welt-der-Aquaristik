@@ -95,6 +95,7 @@ public class AddNewFishToListController extends BasicController {
 	private String dataName;
 	private File source;
 	private Cast castCastFormat;
+	
 
 	public static final String ORIGINAL_PATH = "C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\picture_";
 	private File dest = new File(ORIGINAL_PATH);
@@ -278,12 +279,46 @@ public class AddNewFishToListController extends BasicController {
 
 	}
 
+	//Leads to updated CastView
 	@FXML
 	void back(ActionEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_CAST_VIEW_FXML));
+			Parent root = loader.load();
 
-		ActionEvent e = event;
-		backToPrScene(e);
+			CastController castctrl = loader.getController();
+			castctrl.initialize(castCastFormat.getCastName());
+
+			Stage stage = new Stage();
+			stage.setTitle(castCastFormat.getCastName());
+			stage.initModality(Modality.WINDOW_MODAL);
+			stage.initOwner(Main.primaryStage);
+
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			stage.setScene(scene);
+			stage.showAndWait();
+			
+			closeSceene(event);
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 	}
+	
+	
+	//Leads to updated CastController
+	
+	
+	
+//	@FXML
+//	void back(ActionEvent event) {
+//
+////		String path = Constants.PATH_TO_CAST_VIEW_FXML;
+////		String titel = castCastFormat.getCastName();
+////		showNewScene(path, titel);
+//		backToPrScene(event);
+//	}
 
 	private void copyFileUsingJava7Files(File source, File dest) throws IOException {
 
@@ -291,5 +326,7 @@ public class AddNewFishToListController extends BasicController {
 		dataName = "";
 		this.dest = new File(ORIGINAL_PATH);
 	}
+	
+	
 
 }

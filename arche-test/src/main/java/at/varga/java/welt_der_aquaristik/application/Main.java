@@ -32,49 +32,6 @@ public class Main extends Application {
 		}
 	}
 
-//	void openNewAQScene(ActionEvent event) {
-//
-//		    //Main.openNewAQWindow();
-//		    FXMLLoader loader = new FXMLLoader ();
-//			loader.setLocation(Main.class.getResource(Constants.PATH_TO_CREATENEWAQ_FXML));
-//			AnchorPane addNewAQ = null;
-//			try {
-//				addNewAQ = loader.load();
-//			} catch (IOException e) {
-//				
-//				e.printStackTrace();
-//			}
-//			
-//			Stage createNewAQStage = new Stage();
-//			createNewAQStage.setTitle("Neues Aquarium hinzufügen");
-//			createNewAQStage.initModality(Modality.WINDOW_MODAL);
-//			createNewAQStage.initOwner(primaryStage);
-//			
-//			Scene scene = new Scene(addNewAQ);
-//			createNewAQStage.setScene(scene);
-//			createNewAQStage.showAndWait();
-//		    
-//		    }
-
-	// HA AZ UJ WINDOW-T A MAINBOL AKARJUK FUTTATNI; ES NEM A CONTROLLERBOL
-//	 public static void openNewAQScene() throws IOException {
-//
-//	    //Main.openNewAQWindow();
-//	    FXMLLoader loader = new FXMLLoader ();
-//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_CREATENEWAQ_FXML));
-//		AnchorPane createNewAQ = loader.load();
-//
-//		
-//		Stage createNewAQStage = new Stage();
-//		createNewAQStage.setTitle("Neues Aquarium hinzufügen");
-//		createNewAQStage.initModality(Modality.WINDOW_MODAL);
-//		createNewAQStage.initOwner(primaryStage);
-//		
-//		Scene scene = new Scene(createNewAQ);
-//		createNewAQStage.setScene(scene);
-//		createNewAQStage.showAndWait();
-//	    
-//	    }
 
 	public static void main(String[] args) {
 		launch(args);

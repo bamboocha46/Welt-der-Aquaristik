@@ -87,6 +87,9 @@ public class CastController extends BasicController {
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			stage.setScene(scene);
 			stage.showAndWait();
+			
+			closeSceene(event);
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -188,9 +191,11 @@ public class CastController extends BasicController {
 
 	@FXML
 	void back(ActionEvent event) {
-		ActionEvent e = event;
-		backToPrScene(e);
+		String path = Constants.PATH_TO_FISH_POOL_VIEW_FXML;
+		String setTitel = "Liste der Fische";
+		showNewScene(path, setTitel);
 
+		closeSceene(event);
 	}
 	//method to opens a PopUp with optionally message
 //	private void showPopUp(String text) {
