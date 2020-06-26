@@ -252,7 +252,14 @@ public class AQDateSheetController extends BasicController implements Initializa
 		list.addAll(a.getListOfFishes());
 
 		fishTypeInAQTable.setItems(list);
-
+		
+		stockingDensity(a);
+	}
+	
+	void stockingDensity (AQ a) {
+		if (a.getStockingDensity() > 1) {
+			showPopUp("Du hast zu viele Fische im " + a.getTitel() + "!!!");
+		}
 	}
 
 	// closes actuelly window, leads to PrimerWindow

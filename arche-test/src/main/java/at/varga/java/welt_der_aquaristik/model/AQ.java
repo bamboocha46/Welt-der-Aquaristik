@@ -49,6 +49,7 @@ public class AQ implements Serializable {
 	public AQ() {
 	}
 
+	// 2020ß626
 	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
 			double ph, List<FishTypeInAQ> listOfFishes) {
 		super();
@@ -61,13 +62,29 @@ public class AQ implements Serializable {
 		this.temperatur = temperatur;
 		this.gH = gH;
 		this.ph = ph;
-//		this.stockingDensity = stockingDensity; 
-//		for (FishTypeInAQ f: listOfFishes) {
-//			
-//		}
-
+		// this.stockingDensity = stockingDensity;
 		this.fishesInAQList = listOfFishes;
 	}
+
+//	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
+//			double ph, List<FishTypeInAQ> listOfFishes) {
+//		super();
+//		this.aqId = aqId;
+//		this.titel = titel;
+//		this.volumen = sizeWidth * sizeLength * sizeHeight / 1000;
+//		this.sizeWidth = sizeWidth;
+//		this.sizeLength = sizeLength;
+//		this.sizeHeight = sizeHeight;
+//		this.temperatur = temperatur;
+//		this.gH = gH;
+//		this.ph = ph;
+////		this.stockingDensity = stockingDensity; 
+////		for (FishTypeInAQ f: listOfFishes) {
+////			stockingDensity =+ (f.getQuantity()*f.getFishType().getSize())/ volumen;
+////		}
+//
+//		this.fishesInAQList = listOfFishes;
+//	}
 
 	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
 			double ph) {
@@ -157,7 +174,14 @@ public class AQ implements Serializable {
 	}
 
 	public double getStockingDensity() {
-		return stockingDensity;
+		if (fishesInAQList != null) {
+			stockingDensity = 0;
+			for (FishTypeInAQ f : fishesInAQList) {
+				stockingDensity += (f.getQuantity() * f.getFishType().getSize()) / volumen;
+			}
+			return stockingDensity;
+		} else
+			return 0;
 	}
 
 	public void setStockingDensity(double stockingDensity) {
