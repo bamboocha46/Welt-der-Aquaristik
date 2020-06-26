@@ -34,11 +34,9 @@ public class CastController extends BasicController {
 
 	FishTypeService fishTypeService = new FishTypeService();
 
-	//20200624
+	// 20200624
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
 //	private ObservableList<FishType> fishTypeFromDB= FXCollections.observableArrayList();
- 
-	
 
 	ObservableList<FishType> fishBreedList = FXCollections.observableArrayList();
 	List<FishType> fishArtList = new ArrayList<FishType>();
@@ -67,7 +65,6 @@ public class CastController extends BasicController {
 	private TextField socialisationsTextField;
 	private String cast;
 
-
 	@FXML
 	void openAddNewFishSceen(ActionEvent event) {
 
@@ -87,26 +84,26 @@ public class CastController extends BasicController {
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			stage.setScene(scene);
 			stage.showAndWait();
-			
+
 			closeSceene(event);
-			
+
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
 	}
-	
+
 //	@FXML
 //	public void giveMeCastInString(String cast) {
 //		this.cast = cast;
 //	}
-	
+
 	@FXML
 	public void initialize(String cast) {
 		this.cast = cast;
 //2020ß624
-		
+
 		try {
 			fishTypeFromDB = fishTypeService.getAllFishType();
 		} catch (ServiceException e) {
@@ -136,7 +133,7 @@ public class CastController extends BasicController {
 		fishTypeComboBox.setValue(fishBreedList.get(0));
 		showFishType(fishBreedList.get(0));
 		fishTypeComboBox.setItems(fishBreedList);
-		
+
 		fishTypeComboBox.setOnAction(this::handleAQSelected);
 	}
 
@@ -162,7 +159,6 @@ public class CastController extends BasicController {
 		socialisationsTextField.setText(f.getSocialization().getName());
 	}
 
-
 	@FXML
 	void deleteFish(ActionEvent event) {
 
@@ -179,14 +175,30 @@ public class CastController extends BasicController {
 
 	@FXML
 	void editFishType(ActionEvent event) {
+
 		try {
-			fishTypeService.updateFishType(fishTypeComboBox.getValue());
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_EDIT_FISH_VIEW_FXML));
+			Parent root = loader.load();
+
+			EditFishController efctrl = loader.getController();
+			efctrl.initialize(fishTypeComboBox.getValue());
+
+			Stage eFStage = new Stage();
+			eFStage.setTitle("Bearbeiten " + fishTypeComboBox.getValue().getBreed());
+			eFStage.initModality(Modality.WINDOW_MODAL);
+			eFStage.initOwner(Main.primaryStage);
+
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			eFStage.setScene(scene);
+			eFStage.showAndWait();
 			
-		} catch (ServiceException e) {
+			closeSceene(event);
+
+		} catch (IOException e) {
+
 			e.printStackTrace();
 		}
-		showPopUp("Fisch ist updatet.");
-		System.out.println(fishTypeComboBox.getValue() + " edited");
 
 	}
 
@@ -198,28 +210,5 @@ public class CastController extends BasicController {
 
 		closeSceene(event);
 	}
-	//method to opens a PopUp with optionally message
-//	private void showPopUp(String text) {
-//		try {
-//			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_SAVE_FXML));
-//			Parent root = loader.load();
-//
-//			PopUpSaveMessageController popUpSavectrl = loader.getController();
-//			popUpSavectrl.setPopUpText(text);
-//
-//			Stage stage = new Stage();
-//			stage.setTitle("Pop Up");
-//			stage.initModality(Modality.WINDOW_MODAL);
-//			stage.initOwner(Main.primaryStage);
-//
-//			Scene scene = new Scene(root);
-//			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
-//			stage.setScene(scene);
-//			stage.showAndWait();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//	}
 
 }

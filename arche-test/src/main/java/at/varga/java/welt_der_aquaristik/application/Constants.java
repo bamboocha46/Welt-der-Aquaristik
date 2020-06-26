@@ -10,6 +10,7 @@ public class Constants {
 	public static final String PATH_TO_CREATENEWAQ_FXML = "/at/varga/java/welt_der_aquaristik/fxml/CreateNewAQ.fxml";
 	public static final String PATH_TO_FISHDATESHEET_FXML = "/at/varga/java/welt_der_aquaristik/fxml/FishDateSheet.fxml";
 	public static final String PATH_TO_FISH_POOL_VIEW_FXML = "/at/varga/java/welt_der_aquaristik/fxml/FishPoolView.fxml";
+	public static final String PATH_TO_EDIT_FISH_VIEW_FXML = "/at/varga/java/welt_der_aquaristik/fxml/EditFishView.fxml";
 	public static final String PATH_TO_POP_UP_AREYOUSURE_FXML = "/at/varga/java/welt_der_aquaristik/fxml/PopUpAreYouSure.fxml";
 	public static final String PATH_TO_POP_UP_AREYOUSURE_DELETE_FISH_FROM_AQ_FXML = "/at/varga/java/welt_der_aquaristik/fxml/PopUpAreYouSureDeleteFishFromAQ.fxml";
 	public static final String PATH_TO_POP_UP_SAVE_FXML = "/at/varga/java/welt_der_aquaristik/fxml/PopUpSaveMessage.fxml";
