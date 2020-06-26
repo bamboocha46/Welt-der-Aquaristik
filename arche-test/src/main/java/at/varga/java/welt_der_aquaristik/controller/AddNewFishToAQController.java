@@ -239,15 +239,51 @@ public class AddNewFishToAQController extends BasicController {
 			// If UserInput is wrong, User get a PopUp
 		} else {
 			showPopUp("Falsche Eingabe, bitte korrigieren!");
-			System.out.println("Wrong UserInput int!=int"); 
+			System.out.println("Wrong UserInput int!=int");
 		}
 
 	}
 
 	@FXML
 	void back(ActionEvent event) {
-		ActionEvent e = event;
-		backToPrScene(e);
+
+		backToPrScene(event);
+
+
+	}
+
+	// method to controll if AQParameters for FISH OK are?
+	public void isAQOkForFish(AQ a, FishType f) {
+
+		if (f.getMinGH() <= a.getgH() && f.getMaxGH() >= a.getgH()) {
+			if (f.getMinPh() <= a.getPh() && f.getMaxPh() >= a.getPh()) {
+				if (f.getMinAqVolumen() <= a.getVolumen() && f.getMaxAqVolumen() >= a.getVolumen()) {
+					if (f.getMinTemperatur() <= a.getTemperatur() && f.getMaxTemperatur() >= a.getTemperatur()) {
+						System.out.println("AQ is perfect for Fish");
+						showPopUp("Dieses AQ is perfekt für diesen Fisch!");
+
+					} else {
+						System.out.println("Temperatur is not OK for Fish");
+						showPopUp("Dieser Fish braucht Wassertemperatur zw. " + f.getMinTemperatur() + "°C und "
+								+ f.getMaxTemperatur() + "°C");
+					}
+
+				} else {
+					System.out.println("AQVolumen is not OK for Fish");
+					showPopUp("Dieser Fish braucht ein AQ zw. " + f.getMinAqVolumen() + "l und " + f.getMaxAqVolumen()
+							+ "l");
+				}
+
+			} else {
+				System.out.println("PH is not OK for Fish");
+				showPopUp("Dieser Fish braucht PH zw. " + f.getMinPh() + " und " + f.getMaxPh());
+			}
+
+		} else {
+			System.out.println("GH is not OK for Fish");
+			showPopUp("Dieser Fish braucht GH zw. " + f.getMinGH() + "°d und " + f.getMaxGH() + "°d");
+		}
+
 	}
 
 }

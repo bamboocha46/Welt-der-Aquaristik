@@ -49,8 +49,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 	AQService aqService = new AQService();
 	FishTypeInAQService fishTypeInAQService = new FishTypeInAQService();
 
-//	private List<AQ> aqListFromDB = new ArrayList<AQ>();
-//	private ObservableList<AQ> aqListForView = FXCollections.observableArrayList();
 	private ObservableList<AQ> aqListFromDB = FXCollections.observableArrayList();
 
 	@FXML
@@ -84,6 +82,8 @@ public class AQDateSheetController extends BasicController implements Initializa
 	private TableColumn<FishTypeInAQ, String> breedColumn;
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
+	
+	public static Stage primaryStage;
 
 	// Controller gives AQId to next Controller: AddNewFishToAQController
 	@FXML
@@ -104,32 +104,57 @@ public class AQDateSheetController extends BasicController implements Initializa
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			addNewFishWindow.setScene(scene);
 			addNewFishWindow.showAndWait();
+			//20200626
+//			closeSceene(event);
+		
+			System.out.println(aqComboBox.getValue());
+			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			updateUI(id);
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
 	}
-
+	
 	@FXML
 	void deleteFish(ActionEvent event) {
-
-		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
-
-		long deletendFish = fishTypeInAQTable.getSelectionModel().getSelectedItem().getId();
-
+		
 		try {
-			fishTypeInAQService.deleteFishTypeInAQ(fishTypeInAQTable.getSelectionModel().getSelectedItem());
-			System.out.println("Fish deleted from DB");
-		} catch (ServiceException e) {
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_DELETE_FISH_FROM_AQ_FXML));
+			Parent root = loader.load();
+
+			PopUpAreYouSureDeleteFishFromAQController popUpAreUSureDFFAq = loader.getController();
+			popUpAreUSureDFFAq.giveMeFishTypeInAQToDel(fishTypeInAQTable.getSelectionModel().getSelectedItem());
+			
+			Stage popUpAUS = new Stage();
+			popUpAUS.setTitle("Bist du sicher?");
+			popUpAUS.initModality(Modality.WINDOW_MODAL);
+			popUpAUS.initOwner(Main.primaryStage);
+			
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
+			popUpAUS.setScene(scene);
+			popUpAUS.showAndWait();
+			
+			//20200626
+			System.out.println(aqComboBox.getValue());
+			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			updateUI(id);
+
+//			closeSceene(event);
+			
+		} catch (IOException e) {
+
 			e.printStackTrace();
 		}
 
-		String path = Constants.PATH_TO_POP_UP_AREYOUSURE_FXML;
-		String setTitel = "Bist sicher?";
-		showNewScene(path, setTitel);
+		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
+
 
 	}
+
 
 	@FXML
 	void deleteAQ(ActionEvent event) {
@@ -151,7 +176,9 @@ public class AQDateSheetController extends BasicController implements Initializa
 			popUpAUS.setScene(scene);
 			popUpAUS.showAndWait();
 
-			closeSceene(event);
+			System.out.println(aqComboBox.getValue());
+			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			updateUI(id);
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -159,45 +186,11 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	}
 
-//	@FXML
-//	void deleteAQ(ActionEvent event) {
-//
-//		try {
-//			aqService.deleteAQ(aqComboBox.getValue());
-//		} catch (ServiceException e1) {
-//			e1.printStackTrace();
-//		}
-//
-//		FXMLLoader loader = new FXMLLoader();
-//		loader.setLocation(Main.class.getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_FXML));
-//		AnchorPane popUpAUSure = null;
-//		try {
-//			popUpAUSure = loader.load();
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//		Stage puAUS = new Stage();
-//		puAUS.setTitle("Bist sicher?");
-//		puAUS.initModality(Modality.WINDOW_MODAL);
-//		puAUS.initOwner(Main.primaryStage);
-//
-//		Scene scene = new Scene(popUpAUSure);
-//		puAUS.setScene(scene);
-//		puAUS.showAndWait();
-//	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		// MyAQS List
-		try {
-			aqListFromDB.addAll(aqService.getAllAQ());
-
-		} catch (ServiceException e) {
-			e.printStackTrace();
-		}
+		
 
 		// FishTabelle
 		breedColumn.setCellValueFactory(
@@ -211,10 +204,25 @@ public class AQDateSheetController extends BasicController implements Initializa
 				});
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 
-		aqComboBox.setItems(aqListFromDB);
-		aqComboBox.setValue(aqListFromDB.get(0));
-		showAQParameters(aqListFromDB.get(0));
+		
 		aqComboBox.setOnAction(this::handleAQSelected);
+		// MyAQS List
+		updateUI(0);
+	}
+
+	private void updateUI(int id) {
+		try {
+			aqListFromDB.clear();
+			aqListFromDB.addAll(aqService.getAllAQ());
+			aqComboBox.setItems(aqListFromDB);
+			aqComboBox.setValue(aqListFromDB.get(id));
+			showAQParameters(aqListFromDB.get(id));
+
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	@FXML
@@ -250,9 +258,8 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// closes actuelly window, leads to PrimerWindow
 	@FXML
 	void back(ActionEvent event) {
-
-		ActionEvent e = event;
-		backToPrScene(e);
+		
+		backToPrScene(event);
 	}
 
 }

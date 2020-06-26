@@ -181,6 +181,7 @@ public class CastController extends BasicController {
 	void editFishType(ActionEvent event) {
 		try {
 			fishTypeService.updateFishType(fishTypeComboBox.getValue());
+			
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}

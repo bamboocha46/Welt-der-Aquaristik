@@ -23,7 +23,7 @@
          </rowConstraints>
       </GridPane>
       <Button fx:id="saveButton" layoutX="284.0" layoutY="335.0" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Speichern" />
-      <Button fx:id="breakButton" layoutX="443.0" layoutY="335.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Abbrechnen" />
+      <Button fx:id="breakButton" layoutX="443.0" layoutY="335.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Zurück" />
       <GridPane layoutX="74.0" layoutY="38.0" prefHeight="269.0" prefWidth="437.0" styleClass="GridPane">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="240.0" />
@@ -62,9 +62,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Text fx:id="choosenFishTextField" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToAQField" wrappingWidth="182.0" GridPane.columnIndex="1">
+            <Text fx:id="choosenFishTextField" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToAQField" wrappingWidth="189.0" GridPane.columnIndex="1">
                <font>
-                  <Font size="16.0" />
+                  <Font size="14.0" />
                </font>
             </Text>
          </children>

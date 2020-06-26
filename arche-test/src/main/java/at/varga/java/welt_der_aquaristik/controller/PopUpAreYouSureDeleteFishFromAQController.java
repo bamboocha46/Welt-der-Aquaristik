@@ -3,74 +3,62 @@ package at.varga.java.welt_der_aquaristik.controller;
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
+import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
 import at.varga.java.welt_der_aquaristik.service.AQService;
+import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-//PoPUpToDeleteAQ
-public class PopUpAreYouSureController extends BasicController {
+//PoPUpToDeleteFishFromAQ
+public class PopUpAreYouSureDeleteFishFromAQController extends BasicController {
 
 	@FXML
 	private Button noButton;
     @FXML
     private Button yesButton;
     
-    //AQ Object to Delete it
-	private AQ givenAQ;
-	AQService aqService = new AQService();
+    //fishTypeInAQ to Delete it
+    FishTypeInAQ givenftiaq;
+	FishTypeInAQService ftiaService = new FishTypeInAQService();
 
 	// noButton leads to previous Window
 	@FXML
 	void back(ActionEvent event) {
-		//20200626
+		
 		backToPrScene(event);
 //		String path = Constants.PATH_TO_AQDATESHEET_FXML;
 //		String setTitel = "Aquariums";
 //		showNewScene(path, setTitel);
 //		closeSceene(event);
-		
-		System.out.println("popUpClosed");
 
 	}
 	
 
-	//yesButton delete AQ from DB and leads to updated AQDateSheetView
+	//yesButton delete fishtypeinAQOBject from DB and leads to updated AQDateSheetView
 	@FXML
     void deleteObject(ActionEvent event) {
 
+
 		try {
-			System.out.println(givenAQ.getTitel() + " is deleted");
-			
-			aqService.deleteAQ(givenAQ);
-			
-		
-			
-			showPopUp(givenAQ.getTitel() + " ist gelöscht");
-			System.out.println("afterPoPUpIwill back to AQDateSheet");
-			backToPrScene(event);
-			
-			//20200626
+			ftiaService.deleteFishTypeInAQ(givenftiaq);
+			showPopUp(givenftiaq.getFishType().getBreed() + " ist gelöscht");
 //			String path = Constants.PATH_TO_AQDATESHEET_FXML;
 //			String setTitel = "Aquariums";
 //			showNewScene(path, setTitel);
 			
-			
-//			closeSceene(event);
-			
-			
-			
-			
-		} catch (ServiceException e1) {
-			e1.printStackTrace();
+			backToPrScene(event);
+			System.out.println("Fish deleted from DB");
+		} catch (ServiceException e) {
+			e.printStackTrace();
 		}
     }
 	
 	@FXML
-	public void giveMeAQ(AQ a) {
-		this.givenAQ = a;
+	public void giveMeFishTypeInAQToDel(FishTypeInAQ ftiaq) {
+		this.givenftiaq = ftiaq;
 	}
 
 
