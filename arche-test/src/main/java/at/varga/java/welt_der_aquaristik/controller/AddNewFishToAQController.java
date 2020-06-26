@@ -186,6 +186,7 @@ public class AddNewFishToAQController extends BasicController {
 		this.givenAQ = a;
 	}
 
+	// 20200628
 	@FXML
 	void save(ActionEvent event) {
 
@@ -199,67 +200,132 @@ public class AddNewFishToAQController extends BasicController {
 			isInputFormatCorrect = false;
 		}
 
-		// Input from User is correct
-		if (isInputFormatCorrect) {
-			// jprie: nachsehen ob FishTypeInAQ existiert
-			List<FishTypeInAQ> list = givenAQ.getListOfFishes();
-			Optional<FishTypeInAQ> match = list.stream()
-					.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();
+		// controll if AQ for Fish Ok is
+		if (isAQOkForFish(givenAQ, selectedFish)) {
 
-			FishTypeInAQ ftqa;
+			// Input from User is correct
+			if (isInputFormatCorrect) {
+				// jprie: nachsehen ob FishTypeInAQ existiert
+				List<FishTypeInAQ> list = givenAQ.getListOfFishes();
+				Optional<FishTypeInAQ> match = list.stream()
+						.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();
 
-			if (match.isPresent()) {
-				ftqa = match.get();
-				ftqa.setQuantity(ftqa.getQuantity() + Integer.valueOf(pieceOfFisches.getText()));
+				FishTypeInAQ ftqa;
 
-				try {
-					fishTypeInAQService.updateFishTypeInAQ(ftqa);
-					showPopUp("zusätlichen Fische sind zur AQ hingefügt");
-				} catch (ServiceException e) {
+				if (match.isPresent()) {
+					ftqa = match.get();
+					ftqa.setQuantity(ftqa.getQuantity() + Integer.valueOf(pieceOfFisches.getText()));
 
-					e.printStackTrace();
+					try {
+						fishTypeInAQService.updateFishTypeInAQ(ftqa);
+						showPopUp("zusätlichen Fische sind zur AQ hingefügt");
+					} catch (ServiceException e) {
 
+						e.printStackTrace();
+
+					}
+
+				} else {
+					ftqa = new FishTypeInAQ(selectedFish, givenAQ, Integer.valueOf(pieceOfFisches.getText()));
+
+					try {
+						fishTypeInAQService.addFishTypeInAQ(ftqa);
+						showPopUp(pieceOfFisches.getText() + " Stk " + choosenFishTextField.getText() + " würde zur "
+								+ givenAQ.getTitel() + " hingefügt");
+					} catch (ServiceException e) {
+
+						e.printStackTrace();
+					}
 				}
 
+				System.out.println(ftqa);
+
+				// If UserInput is wrong, User get a PopUp
 			} else {
-				ftqa = new FishTypeInAQ(selectedFish, givenAQ, Integer.valueOf(pieceOfFisches.getText()));
-
-				try {
-					fishTypeInAQService.addFishTypeInAQ(ftqa);
-					showPopUp(pieceOfFisches.getText() + " Stk " + choosenFishTextField.getText() + " würde zur "
-							+ givenAQ.getTitel() + " hingefügt");
-				} catch (ServiceException e) {
-
-					e.printStackTrace();
-				}
+				showPopUp("Falsche Eingabe, bitte korrigieren!");
+				System.out.println("Wrong UserInput int!=int");
 			}
-
-			System.out.println(ftqa);
-
-			// If UserInput is wrong, User get a PopUp
 		} else {
-			showPopUp("Falsche Eingabe, bitte korrigieren!");
-			System.out.println("Wrong UserInput int!=int");
+			showPopUp("Wähle einen andrem Fisch!");
 		}
 
 	}
+//	@FXML
+//	void save(ActionEvent event) {
+//
+//		// Control if UserQuantity input is correct
+//		int quantity;
+//
+//		boolean isInputFormatCorrect = true;
+//		try {
+//			quantity = Integer.parseInt(pieceOfFisches.getText());
+//		} catch (NumberFormatException ex) {
+//			isInputFormatCorrect = false;
+//		}
+//
+//		// Input from User is correct
+//		if (isInputFormatCorrect) {
+//			// jprie: nachsehen ob FishTypeInAQ existiert
+//			List<FishTypeInAQ> list = givenAQ.getListOfFishes();
+//			Optional<FishTypeInAQ> match = list.stream()
+//					.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();
+//
+//			FishTypeInAQ ftqa;
+//
+//			if (match.isPresent()) {
+//				ftqa = match.get();
+//				ftqa.setQuantity(ftqa.getQuantity() + Integer.valueOf(pieceOfFisches.getText()));
+//
+//				try {
+//					fishTypeInAQService.updateFishTypeInAQ(ftqa);
+//					showPopUp("zusätlichen Fische sind zur AQ hingefügt");
+//				} catch (ServiceException e) {
+//
+//					e.printStackTrace();
+//
+//				}
+//
+//			} else {
+//				ftqa = new FishTypeInAQ(selectedFish, givenAQ, Integer.valueOf(pieceOfFisches.getText()));
+//
+//				try {
+//					fishTypeInAQService.addFishTypeInAQ(ftqa);
+//					showPopUp(pieceOfFisches.getText() + " Stk " + choosenFishTextField.getText() + " würde zur "
+//							+ givenAQ.getTitel() + " hingefügt");
+//				} catch (ServiceException e) {
+//
+//					e.printStackTrace();
+//				}
+//			}
+//
+//			System.out.println(ftqa);
+//
+//			// If UserInput is wrong, User get a PopUp
+//		} else {
+//			showPopUp("Falsche Eingabe, bitte korrigieren!");
+//			System.out.println("Wrong UserInput int!=int");
+//		}
+//
+//	}
 
 	@FXML
 	void back(ActionEvent event) {
 
 		backToPrScene(event);
 
-
 	}
 
 	// method to controll if AQParameters for FISH OK are?
-	public void isAQOkForFish(AQ a, FishType f) {
+	public boolean isAQOkForFish(AQ a, FishType f) {
+
+		boolean isAQOK = false;
 
 		if (f.getMinGH() <= a.getgH() && f.getMaxGH() >= a.getgH()) {
 			if (f.getMinPh() <= a.getPh() && f.getMaxPh() >= a.getPh()) {
 				if (f.getMinAqVolumen() <= a.getVolumen() && f.getMaxAqVolumen() >= a.getVolumen()) {
 					if (f.getMinTemperatur() <= a.getTemperatur() && f.getMaxTemperatur() >= a.getTemperatur()) {
 						System.out.println("AQ is perfect for Fish");
+						isAQOK = true;
 						showPopUp("Dieses AQ is perfekt für diesen Fisch!");
 
 					} else {
@@ -283,7 +349,7 @@ public class AddNewFishToAQController extends BasicController {
 			System.out.println("GH is not OK for Fish");
 			showPopUp("Dieser Fish braucht GH zw. " + f.getMinGH() + "°d und " + f.getMaxGH() + "°d");
 		}
-
+		return isAQOK;
 	}
 
 }
