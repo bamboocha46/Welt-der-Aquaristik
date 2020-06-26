@@ -46,8 +46,8 @@ public class FishType implements Serializable {
 
 	private Socialization socialization;
 
-	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen,
-			int minTemperatur, int maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
+	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, int minTemperatur,
+			int maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
 			Socialization socialization, Cast cast) {
 		super();
 		this.id = id;
@@ -65,19 +65,10 @@ public class FishType implements Serializable {
 		this.pictureUrl = pictureUrl;
 		this.socialization = socialization;
 	}
-	
+
 	public FishType() {
 	}
 
-
-//	public FishType(long id, String breed, double size, double minAqVolumen, double maxAqVolumen, float minTemperatur,
-//			float maxTemperatur, float minPh, float maxPh, int minGH, int maxGH, String pictureUrl,
-//			Socialization socialization, Cast cast) {
-//		super(id, breed, size, minAqVolumen, maxAqVolumen, minTemperatur, maxTemperatur, minPh, maxPh, minGH, maxGH,
-//				pictureUrl, socialization);
-//		this.cast = cast;
-//	}
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getId() {
@@ -96,140 +87,109 @@ public class FishType implements Serializable {
 		this.cast = cast;
 	}
 
-
 	public String getBreed() {
 		return breed;
 	}
-
 
 	public void setBreed(String breed) {
 		this.breed = breed;
 	}
 
-
 	public double getSize() {
 		return size;
 	}
-
 
 	public void setSize(double size) {
 		this.size = size;
 	}
 
-
 	public double getMinAqVolumen() {
 		return minAqVolumen;
 	}
-
 
 	public void setMinAqVolumen(double minAqVolumen) {
 		this.minAqVolumen = minAqVolumen;
 	}
 
-
 	public double getMaxAqVolumen() {
 		return maxAqVolumen;
 	}
-
 
 	public void setMaxAqVolumen(double maxAqVolumen) {
 		this.maxAqVolumen = maxAqVolumen;
 	}
 
-
 	public int getMinTemperatur() {
 		return minTemperatur;
 	}
-
 
 	public void setMinTemperatur(int minTemperatur) {
 		this.minTemperatur = minTemperatur;
 	}
 
-
 	public int getMaxTemperatur() {
 		return maxTemperatur;
 	}
-
 
 	public void setMaxTemperatur(int maxTemperatur) {
 		this.maxTemperatur = maxTemperatur;
 	}
 
-
 	public float getMinPh() {
 		return minPh;
 	}
-
 
 	public void setMinPh(float minPh) {
 		this.minPh = minPh;
 	}
 
-
 	public float getMaxPh() {
 		return maxPh;
 	}
-
 
 	public void setMaxPh(float maxPh) {
 		this.maxPh = maxPh;
 	}
 
-
 	public int getMinGH() {
 		return minGH;
 	}
-
 
 	public void setMinGH(int minGH) {
 		this.minGH = minGH;
 	}
 
-
 	public int getMaxGH() {
 		return maxGH;
 	}
-
 
 	public void setMaxGH(int maxGH) {
 		this.maxGH = maxGH;
 	}
 
-
 	public String getPictureUrl() {
 		return pictureUrl;
 	}
-
 
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
 
-
 	public Socialization getSocialization() {
 		return socialization;
 	}
-
 
 	public void setSocialization(Socialization socialization) {
 		this.socialization = socialization;
 	}
 
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-
 	@Override
 	public String toString() {
-		return  breed;
+		return breed;
 	}
-
-	
-
-	
-	
 
 }

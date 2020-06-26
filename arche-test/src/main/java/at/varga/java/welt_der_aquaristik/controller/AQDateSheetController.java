@@ -82,7 +82,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	private TableColumn<FishTypeInAQ, String> breedColumn;
 	@FXML
 	private TableColumn<FishTypeInAQ, Integer> quantityColumn;
-	
+
 	public static Stage primaryStage;
 
 	// Controller gives AQId to next Controller: AddNewFishToAQController
@@ -104,47 +104,43 @@ public class AQDateSheetController extends BasicController implements Initializa
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			addNewFishWindow.setScene(scene);
 			addNewFishWindow.showAndWait();
-			//20200626
-//			closeSceene(event);
-		
+
 			System.out.println(aqComboBox.getValue());
-			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			int id = aqListFromDB.indexOf(aqComboBox.getValue());
 			updateUI(id);
-			
+
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	@FXML
 	void deleteFish(ActionEvent event) {
-		
+
 		try {
-			FXMLLoader loader = new FXMLLoader(getClass().getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_DELETE_FISH_FROM_AQ_FXML));
+			FXMLLoader loader = new FXMLLoader(
+					getClass().getResource(Constants.PATH_TO_POP_UP_AREYOUSURE_DELETE_FISH_FROM_AQ_FXML));
 			Parent root = loader.load();
 
 			PopUpAreYouSureDeleteFishFromAQController popUpAreUSureDFFAq = loader.getController();
 			popUpAreUSureDFFAq.giveMeFishTypeInAQToDel(fishTypeInAQTable.getSelectionModel().getSelectedItem());
-			
+
 			Stage popUpAUS = new Stage();
 			popUpAUS.setTitle("Bist du sicher?");
 			popUpAUS.initModality(Modality.WINDOW_MODAL);
 			popUpAUS.initOwner(Main.primaryStage);
-			
+
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			popUpAUS.setScene(scene);
 			popUpAUS.showAndWait();
-			
-			//20200626
+
 			System.out.println(aqComboBox.getValue());
-			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			int id = aqListFromDB.indexOf(aqComboBox.getValue());
 			updateUI(id);
 
-//			closeSceene(event);
-			
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -152,9 +148,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
 
-
 	}
-
 
 	@FXML
 	void deleteAQ(ActionEvent event) {
@@ -165,19 +159,19 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 			PopUpAreYouSureController popUpAreUSure = loader.getController();
 			popUpAreUSure.giveMeAQ(aqComboBox.getValue());
-			
+
 			Stage popUpAUS = new Stage();
 			popUpAUS.setTitle("Bist du sicher?");
 			popUpAUS.initModality(Modality.WINDOW_MODAL);
 			popUpAUS.initOwner(Main.primaryStage);
-			
+
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			popUpAUS.setScene(scene);
 			popUpAUS.showAndWait();
 
 			System.out.println(aqComboBox.getValue());
-			int id= aqListFromDB.indexOf(aqComboBox.getValue());
+			int id = aqListFromDB.indexOf(aqComboBox.getValue());
 			updateUI(id);
 		} catch (IOException e) {
 
@@ -186,11 +180,8 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	}
 
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
-		
 
 		// FishTabelle
 		breedColumn.setCellValueFactory(
@@ -204,7 +195,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 				});
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 
-		
 		aqComboBox.setOnAction(this::handleAQSelected);
 		// MyAQS List
 		updateUI(0);
@@ -221,8 +211,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
 
 	@FXML
@@ -245,18 +234,16 @@ public class AQDateSheetController extends BasicController implements Initializa
 		phText.setText(String.valueOf(a.getPh()));
 		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
 
-		// jprie: Observable list erstellen, nicht nur casten!
-
 		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
 
 		list.addAll(a.getListOfFishes());
 
 		fishTypeInAQTable.setItems(list);
-		
+
 		stockingDensity(a);
 	}
-	
-	void stockingDensity (AQ a) {
+
+	void stockingDensity(AQ a) {
 		if (a.getStockingDensity() > 1) {
 			showPopUp("Du hast zu viele Fische im " + a.getTitel() + "!!!");
 		}
@@ -265,7 +252,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 	// closes actuelly window, leads to PrimerWindow
 	@FXML
 	void back(ActionEvent event) {
-		
+
 		backToPrScene(event);
 	}
 

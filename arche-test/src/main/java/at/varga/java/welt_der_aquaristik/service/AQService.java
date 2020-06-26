@@ -7,18 +7,14 @@ import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.repository.AQRepositoryJPA;
 
 public class AQService {
-	
 
-
-	private AQRepositoryJPA repository = new AQRepositoryJPA(); 
-
+	private AQRepositoryJPA repository = new AQRepositoryJPA();
 
 	public void addAQ(AQ aq) throws ServiceException {
-		
+
 		repository.add(aq);
 
 	}
-
 
 	public AQ updateAQ(AQ aq) throws ServiceException {
 
@@ -32,9 +28,8 @@ public class AQService {
 
 	}
 
-	
 	public void deleteAQ(AQ aq) throws ServiceException {
-		
+
 		repository.delete(aq);
 	}
 

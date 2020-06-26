@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  * @author eszte
  *
  */
-//jprie: Könnte man als Utility-Klasse mir static Methoden implementieren, da/solange Du keinen State brauchst
+
 public abstract class BasicController {
 
 	public void showNewScene(String path, String setTitel) {
@@ -78,10 +78,9 @@ public abstract class BasicController {
 		currentStage.close();
 
 	}
-	
-	
-	public void closeSceene(ActionEvent event){
-	    ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+	public void closeSceene(ActionEvent event) {
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
 	}
 
 }

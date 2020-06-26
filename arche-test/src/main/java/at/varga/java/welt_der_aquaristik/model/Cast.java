@@ -10,8 +10,6 @@ package at.varga.java.welt_der_aquaristik.model;
  */
 public enum Cast {
 
-//	BARSCH(1), BAERBLING(2), KALTWASSERFISCH(3), LABYRINTHFISCH(4), LEBENDGEBAERENDE(5), SALMLER(6), WELS(7),
-//	ANDERE_FISCH(8);
 	BARSCH(0), BAERBLING(1), KALTWASSERFISCH(2), LABYRINTHFISCH(3), LEBENDGEBAERENDE(4), SALMLER(5), WELS(6),
 	ANDERE_FISCH(7);
 
@@ -46,10 +44,5 @@ public enum Cast {
 		return null;
 
 	}
-
-//	@Override
-//	public String toString() {
-//		return null;
-//	}
 
 }

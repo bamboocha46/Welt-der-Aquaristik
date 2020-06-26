@@ -25,6 +25,7 @@ public class Main extends Application {
 			Scene scene = new Scene(root, 600, 400);
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			primaryStage.setScene(scene);
+//			primaryStage.setFullScreen(true);
 			primaryStage.show();
 			primaryStage.setTitle("Welt der Aquaristik");
 		} catch (Exception e) {

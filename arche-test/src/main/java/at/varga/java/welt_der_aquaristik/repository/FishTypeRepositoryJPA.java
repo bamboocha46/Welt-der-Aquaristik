@@ -14,7 +14,7 @@ import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 
 public class FishTypeRepositoryJPA implements IFishTypeRepository {
-	
+
 	private static final String PERSISTENCE_UNIT_NAME = "aqdb1";
 
 	@Override
@@ -54,7 +54,7 @@ public class FishTypeRepositoryJPA implements IFishTypeRepository {
 		em.close();
 
 		emf.close();
-		
+
 		System.out.println("Inserted FishType: " + fishType.getId());
 
 		return mergedFishType;
@@ -71,10 +71,7 @@ public class FishTypeRepositoryJPA implements IFishTypeRepository {
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<FishType> fishTypeList = (List<FishType>) em.createQuery("FROM FishType", FishType.class)
-				.getResultList();
-//		List<FishType> fishTypeList = (List<FishType>) em.createQuery("select ft from FishType ft")
-//		.getResultList();
+		List<FishType> fishTypeList = (List<FishType>) em.createQuery("FROM FishType", FishType.class).getResultList();
 
 		transaction.commit();
 		em.close();

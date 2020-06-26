@@ -47,7 +47,7 @@ public class FishTypeInAQ implements Serializable {
 		this.aq = aq;
 		this.quantity = quantity;
 	}
-	
+
 	public FishTypeInAQ(FishType fishType, AQ aq, int quantity) {
 		super();
 		this.fishType = fishType;

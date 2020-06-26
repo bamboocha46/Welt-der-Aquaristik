@@ -7,15 +7,14 @@ import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.repository.FishTypeRepositoryJPA;
 
 public class FishTypeService {
-	
+
 	private FishTypeRepositoryJPA repository = new FishTypeRepositoryJPA();
 
-public void addFishType(FishType fishType) throws ServiceException {
-		
+	public void addFishType(FishType fishType) throws ServiceException {
+
 		repository.add(fishType);
 
 	}
-
 
 	public FishType updateFishType(FishType fishType) throws ServiceException {
 
@@ -29,9 +28,8 @@ public void addFishType(FishType fishType) throws ServiceException {
 
 	}
 
-	
 	public void deleteFishType(FishType fishType) throws ServiceException {
-		
+
 		repository.delete(fishType);
 	}
 }

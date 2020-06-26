@@ -4,29 +4,24 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.prism.paint.Color;
-
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
-import at.varga.java.welt_der_aquaristik.model.AQ;
-import at.varga.java.welt_der_aquaristik.model.Cast;
+
 import at.varga.java.welt_der_aquaristik.model.FishType;
-import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
-import at.varga.java.welt_der_aquaristik.model.Socialization;
+
 import at.varga.java.welt_der_aquaristik.service.FishTypeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -34,9 +29,7 @@ public class CastController extends BasicController {
 
 	FishTypeService fishTypeService = new FishTypeService();
 
-	// 20200624
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
-//	private ObservableList<FishType> fishTypeFromDB= FXCollections.observableArrayList();
 
 	ObservableList<FishType> fishBreedList = FXCollections.observableArrayList();
 	List<FishType> fishArtList = new ArrayList<FishType>();
@@ -94,15 +87,9 @@ public class CastController extends BasicController {
 
 	}
 
-//	@FXML
-//	public void giveMeCastInString(String cast) {
-//		this.cast = cast;
-//	}
-
 	@FXML
 	public void initialize(String cast) {
 		this.cast = cast;
-//2020ß624
 
 		try {
 			fishTypeFromDB = fishTypeService.getAllFishType();
@@ -118,12 +105,6 @@ public class CastController extends BasicController {
 		for (FishType f : fishArtList) {
 			fishBreedList.add(f);
 		}
-//		try {
-//			fishTypeFromDB.addAll(fishTypeService.getAllFishType());
-//			
-//		}catch (ServiceException e) {
-//			e.printStackTrace();
-//		}
 
 		// This initialization doesent work, if it is only ONE fish im fishBreedList
 //		if (fishBreedList != null) {
@@ -170,7 +151,6 @@ public class CastController extends BasicController {
 		showPopUp("Fisch ist gelöscht.");
 		System.out.println("Fish deleted");
 
-		// COMBOBOX +DATENTEXTFIElDS UPDATE
 	}
 
 	@FXML
@@ -192,7 +172,7 @@ public class CastController extends BasicController {
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			eFStage.setScene(scene);
 			eFStage.showAndWait();
-			
+
 			closeSceene(event);
 
 		} catch (IOException e) {

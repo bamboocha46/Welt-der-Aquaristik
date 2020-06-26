@@ -26,15 +26,15 @@ public abstract class WaterAnimal {
 	private float maxTemperatur;
 
 	private float minPh;
-	
+
 	private float maxPh;
-	
+
 	private int minGH;
-	
+
 	private int maxGH;
-	
+
 	private String pictureUrl;
-	
+
 	private Socialization socialization;
 
 	public WaterAnimal() {
@@ -169,6 +169,6 @@ public abstract class WaterAnimal {
 	@Override
 	public String toString() {
 		return breed;
-		}
+	}
 
 }

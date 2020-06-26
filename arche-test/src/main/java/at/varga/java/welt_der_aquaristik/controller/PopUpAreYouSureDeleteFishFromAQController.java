@@ -17,49 +17,40 @@ public class PopUpAreYouSureDeleteFishFromAQController extends BasicController {
 
 	@FXML
 	private Button noButton;
-    @FXML
-    private Button yesButton;
-    
-    //fishTypeInAQ to Delete it
-    FishTypeInAQ givenftiaq;
+	@FXML
+	private Button yesButton;
+
+	// fishTypeInAQ to Delete it
+	FishTypeInAQ givenftiaq;
 	FishTypeInAQService ftiaService = new FishTypeInAQService();
 
 	// noButton leads to previous Window
 	@FXML
 	void back(ActionEvent event) {
-		
+
 		backToPrScene(event);
-//		String path = Constants.PATH_TO_AQDATESHEET_FXML;
-//		String setTitel = "Aquariums";
-//		showNewScene(path, setTitel);
-//		closeSceene(event);
 
 	}
-	
 
-	//yesButton delete fishtypeinAQOBject from DB and leads to updated AQDateSheetView
+	// yesButton delete fishtypeinAQOBject from DB and leads to updated
+	// AQDateSheetView
 	@FXML
-    void deleteObject(ActionEvent event) {
-
+	void deleteObject(ActionEvent event) {
 
 		try {
 			ftiaService.deleteFishTypeInAQ(givenftiaq);
 			showPopUp(givenftiaq.getFishType().getBreed() + " ist gelöscht");
-//			String path = Constants.PATH_TO_AQDATESHEET_FXML;
-//			String setTitel = "Aquariums";
-//			showNewScene(path, setTitel);
-			
+
 			backToPrScene(event);
 			System.out.println("Fish deleted from DB");
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-    }
-	
+	}
+
 	@FXML
 	public void giveMeFishTypeInAQToDel(FishTypeInAQ ftiaq) {
 		this.givenftiaq = ftiaq;
 	}
-
 
 }

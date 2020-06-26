@@ -15,9 +15,9 @@ import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
  *
  */
 public interface IFishTypeInAQRepository {
-	
+
 	public void add(FishTypeInAQ fishTypeInAQ) throws ServiceException;
-	
+
 	public FishTypeInAQ update(FishTypeInAQ fishTypeInAQ) throws ServiceException;
 
 	public List<FishTypeInAQ> getAll() throws ServiceException;

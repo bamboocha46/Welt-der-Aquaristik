@@ -15,9 +15,9 @@ import at.varga.java.welt_der_aquaristik.model.AQ;
  *
  */
 public interface IAQRepository {
-	
+
 	public void add(AQ aq) throws ServiceException;
-	
+
 	public AQ update(AQ aq) throws ServiceException;
 
 	public List<AQ> getAll() throws ServiceException;

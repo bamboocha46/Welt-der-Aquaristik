@@ -77,8 +77,8 @@ public class FishTypeInAQRepositoryJPA implements IFishTypeInAQRepository {
 		transaction.begin();
 
 		@SuppressWarnings("unchecked")
-		List<FishTypeInAQ> fishTypeInAQList = (List<FishTypeInAQ>) em.createQuery("FROM FishTypeInAQ", FishTypeInAQ.class)
-				.getResultList();
+		List<FishTypeInAQ> fishTypeInAQList = (List<FishTypeInAQ>) em
+				.createQuery("FROM FishTypeInAQ", FishTypeInAQ.class).getResultList();
 
 		transaction.commit();
 		em.close();

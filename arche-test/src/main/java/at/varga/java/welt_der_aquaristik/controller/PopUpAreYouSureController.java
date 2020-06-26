@@ -15,63 +15,44 @@ public class PopUpAreYouSureController extends BasicController {
 
 	@FXML
 	private Button noButton;
-    @FXML
-    private Button yesButton;
-    
-    //AQ Object to Delete it
+	@FXML
+	private Button yesButton;
+
+	// AQ Object to Delete it
 	private AQ givenAQ;
 	AQService aqService = new AQService();
 
 	// noButton leads to previous Window
 	@FXML
 	void back(ActionEvent event) {
-		//20200626
+
 		backToPrScene(event);
-//		String path = Constants.PATH_TO_AQDATESHEET_FXML;
-//		String setTitel = "Aquariums";
-//		showNewScene(path, setTitel);
-//		closeSceene(event);
-		
+
 		System.out.println("popUpClosed");
 
 	}
-	
 
-	//yesButton delete AQ from DB and leads to updated AQDateSheetView
+	// yesButton delete AQ from DB and leads to updated AQDateSheetView
 	@FXML
-    void deleteObject(ActionEvent event) {
+	void deleteObject(ActionEvent event) {
 
 		try {
 			System.out.println(givenAQ.getTitel() + " is deleted");
-			
+
 			aqService.deleteAQ(givenAQ);
-			
-		
-			
+
 			showPopUp(givenAQ.getTitel() + " ist gelöscht");
 			System.out.println("afterPoPUpIwill back to AQDateSheet");
 			backToPrScene(event);
-			
-			//20200626
-//			String path = Constants.PATH_TO_AQDATESHEET_FXML;
-//			String setTitel = "Aquariums";
-//			showNewScene(path, setTitel);
-			
-			
-//			closeSceene(event);
-			
-			
-			
-			
+
 		} catch (ServiceException e1) {
 			e1.printStackTrace();
 		}
-    }
-	
+	}
+
 	@FXML
 	public void giveMeAQ(AQ a) {
 		this.givenAQ = a;
 	}
-
 
 }

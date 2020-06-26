@@ -91,7 +91,6 @@ public class FillTestDB {
 		}
 		
 		//AQ objects for DB
-//		AQ a = new AQ(aqId, titel, sizeWidth, sizeLength, sizeHeight, temperatur, gH, ph, listOfFishes);
 		AQRepositoryJPA aqRepo = new AQRepositoryJPA();
 		AQ aq1 = new AQ(0, "Garnelen Aquarium", 30, 30, 30, 25, 15, 7.6, null);
 		AQ aq2 = new AQ(0, "Grösses Aquarium", 180, 60, 60, 27, 22, 7.2, null);

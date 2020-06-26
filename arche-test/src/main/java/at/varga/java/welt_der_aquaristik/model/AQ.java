@@ -66,26 +66,6 @@ public class AQ implements Serializable {
 		this.fishesInAQList = listOfFishes;
 	}
 
-//	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
-//			double ph, List<FishTypeInAQ> listOfFishes) {
-//		super();
-//		this.aqId = aqId;
-//		this.titel = titel;
-//		this.volumen = sizeWidth * sizeLength * sizeHeight / 1000;
-//		this.sizeWidth = sizeWidth;
-//		this.sizeLength = sizeLength;
-//		this.sizeHeight = sizeHeight;
-//		this.temperatur = temperatur;
-//		this.gH = gH;
-//		this.ph = ph;
-////		this.stockingDensity = stockingDensity; 
-////		for (FishTypeInAQ f: listOfFishes) {
-////			stockingDensity =+ (f.getQuantity()*f.getFishType().getSize())/ volumen;
-////		}
-//
-//		this.fishesInAQList = listOfFishes;
-//	}
-
 	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
 			double ph) {
 
@@ -188,8 +168,6 @@ public class AQ implements Serializable {
 		this.stockingDensity = stockingDensity;
 	}
 
-	// @OneToMany(mappedBy = "AQ", cascade = CascadeType.ALL, orphanRemoval = true,
-	// fetch = FetchType.EAGER)
 	@OneToMany(mappedBy = "aq", orphanRemoval = true, fetch = FetchType.EAGER)
 	public List<FishTypeInAQ> getListOfFishes() {
 		return fishesInAQList;
