@@ -90,6 +90,7 @@ public class CastController extends BasicController {
 	@FXML
 	public void initialize(String cast) {
 		this.cast = cast;
+		
 
 		try {
 			fishTypeFromDB = fishTypeService.getAllFishType();
@@ -145,11 +146,17 @@ public class CastController extends BasicController {
 
 		try {
 			fishTypeService.deleteFishType(fishTypeComboBox.getValue());
+			fishBreedList.clear();
+			fishTypeComboBox.getItems().clear();
+			fishArtList.clear();
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		showPopUp("Fisch ist gelöscht.");
+
+		
+		showPopUp("Fisch ist geloescht.");
 		System.out.println("Fish deleted");
+		initialize(cast);
 
 	}
 

@@ -80,53 +80,13 @@ public class AddNewFishToListController extends BasicController {
 	private ComboBox<Socialization> socializationComboBox;
 
 	@FXML
-	private Button addPhotoButton;
-	@FXML
-	private TextField urlTextField;
-	@FXML
-	private ImageView photoImageView;
-
-	@FXML
 	private Button backButton;
 
 	@FXML
 	private Button saveButton;
 
-	private String dataName;
-	private File source;
 	private Cast castCastFormat;
 
-	public static final String ORIGINAL_PATH = "C:\\Users\\eszte\\git\\Welt-der-Aquaristik\\arche-test\\src\\main\\resources\\at\\varga\\java\\welt_der_aquaristik\\images\\picture_";
-	private File dest = new File(ORIGINAL_PATH);
-
-	@FXML
-	void handleSelectFileAction(ActionEvent event) throws URISyntaxException {
-
-		FileChooser fileChooser = new FileChooser();
-
-		fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-
-//		fileChooser.setInitialDirectory(new File(getClass().getResource("/images").toURI()));
-
-		File file = fileChooser.showOpenDialog(addPhotoButton.getScene().getWindow());
-		if (file != null) {
-
-			source = file;
-			System.out.println(source.getPath());
-			Path p = Paths.get(file.getPath());
-
-			urlTextField.setText("/images/" + p.getFileName().toString());
-
-			dataName = dest.toString() + "IMG" + System.currentTimeMillis() + p.getFileName().toString();
-
-			System.out.println(dataName);
-
-			dest = new File(dataName);
-
-			System.err.println(dest.toString());
-
-		}
-	}
 
 	public void giveMeCast(String cast) {
 		castCastFormat = getTypeCast(cast);
@@ -243,26 +203,26 @@ public class AddNewFishToListController extends BasicController {
 								} else
 									showPopUp(
 											"Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");
-								System.out.println("maxPH is not correct");
+//								System.out.println("maxPH is not correct");
 
 							} else
 								showPopUp(
 										"Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");
-							System.out.println("minPh is not correct");
+//							System.out.println("minPh is not correct");
 
 						} else
 							showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-						System.out.println("maxGH is not correct");
+
 
 					} else
 						showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-					System.out.println("minGH is not correct");
+
 				} else
 					showPopUp("Temperatur muss zwischen 4°C und 35°C liegen. Bitte die Eingabe korrigieren!");
-				System.out.println("maxTemperatur is not correct");
+
 			} else
 				showPopUp("Temperatur muss zwischen 4°C und 35°C liegen. Bitte die Eingabe korrigieren!");
-			System.out.println("minTemperatur is not correct");
+
 		} else
 			System.out.println("User input is/are not correct (int != int /double != double)");
 
@@ -293,13 +253,6 @@ public class AddNewFishToListController extends BasicController {
 
 			e.printStackTrace();
 		}
-	}
-
-	private void copyFileUsingJava7Files(File source, File dest) throws IOException {
-
-		Files.copy(source.toPath(), dest.toPath());
-		dataName = "";
-		this.dest = new File(ORIGINAL_PATH);
 	}
 
 }

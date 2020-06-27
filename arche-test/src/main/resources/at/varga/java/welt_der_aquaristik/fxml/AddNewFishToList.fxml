@@ -18,13 +18,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="AddNewFishToListAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.AddNewFishToListController">
    <children>
-      <ImageView fx:id="photoImageView" fitHeight="200.0" fitWidth="200.0" layoutX="377.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/fish.jpg" />
-         </image>
-      </ImageView>
-      <Button fx:id="saveButton" layoutX="315.0" layoutY="345.0" mnemonicParsing="false" onAction="#save" prefHeight="31.0" prefWidth="124.0" styleClass="AddNewFishToListButton" text="Specihern" />
-      <GridPane layoutX="11.0" layoutY="7.0" prefHeight="391.0" prefWidth="279.0" styleClass="GridPane">
+      <Button fx:id="saveButton" layoutX="455.0" layoutY="247.0" mnemonicParsing="false" onAction="#save" prefHeight="56.0" prefWidth="124.0" styleClass="AddNewFishToListButton" text="Specihern" />
+      <GridPane layoutX="41.0" layoutY="6.0" prefHeight="392.0" prefWidth="341.0" styleClass="GridPane">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Größe:" wrappingWidth="70.29443359375" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Aquarium Größe (min):" GridPane.rowIndex="3" />
@@ -47,13 +42,13 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Temperatur (max):" GridPane.rowIndex="6" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Ph-wert (max):" GridPane.rowIndex="8" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Wasserhärte (max):" GridPane.rowIndex="10" />
-            <ComboBox fx:id="socializationComboBox" prefWidth="150.0" styleClass="ComboBox" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <ComboBox fx:id="socializationComboBox" prefHeight="31.0" prefWidth="177.0" styleClass="ComboBox" GridPane.columnIndex="1" GridPane.rowIndex="11" />
             <TextField fx:id="breedTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text fx:id="givenCastField" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="147.6708984375" GridPane.columnIndex="1" />
          </children>
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="133.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.0" minWidth="10.0" prefWidth="164.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="175.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
@@ -70,8 +65,6 @@
             <RowConstraints minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button fx:id="addPhotoButton" layoutX="455.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleSelectFileAction" prefHeight="31.0" prefWidth="124.0" styleClass="AddNewFishToListButton" text="Bild hinzufügen" />
-      <Button fx:id="backButton" layoutX="455.0" layoutY="345.0" mnemonicParsing="false" onAction="#back" prefHeight="31.0" prefWidth="124.0" styleClass="AddNewFishToListButton" text="Zurück" />
-      <TextField fx:id="urlTextField" layoutX="315.0" layoutY="272.0" prefHeight="31.0" prefWidth="124.0" />
+      <Button fx:id="backButton" layoutX="455.0" layoutY="320.0" mnemonicParsing="false" onAction="#back" prefHeight="56.0" prefWidth="124.0" styleClass="AddNewFishToListButton" text="Zurück" />
    </children>
 </AnchorPane>
