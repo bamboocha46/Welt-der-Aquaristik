@@ -72,7 +72,7 @@
         </rowConstraints>
          <children>
             <Button id="AddNewFishButton" fx:id="AddNewFishButton" mnemonicParsing="false" onAction="#addANewFishToAQ" prefHeight="73.0" prefWidth="143.0" styleClass="ButtonAQD" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" />
-            <Button fx:id="deleteFishButton" mnemonicParsing="false" onAction="#deleteFish" prefHeight="73.0" prefWidth="143.0" styleClass="ButtonAQD" text="Fisch entfernen" textAlignment="CENTER" GridPane.columnIndex="3" />
+            <Button fx:id="deleteFishButton" mnemonicParsing="false" onAction="#deleteFish" prefHeight="73.0" prefWidth="143.0" styleClass="ButtonAQD" text="Fisch entfernen" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" />
             <Button mnemonicParsing="false" onAction="#deleteAQ" prefHeight="73.0" prefWidth="143.0" styleClass="ButtonAQD" text="Aquarium auflösen" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" />
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="73.0" prefWidth="143.0" styleClass="ButtonAQD" text="Zurück" textAlignment="CENTER" GridPane.columnIndex="7" />
          </children>

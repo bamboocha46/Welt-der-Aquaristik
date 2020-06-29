@@ -1,23 +1,10 @@
 package at.varga.java.welt_der_aquaristik.controller;
 
-import java.io.IOException;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
-import at.varga.java.welt_der_aquaristik.application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 public class WelcomeController extends BasicController {
 

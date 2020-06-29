@@ -2,20 +2,16 @@ package at.varga.java.welt_der_aquaristik.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
+import java.util.ResourceBundle;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
-import at.varga.java.welt_der_aquaristik.model.Cast;
-import at.varga.java.welt_der_aquaristik.model.FishType;
+
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
-import at.varga.java.welt_der_aquaristik.model.Socialization;
+
 import at.varga.java.welt_der_aquaristik.service.AQService;
 import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
 import javafx.beans.property.SimpleStringProperty;
@@ -23,22 +19,21 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
-import javafx.scene.control.TableColumn.CellEditEvent;
+
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
+
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -220,6 +215,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		System.out.println(event.getSource());
 
 		AQ a = ((ComboBox<AQ>) event.getSource()).getValue();
+		stockingDensity(a);
 
 		showAQParameters(a);
 
@@ -240,7 +236,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 		fishTypeInAQTable.setItems(list);
 
-		stockingDensity(a);
+//		stockingDensity(a);
 	}
 
 	void stockingDensity(AQ a) {

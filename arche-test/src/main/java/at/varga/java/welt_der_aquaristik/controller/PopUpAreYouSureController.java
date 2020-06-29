@@ -1,14 +1,11 @@
 package at.varga.java.welt_der_aquaristik.controller;
 
-import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.service.AQService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 //PoPUpToDeleteAQ
 public class PopUpAreYouSureController extends BasicController {

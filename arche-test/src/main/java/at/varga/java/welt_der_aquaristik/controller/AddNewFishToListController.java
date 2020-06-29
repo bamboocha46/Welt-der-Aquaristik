@@ -1,12 +1,6 @@
 package at.varga.java.welt_der_aquaristik.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.time.LocalDateTime;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
@@ -21,20 +15,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.text.Text;
-import javafx.stage.FileChooser;
+
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class AddNewFishToListController extends BasicController {
 
@@ -86,7 +78,6 @@ public class AddNewFishToListController extends BasicController {
 	private Button saveButton;
 
 	private Cast castCastFormat;
-
 
 	public void giveMeCast(String cast) {
 		castCastFormat = getTypeCast(cast);
@@ -212,7 +203,6 @@ public class AddNewFishToListController extends BasicController {
 
 						} else
 							showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-
 
 					} else
 						showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");

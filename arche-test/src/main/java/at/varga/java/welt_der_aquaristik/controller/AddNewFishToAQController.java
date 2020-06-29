@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
 import at.varga.java.welt_der_aquaristik.model.Cast;
 import at.varga.java.welt_der_aquaristik.model.FishType;
 import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
-import at.varga.java.welt_der_aquaristik.model.Socialization;
 import at.varga.java.welt_der_aquaristik.repository.FishTypeRepositoryJPA;
 import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
 import javafx.collections.FXCollections;
