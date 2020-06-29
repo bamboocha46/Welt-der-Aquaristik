@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -9,25 +10,29 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="AddNewFishToAQAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.AddNewFishToAQController">
    <children>
-      <GridPane layoutX="50.0" layoutY="342.0">
+      <GridPane layoutX="35.0" layoutY="342.0" prefHeight="65.0" prefWidth="524.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="89.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Anzahl:" wrappingWidth="98.95166015625" />
             <TextField id="pieceOfFisches" fx:id="pieceOfFisches" prefHeight="31.0" prefWidth="99.0" GridPane.columnIndex="1" />
+            <Button fx:id="breakButton" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Zurück" GridPane.columnIndex="5" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Speichern" GridPane.columnIndex="3" />
          </children>
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="64.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="136.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="25.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
       </GridPane>
-      <Button fx:id="saveButton" layoutX="284.0" layoutY="335.0" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Speichern" />
-      <Button fx:id="breakButton" layoutX="443.0" layoutY="335.0" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Zurück" />
-      <GridPane layoutX="74.0" layoutY="38.0" prefHeight="269.0" prefWidth="437.0" styleClass="GridPane">
+      <GridPane alignment="TOP_CENTER" layoutX="74.0" layoutY="38.0" prefHeight="269.0" prefWidth="437.0" styleClass="GridPane" AnchorPane.bottomAnchor="93.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="89.0" AnchorPane.topAnchor="38.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="240.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

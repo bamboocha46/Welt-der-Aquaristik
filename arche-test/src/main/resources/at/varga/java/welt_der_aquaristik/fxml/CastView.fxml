@@ -18,9 +18,9 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="CastViewAP" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.CastController">
    <children>
       <Text fill="WHITE" layoutX="24.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CastField" text="Fischart:" />
-      <ComboBox fx:id="fishTypeComboBox" layoutX="86.0" layoutY="16.0" prefHeight="31.0" prefWidth="281.0" styleClass="ComboBox" />
+      <ComboBox fx:id="fishTypeComboBox" layoutX="86.0" layoutY="16.0" prefHeight="31.0" prefWidth="281.0" styleClass="ComboBox" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="233.0" />
       <Text fill="#f2f2f2" layoutX="24.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="CastField" text="Beschreibung" />
-      <GridPane layoutX="20.0" layoutY="162.0" prefHeight="215.0" prefWidth="348.0" styleClass="GridPane">
+      <GridPane layoutX="20.0" layoutY="162.0" prefHeight="215.0" prefWidth="348.0" styleClass="GridPane" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="232.0" AnchorPane.topAnchor="162.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -48,10 +48,23 @@
             <TextField fx:id="socialisationsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Button fx:id="backButton" layoutX="439.0" layoutY="297.0" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Zurück" />
       <ImageView fitHeight="108.0" fitWidth="174.0" layoutX="194.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="addNewFishButton" layoutX="439.0" layoutY="207.0" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="deleteFishTypeButton" layoutX="439.0" layoutY="120.0" mnemonicParsing="false" onAction="#deleteFish" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Fischart löschen" textAlignment="CENTER" wrapText="true" />
-      <Button fx:id="editFishTypeButton" layoutX="439.0" layoutY="32.0" mnemonicParsing="false" onAction="#editFishType" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
+      <GridPane layoutX="421.0" layoutY="23.0" prefHeight="360.0" prefWidth="145.0" AnchorPane.bottomAnchor="17.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="23.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="editFishTypeButton" mnemonicParsing="false" onAction="#editFishType" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Daten bearbeiten" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="deleteFishTypeButton" mnemonicParsing="false" onAction="#deleteFish" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Fischart löschen" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="1" />
+            <Button fx:id="addNewFishButton" mnemonicParsing="false" onAction="#openAddNewFishSceen" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Neuen Fisch hinzufügen" textAlignment="CENTER" wrapText="true" GridPane.rowIndex="2" />
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#back" prefHeight="80.0" prefWidth="136.0" styleClass="Button" text="Zurück" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>
