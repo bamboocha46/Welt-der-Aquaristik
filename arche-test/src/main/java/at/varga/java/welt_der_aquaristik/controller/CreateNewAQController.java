@@ -83,10 +83,10 @@ public class CreateNewAQController extends BasicController {
 			saved.setPh(Double.valueOf(phTextField.getText()));
 			System.out.println(saved);
 		} else {
-			showPopUp("Falsche Eingabe, bitte korrigieren!" + "\n)" + 
-					"Für Grösse geben Sie pozitiven ganzen Zahlen," + "\n)" +
-					"Für Temeratur, positiven ganze Zahl zw 4 und 35" + "\n)" +
-					"Für Gh, positven Zahl zwischen 0 und 30 " + "\n)" +
+			showPopUp("Falsche Eingabe, bitte korrigieren!" + "\n" + 
+					"Für Grösse geben Sie pozitiven ganzen Zahlen," + "\n" +
+					"Für Temeratur, positiven ganze Zahl zw 4 und 35" + "\n" +
+					"Für Gh, positven Zahl zwischen 0 und 30 " + "\n" +
 					"Für Ph positiven Zahl zwischen 6.5 und 8.2! ");
 			
 		}
