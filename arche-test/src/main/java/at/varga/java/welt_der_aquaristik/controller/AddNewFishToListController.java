@@ -166,7 +166,10 @@ public class AddNewFishToListController extends BasicController {
 			saved.setSocialization(socializationComboBox.getSelectionModel().getSelectedItem());
 			// If UserInput is wrong, User get a PopUp
 		} else {
-			showPopUp("Falsche Eingabe, bitte korrigieren!");
+			showPopUp("Falsche Eingabe, bitte korrigieren!" + "\n" + "Grösse: mindestens 0.5" + "\n"
+					+ "AQ Grösse: positive Zahl" + "\n" + "Temperatur: Ganze Zahl zw. 4 und 35" + "\n"
+					+ "Ph: zwischen 6.5 und 8.2" + "\n" + "Wasserhärte: ganze Zahl zw 0 und 30");
+
 		}
 
 		// Input must be controll, if they are OK for a fish
@@ -181,15 +184,29 @@ public class AddNewFishToListController extends BasicController {
 						if (Validator.isGHCorrect(saved.getMaxGH())) {
 							if (Validator.isPHCorrect(saved.getMinPh())) {
 								if (Validator.isPHCorrect(saved.getMaxPh())) {
-									try {
-										fishTypeService.addFishType(saved);
-									} catch (ServiceException e) {
-										e.printStackTrace();
-									}
+									if (Validator.isAQVolumenCorrect(saved.getMinAqVolumen())) {
+										if (Validator.isFishSizeCorrect(saved.getSize())) {
+											if (saved.getMinAqVolumen() <= saved.getMaxAqVolumen() && saved.getMinGH()<= saved.getMaxGH() && 
+													saved.getMinPh()<= saved.getMaxPh() && saved.getMinTemperatur()<= saved.getMaxTemperatur() ) {
+												try {
+													fishTypeService.addFishType(saved);
+												} catch (ServiceException e) {
+													e.printStackTrace();
+												}
 
-									System.out.println(saved.getBreed() + " saved in DB");
-									showPopUp(saved.getBreed() + " ist gespeichert!");
-									saved = null;
+												System.out.println(saved.getBreed() + " saved in DB");
+												showPopUp(saved.getBreed() + " ist gespeichert!");
+												saved = null;
+											} else 
+												showPopUp(
+														"Die minimum-Eingaben müssen kleier, oder gleich sein, als maximum-Eingaben! Bitte die Eingabe korrigieren!");
+										} else
+											showPopUp(
+													"Fisch muss mindestens 0.5 cm gross sein! Bitte die Eingabe korrigieren!");
+
+									} else
+										showPopUp(
+												"AQ muss grösser, als 0 liter gröss sein! Bitte die Eingabe korrigieren");
 
 								} else
 									showPopUp(

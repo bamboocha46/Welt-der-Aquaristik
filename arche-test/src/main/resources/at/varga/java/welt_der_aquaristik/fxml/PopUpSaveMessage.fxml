@@ -6,8 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="100.0" prefWidth="200.0" styleClass="popUp" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpSaveMessageController">
+<AnchorPane prefHeight="173.0" prefWidth="304.0" styleClass="popUp" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpSaveMessageController">
    <children>
-      <Label fx:id="saveMassageLabel" layoutX="15.0" layoutY="19.0" prefHeight="63.0" prefWidth="170.0" styleClass="puLabel" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="saveMassageLabel" layoutX="5.0" layoutY="5.0" prefHeight="157.0" prefWidth="291.0" styleClass="puLabel" wrapText="true" />
    </children>
 </AnchorPane>

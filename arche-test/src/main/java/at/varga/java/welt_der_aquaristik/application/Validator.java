@@ -45,5 +45,32 @@ public class Validator {
 
 		return false;
 	}
+	
+	//AQ Volumen must be bigger as 0 l
+	public static boolean isAQVolumenCorrect(double d) {
+		if (d > 0) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	//The smallest Fish ist 0.5 cm long
+	public static boolean isFishSizeCorrect(double d) {
+		if (d >= 0.5d) {
+			return true;
+		}
+
+		return false;
+	}
+	
+	//AQ sides must be longer as 0cm 
+	public static boolean isAQSideCorrect(double d) {
+		if (d > 0) {
+			return true;
+		}
+
+		return false;
+	}
 
 }

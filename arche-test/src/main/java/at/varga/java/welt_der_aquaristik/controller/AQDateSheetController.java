@@ -2,7 +2,7 @@ package at.varga.java.welt_der_aquaristik.controller;
 
 import java.io.IOException;
 import java.net.URL;
-
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
@@ -123,7 +123,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 			popUpAreUSureDFFAq.giveMeFishTypeInAQToDel(fishTypeInAQTable.getSelectionModel().getSelectedItem());
 
 			Stage popUpAUS = new Stage();
-			popUpAUS.setTitle("Bist du sicher?");
 			popUpAUS.initModality(Modality.WINDOW_MODAL);
 			popUpAUS.initOwner(Main.primaryStage);
 
@@ -156,7 +155,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 			popUpAreUSure.giveMeAQ(aqComboBox.getValue());
 
 			Stage popUpAUS = new Stage();
-			popUpAUS.setTitle("Bist du sicher?");
 			popUpAUS.initModality(Modality.WINDOW_MODAL);
 			popUpAUS.initOwner(Main.primaryStage);
 
@@ -223,12 +221,14 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	void showAQParameters(AQ a) {
 
-		sizeText.setText(a.getSizeHeight() + " x " + a.getSizeLength() + " x " + a.getSizeHeight());
-		volumenText.setText(String.valueOf(a.getVolumen()) + "l");
+		sizeText.setText(a.getSizeHeight() + "cm x " + a.getSizeLength() + "cm x " + a.getSizeHeight() + "cm");
+		volumenText.setText(String.valueOf(a.getVolumen()) + " l");
 		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
 		ghText.setText(String.valueOf(a.getgH()) + "°d");
 		phText.setText(String.valueOf(a.getPh()));
-		stockingDensityText.setText(String.valueOf(a.getStockingDensity()) + "cm Fisch/l");
+		DecimalFormat df = new DecimalFormat();
+		df.setMaximumFractionDigits(2);
+		stockingDensityText.setText(df.format(a.getStockingDensity()) + " cm Fisch/l");
 
 		ObservableList<FishTypeInAQ> list = FXCollections.observableArrayList();
 

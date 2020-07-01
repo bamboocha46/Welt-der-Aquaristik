@@ -183,8 +183,6 @@ public class AddNewFishToAQController extends BasicController {
 	public void giveMeAQ(AQ a) {
 		this.givenAQ = a;
 	}
-
-	// 20200628
 	@FXML
 	void save(ActionEvent event) {
 
@@ -196,6 +194,17 @@ public class AddNewFishToAQController extends BasicController {
 			quantity = Integer.parseInt(pieceOfFisches.getText());
 		} catch (NumberFormatException ex) {
 			isInputFormatCorrect = false;
+		}
+		
+		//Control,if quantity >0
+		if(isInputFormatCorrect) {
+			if (Integer.valueOf(pieceOfFisches.getText()) > 0) {
+				
+			}else {
+				isInputFormatCorrect = false;
+				showPopUp("Sie müssen eine pozitive Zahl eingeben!");
+			}
+			
 		}
 
 		// controll if AQ for Fish Ok is
@@ -240,7 +249,9 @@ public class AddNewFishToAQController extends BasicController {
 
 				// If UserInput is wrong, User get a PopUp
 			} else {
-				showPopUp("Falsche Eingabe, bitte korrigieren!");
+				showPopUp("Falsche Eingabe, bitte korrigieren!"
+						+ "Bitte geben Sie nur ganze, positive Nummer ein!");
+				
 				System.out.println("Wrong UserInput int!=int");
 			}
 		} else {
@@ -277,8 +288,8 @@ public class AddNewFishToAQController extends BasicController {
 
 				} else {
 					System.out.println("AQVolumen is not OK for Fish");
-					showPopUp("Dieser Fish braucht ein AQ zw. " + f.getMinAqVolumen() + "l und " + f.getMaxAqVolumen()
-							+ "l");
+					showPopUp("Dieser Fish braucht ein AQ zw. " + f.getMinAqVolumen() + " l und " + f.getMaxAqVolumen()
+							+ " l");
 				}
 
 			} else {

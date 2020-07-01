@@ -12,7 +12,7 @@
    <children>
       <GridPane layoutX="35.0" layoutY="342.0" prefHeight="65.0" prefWidth="524.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="89.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="  Anzahl:" wrappingWidth="98.95166015625" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white;" styleClass="Quanitity" text="  Anzahl:" wrappingWidth="98.95166015625" />
             <TextField id="pieceOfFisches" fx:id="pieceOfFisches" prefHeight="31.0" prefWidth="99.0" GridPane.columnIndex="1" />
             <Button fx:id="breakButton" mnemonicParsing="false" onAction="#back" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Zurück" GridPane.columnIndex="5" />
             <Button fx:id="saveButton" mnemonicParsing="false" onAction="#save" prefHeight="45.0" prefWidth="136.0" styleClass="Button" text="Speichern" GridPane.columnIndex="3" />

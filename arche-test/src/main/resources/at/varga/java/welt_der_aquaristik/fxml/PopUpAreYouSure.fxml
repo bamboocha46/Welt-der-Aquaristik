@@ -6,11 +6,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="100.0" prefWidth="200.0" styleClass="popUp" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpAreYouSureController">
+<AnchorPane prefHeight="130.0" prefWidth="250.0" styleClass="popUp" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.varga.java.welt_der_aquaristik.controller.PopUpAreYouSureController">
    <children>
-      <Button fx:id="yesButton" layoutX="28.0" layoutY="55.0" mnemonicParsing="false" onAction="#deleteObject" prefHeight="30.0" prefWidth="55.0" style="-fx-border-color: GREEN;" styleClass="yesButton" text="Ja" />
-      <Button fx:id="noButton" layoutX="112.0" layoutY="55.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="55.0" style="-fx-border-color: RED;" styleClass="noButton" text="Nein" />
-      <Label layoutX="35.0" layoutY="6.0" prefHeight="28.0" prefWidth="131.0" text="Bist du sicher?">
+      <Button fx:id="yesButton" layoutX="39.0" layoutY="65.0" mnemonicParsing="false" onAction="#deleteObject" prefHeight="40.0" prefWidth="65.0" style="-fx-border-color: GREEN;" styleClass="yesButton" text="Ja" />
+      <Button fx:id="noButton" layoutX="159.0" layoutY="65.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="65.0" style="-fx-border-color: RED;" styleClass="noButton" text="Nein" />
+      <Label layoutX="60.0" layoutY="14.0" prefHeight="28.0" prefWidth="131.0" text="Bist du sicher?">
          <font>
             <Font size="19.0" />
          </font>

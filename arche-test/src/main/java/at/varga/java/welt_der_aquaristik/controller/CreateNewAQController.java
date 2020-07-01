@@ -83,20 +83,31 @@ public class CreateNewAQController extends BasicController {
 			saved.setPh(Double.valueOf(phTextField.getText()));
 			System.out.println(saved);
 		} else {
-			showPopUp("Falsche Eingabe, bitte korrigieren!");
+			showPopUp("Falsche Eingabe, bitte korrigieren!" + "\n)" + 
+					"Für Grösse geben Sie pozitiven ganzen Zahlen," + "\n)" +
+					"Für Temeratur, positiven ganze Zahl zw 4 und 35" + "\n)" +
+					"Für Gh, positven Zahl zwischen 0 und 30 " + "\n)" +
+					"Für Ph positiven Zahl zwischen 6.5 und 8.2! ");
+			
 		}
 		if (isInputFormatCorrect) {
 			if (Validator.isTemperaturCorrect(saved.getTemperatur())) {
 				if (Validator.isGHCorrect(saved.getgH())) {
 					if (Validator.isPHCorrect(saved.getPh())) {
-						try {
-							aqService.addAQ(saved);
-						} catch (ServiceException e) {
-							e.printStackTrace();
-						}
-						System.out.println("AQgespeichert: " + saved);
-						showPopUp(saved.getTitel() + " ist erforderlich gespeichert!");
-						saved = null;
+						if (Validator.isAQSideCorrect(saved.getSizeHeight())
+								&& Validator.isAQSideCorrect(saved.getSizeLength())
+								&& Validator.isAQSideCorrect(saved.getSizeWidth())) {
+
+							try {
+								aqService.addAQ(saved);
+							} catch (ServiceException e) {
+								e.printStackTrace();
+							}
+							System.out.println("AQgespeichert: " + saved);
+							showPopUp(saved.getTitel() + " ist erforderlich gespeichert!");
+							saved = null;
+						} else
+							showPopUp("Aquariumseiten müssen grösser, als 0cm sein");
 
 					} else
 						showPopUp("Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");

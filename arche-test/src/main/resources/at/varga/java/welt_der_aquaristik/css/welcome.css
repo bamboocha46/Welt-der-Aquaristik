@@ -150,19 +150,20 @@
 	-fx-text-fill: black;
 	-fx-font-size: 13.0px;
 }
+.Quanitity {
+	-fx-text-fill: white;
+	-fx-font-size: 13.0px;
+}
 /* styling PopUps */
 .popUp{
 	-fx-background-color:LightSkyBlue;
-	/* -fx-background-image:url("haluci.jpg");
-	-fx-background-size: 100.0% 100.0%;
-	-fx-background-position: center center;
-	-fx-opacity: 0.95;*/
 
 }
 .puLabel{
 	-fx-text-fill: black;
 	-fx-font-size: 13.0px;
-	text-shadow: 2.0px 2.0px;
+	-text-align: center;
+	-text-shadow: 2.0px 2.0px;
 	
 }
 .yesButton{
