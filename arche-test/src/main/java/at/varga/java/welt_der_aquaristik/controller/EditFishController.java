@@ -45,7 +45,7 @@ public class EditFishController extends BasicController {
 	private TextField minTemperaturTextField;
 	@FXML
 	private TextField maxTemperaturTextField;
-	
+
 	@FXML
 	private ComboBox<Socialization> socializationComboBox;
 
@@ -57,23 +57,23 @@ public class EditFishController extends BasicController {
 
 	FishTypeService fishTypeService = new FishTypeService();
 	ObservableList<Socialization> fishSocializationList = FXCollections.observableArrayList(Socialization.values());
-	FishType givenfFish;
+	FishType givenFish;
 
 	@FXML
 	public void initialize(FishType f) {
-		givenfFish = f;
+		givenFish = f;
 
-		breedTextField.setText(givenfFish.getBreed());
-		sizeTextField.setText(String.valueOf(givenfFish.getSize()));
-		minGhTextField.setText(String.valueOf(givenfFish.getMinGH()));
-		maxGhTextField.setText(String.valueOf(givenfFish.getMaxGH()));
-		minPhTextField.setText(String.valueOf(givenfFish.getMinPh()));
-		maxPhTextField.setText(String.valueOf(givenfFish.getMaxPh()));
-		aqMinVolumenTextField.setText(String.valueOf(givenfFish.getMinAqVolumen()));
-		aqMaxVolumenTextField.setText(String.valueOf(givenfFish.getMaxAqVolumen()));
-		minTemperaturTextField.setText(String.valueOf(givenfFish.getMinTemperatur()));
-		maxTemperaturTextField.setText(String.valueOf(givenfFish.getMaxTemperatur()));
-		socializationComboBox.setValue(givenfFish.getSocialization());
+		breedTextField.setText(givenFish.getBreed());
+		sizeTextField.setText(String.valueOf(givenFish.getSize()));
+		minGhTextField.setText(String.valueOf(givenFish.getMinGH()));
+		maxGhTextField.setText(String.valueOf(givenFish.getMaxGH()));
+		minPhTextField.setText(String.valueOf(givenFish.getMinPh()));
+		maxPhTextField.setText(String.valueOf(givenFish.getMaxPh()));
+		aqMinVolumenTextField.setText(String.valueOf(givenFish.getMinAqVolumen()));
+		aqMaxVolumenTextField.setText(String.valueOf(givenFish.getMaxAqVolumen()));
+		minTemperaturTextField.setText(String.valueOf(givenFish.getMinTemperatur()));
+		maxTemperaturTextField.setText(String.valueOf(givenFish.getMaxTemperatur()));
+		socializationComboBox.setValue(givenFish.getSocialization());
 		socializationComboBox.setItems(fishSocializationList);
 	}
 
@@ -93,15 +93,15 @@ public class EditFishController extends BasicController {
 
 		boolean isInputFormatCorrect = true;
 		try {
-					minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
-					maxAQVolumen = Double.parseDouble(aqMaxVolumenTextField.getText());
-					fishSize = Double.parseDouble(sizeTextField.getText());
-					minTemperatur = Integer.parseInt(minTemperaturTextField.getText());
-					maxTemperatur = Integer.parseInt(maxTemperaturTextField.getText());
-					minPH = Double.parseDouble(minPhTextField.getText());
-					maxPH = Double.parseDouble(maxPhTextField.getText());
-					mingH = Double.parseDouble(minGhTextField.getText());
-					maxgH = Double.parseDouble(maxGhTextField.getText());
+			minAQVolumen = Double.parseDouble(aqMinVolumenTextField.getText());
+			maxAQVolumen = Double.parseDouble(aqMaxVolumenTextField.getText());
+			fishSize = Double.parseDouble(sizeTextField.getText());
+			minTemperatur = Integer.parseInt(minTemperaturTextField.getText());
+			maxTemperatur = Integer.parseInt(maxTemperaturTextField.getText());
+			minPH = Double.parseDouble(minPhTextField.getText());
+			maxPH = Double.parseDouble(maxPhTextField.getText());
+			mingH = Double.parseDouble(minGhTextField.getText());
+			maxgH = Double.parseDouble(maxGhTextField.getText());
 		} catch (NumberFormatException ex) {
 			isInputFormatCorrect = false;
 			System.out.println("WrongInput");
@@ -110,18 +110,18 @@ public class EditFishController extends BasicController {
 		// inputFormat is correct (also Integer is int, Double ich double, float is
 		// float), input will be set to FishType
 		if (isInputFormatCorrect) {
-			givenfFish.setBreed(String.valueOf(breedTextField.getText()));
-			givenfFish.setSize(Double.valueOf(sizeTextField.getText()));
-			givenfFish.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
-			givenfFish.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
-			givenfFish.setMinTemperatur(Integer.valueOf(minTemperaturTextField.getText()));
-			givenfFish.setMaxTemperatur(Integer.valueOf(maxTemperaturTextField.getText()));
-			givenfFish.setMinPh(Float.valueOf(minPhTextField.getText()));
-			givenfFish.setMaxPh(Float.valueOf(maxPhTextField.getText()));
-			givenfFish.setMinGH(Integer.valueOf(minGhTextField.getText()));
-			givenfFish.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
-			givenfFish.setPictureUrl(null);
-			givenfFish.setSocialization(socializationComboBox.getSelectionModel().getSelectedItem());
+			givenFish.setBreed(String.valueOf(breedTextField.getText()));
+			givenFish.setSize(Double.valueOf(sizeTextField.getText()));
+			givenFish.setMinAqVolumen(Double.valueOf(aqMinVolumenTextField.getText()));
+			givenFish.setMaxAqVolumen(Double.valueOf(aqMaxVolumenTextField.getText()));
+			givenFish.setMinTemperatur(Integer.valueOf(minTemperaturTextField.getText()));
+			givenFish.setMaxTemperatur(Integer.valueOf(maxTemperaturTextField.getText()));
+			givenFish.setMinPh(Float.valueOf(minPhTextField.getText()));
+			givenFish.setMaxPh(Float.valueOf(maxPhTextField.getText()));
+			givenFish.setMinGH(Integer.valueOf(minGhTextField.getText()));
+			givenFish.setMaxGH(Integer.valueOf(maxGhTextField.getText()));
+			givenFish.setPictureUrl(null);
+			givenFish.setSocialization(socializationComboBox.getSelectionModel().getSelectedItem());
 			// If UserInput is wrong, User get a PopUp
 		} else {
 			showPopUp("Falsche Eingabe, bitte korrigieren!");
@@ -133,45 +133,59 @@ public class EditFishController extends BasicController {
 		// GH: 0-30°d
 		// If User input is wrong -> User get a PopUp
 		if (isInputFormatCorrect) {
-			if (Validator.isTemperaturCorrect(givenfFish.getMinTemperatur())) {
-				if (Validator.isTemperaturCorrect(givenfFish.getMaxTemperatur())) {
-					if (Validator.isGHCorrect(givenfFish.getMinGH())) {
-						if (Validator.isGHCorrect(givenfFish.getMaxGH())) {
-							if (Validator.isPHCorrect(givenfFish.getMinPh())) {
-								if (Validator.isPHCorrect(givenfFish.getMaxPh())) {
-									try {
-										fishTypeService.updateFishType(givenfFish);
+			if (Validator.isTemperaturCorrect(givenFish.getMinTemperatur())) {
+				if (Validator.isTemperaturCorrect(givenFish.getMaxTemperatur())) {
+					if (Validator.isGHCorrect(givenFish.getMinGH())) {
+						if (Validator.isGHCorrect(givenFish.getMaxGH())) {
+							if (Validator.isPHCorrect(givenFish.getMinPh())) {
+								if (Validator.isPHCorrect(givenFish.getMaxPh())) {
+									if (Validator.isAQVolumenCorrect(givenFish.getMinAqVolumen())) {
+										if (Validator.isFishSizeCorrect(givenFish.getSize())) {
+											if (givenFish.getMinAqVolumen() <= givenFish.getMaxAqVolumen()
+													&& givenFish.getMinGH() <= givenFish.getMaxGH()
+													&& givenFish.getMinPh() <= givenFish.getMaxPh()
+													&& givenFish.getMinTemperatur() <= givenFish.getMaxTemperatur()) {
 
-									} catch (ServiceException e) {
-										e.printStackTrace();
-									}
+												try {
+													fishTypeService.updateFishType(givenFish);
 
-									showPopUp(givenfFish.getBreed() + " ist updatet.");
-									System.out.println(givenfFish.getBreed() + " edited");
+												} catch (ServiceException e) {
+													e.printStackTrace();
+												}
+
+												showPopUp(givenFish.getBreed() + " ist updatet.");
+												System.out.println(givenFish.getBreed() + " edited");
+											} else
+												showPopUp(
+														"Die minimum-Eingaben müssen kleier, oder gleich sein, als maximum-Eingaben! Bitte die Eingabe korrigieren!");
+										} else
+											showPopUp(
+													"Fisch muss mindestens 0.5 cm gross sein! Bitte die Eingabe korrigieren!");
+
+									} else
+										showPopUp(
+												"AQ muss grösser, als 0 liter gröss sein! Bitte die Eingabe korrigieren");
 
 								} else
 									showPopUp(
 											"Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");
-								System.out.println("maxPH is not correct");
 
 							} else
 								showPopUp(
 										"Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");
-							System.out.println("minPh is not correct");
 
 						} else
 							showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-						System.out.println("maxGH is not correct");
 
 					} else
 						showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-					System.out.println("minGH is not correct");
+
 				} else
 					showPopUp("Temperatur muss zwischen 4°C und 35°C liegen. Bitte die Eingabe korrigieren!");
-				System.out.println("maxTemperatur is not correct");
+
 			} else
 				showPopUp("Temperatur muss zwischen 4°C und 35°C liegen. Bitte die Eingabe korrigieren!");
-			System.out.println("minTemperatur is not correct");
+
 		} else
 			System.out.println("User input is/are not correct (int != int /double != double)");
 	}
@@ -183,10 +197,10 @@ public class EditFishController extends BasicController {
 			Parent root = loader.load();
 
 			CastController castctrl = loader.getController();
-			castctrl.initialize(givenfFish.getCast().getCastName());
+			castctrl.initialize(givenFish.getCast().getCastName());
 
 			Stage stage = new Stage();
-			stage.setTitle(givenfFish.getCast().getCastName());
+			stage.setTitle(givenFish.getCast().getCastName());
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(Main.primaryStage);
 
@@ -194,7 +208,7 @@ public class EditFishController extends BasicController {
 			scene.getStylesheets().add(getClass().getResource(Constants.PATH_TO_APPLICATION_CSS).toExternalForm());
 			stage.setScene(scene);
 			stage.showAndWait();
-			
+
 			closeSceene(event);
 		} catch (IOException e) {
 

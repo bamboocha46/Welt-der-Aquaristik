@@ -39,7 +39,6 @@ public class PopUpAreYouSureController extends BasicController {
 			aqService.deleteAQ(givenAQ);
 
 			showPopUp(givenAQ.getTitel() + " ist gelöscht");
-			System.out.println("afterPoPUpIwill back to AQDateSheet");
 			backToPrScene(event);
 
 		} catch (ServiceException e1) {

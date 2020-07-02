@@ -21,5 +21,9 @@ public class Constants {
 	
 	// path to css files
 	public static final String PATH_TO_APPLICATION_CSS = "/at/varga/java/welt_der_aquaristik/css/welcome.css";
+	
+	//FillTestDB
+	public static final String PATH_TO_FILL_TEST_DB = "at.varga.java.welt_der_aquaristik.db.FillTestDB";
+	
 
 }

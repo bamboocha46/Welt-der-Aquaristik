@@ -1,4 +1,4 @@
-package at.varga.java.welt_der_aquaristik.model;
+ package at.varga.java.welt_der_aquaristik.model;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

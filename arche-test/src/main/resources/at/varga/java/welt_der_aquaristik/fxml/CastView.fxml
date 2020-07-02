@@ -38,14 +38,14 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Aquarium Größe:" wrappingWidth="116.6708984375" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Temperatur (°C): " wrappingWidth="116.6708984375" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Ph-wert: " wrappingWidth="115.6708984375" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" GH-wert:" wrappingWidth="113.6708984375" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" GH-wert (°d):" wrappingWidth="113.6708984375" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Verhalten:" wrappingWidth="115.6708984375" GridPane.rowIndex="5" />
-            <TextField fx:id="sizeTextField" GridPane.columnIndex="1" />
-            <TextField fx:id="aqSizeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="temperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="phTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="gHTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <TextField fx:id="socialisationsTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="sizeLabel" prefHeight="35.0" prefWidth="174.0" GridPane.columnIndex="1" />
+            <Label fx:id="temperaturLabel" prefHeight="37.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="phLabel" prefHeight="37.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="gHLabel" prefHeight="37.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="socialisationsLabel" prefHeight="38.0" prefWidth="174.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="aqSizeLabel" prefHeight="38.0" prefWidth="173.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <ImageView fitHeight="108.0" fitWidth="174.0" layoutX="194.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true" />

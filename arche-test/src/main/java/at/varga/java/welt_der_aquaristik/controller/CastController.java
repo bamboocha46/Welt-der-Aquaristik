@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.FetchType;
+
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.db.FillTestDB;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 
 import at.varga.java.welt_der_aquaristik.model.FishType;
@@ -21,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,17 +49,17 @@ public class CastController extends BasicController {
 
 	// FishParametersTextFields
 	@FXML
-	private TextField sizeTextField;
+	private Label sizeLabel;
 	@FXML
-	private TextField aqSizeTextField;
+	private Label aqSizeLabel;
 	@FXML
-	private TextField temperaturTextField;
+	private Label temperaturLabel;
 	@FXML
-	private TextField gHTextField;
+	private Label gHLabel;
 	@FXML
-	private TextField phTextField;
+	private Label phLabel;
 	@FXML
-	private TextField socialisationsTextField;
+	private Label socialisationsLabel;
 	private String cast;
 
 	@FXML
@@ -69,7 +73,7 @@ public class CastController extends BasicController {
 			addNewFTListCtrl.giveMeCast(cast);
 
 			Stage stage = new Stage();
-			stage.setTitle("Neuen Fisch (" + cast + ") zur Liste hinzufügen");
+			stage.setTitle("Neuen Fisch (" + cast + ") zur Liste hinzufuegen");
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(Main.primaryStage);
 
@@ -90,8 +94,15 @@ public class CastController extends BasicController {
 	@FXML
 	public void initialize(String cast) {
 		this.cast = cast;
-		
 
+		try {
+			if  (fishTypeService.getAllFishType().isEmpty()) {
+				FillTestDB.main(null);
+			}
+		} catch (ServiceException e1) {
+			System.out.println("kannnotloadthemethode");
+			e1.printStackTrace();
+		}
 		try {
 			fishTypeFromDB = fishTypeService.getAllFishType();
 		} catch (ServiceException e) {
@@ -133,12 +144,14 @@ public class CastController extends BasicController {
 	// fill up the field of Fishtype with parameters from DB
 
 	void showFishType(FishType f) {
-		sizeTextField.setText(String.valueOf(f.getSize()));
-		aqSizeTextField.setText(String.valueOf(f.getMinAqVolumen() + " - " + f.getMaxAqVolumen()));
-		temperaturTextField.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
-		gHTextField.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
-		phTextField.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
-		socialisationsTextField.setText(f.getSocialization().getName());
+		sizeLabel.setText(String.valueOf(f.getSize()) + "cm");
+		aqSizeLabel.setText(String.valueOf(f.getMinAqVolumen() + " l - " + f.getMaxAqVolumen() + " l"));
+		temperaturLabel.setText(String.valueOf(f.getMinTemperatur() + " - " + f.getMaxTemperatur()));
+		gHLabel.setText(String.valueOf(f.getMinGH() + " - " + f.getMaxGH()));
+		phLabel.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
+		socialisationsLabel.setText(f.getSocialization().getName());
+
+		System.out.println(temperaturLabel);
 	}
 
 	@FXML
@@ -153,7 +166,6 @@ public class CastController extends BasicController {
 			e.printStackTrace();
 		}
 
-		
 		showPopUp("Fisch ist geloescht.");
 		System.out.println("Fish deleted");
 		initialize(cast);

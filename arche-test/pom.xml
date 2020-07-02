@@ -17,7 +17,6 @@
 		<maven.compiler.plugin>3.1</maven.compiler.plugin>
 		<hibernate.version>5.4.12.Final</hibernate.version>
 		<h2database.version>1.4.200</h2database.version>
-		<!-- vonHandGecodet, würde überrascht, wenn es so funktionieren würde. -->
 		<mysql.version>8.0.20</mysql.version>
 		<version>5.1.32-r028</version>
 		<junit.version>5.3.1</junit.version>
@@ -67,41 +66,18 @@
 			<version>${javafx.version}</version>
 		</dependency>
 
-		<!-- <dependency> -->
-		<!-- <groupId>com.h2database</groupId> -->
-		<!-- <artifactId>h2</artifactId> -->
-		<!-- <version>${h2database.version}</version> -->
-		<!-- </dependency> -->
-
-		<!-- DATABASE Dependencies -->
-
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
 
-
-		<!-- <dependency> -->
-		<!-- <groupId>mysql</groupId> -->
-		<!-- <artifactId>mysql-connector-java</artifactId> -->
-		<!-- <version>5.1.40</version> -->
-		<!-- </dependency> -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.47</version>
 		</dependency>
 
-		<!-- Ich weiss nicht welche dependey soll ich verwenden -->
-		<!-- https://mvnrepository.com/artifact/com.mysql.jdbc/org.motechproject.com.mysql.jdbc -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.mysql.jdbc</groupId> -->
-		<!-- <artifactId>org.motechproject.com.mysql.jdbc</artifactId> -->
-		<!-- <version>5.1.32-r028</version> -->
-
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>

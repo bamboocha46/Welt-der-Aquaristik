@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import at.varga.java.welt_der_aquaristik.application.Constants;
 import at.varga.java.welt_der_aquaristik.application.Main;
+import at.varga.java.welt_der_aquaristik.db.FillTestDB;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 import at.varga.java.welt_der_aquaristik.model.AQ;
 
@@ -140,8 +141,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 			e.printStackTrace();
 		}
 
-		System.out.println("fishID to delete: " + fishTypeInAQTable.getSelectionModel().getSelectedItem().getId());
-
 	}
 
 	@FXML
@@ -165,6 +164,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 			System.out.println(aqComboBox.getValue());
 			int id = aqListFromDB.indexOf(aqComboBox.getValue());
+
 			updateUI(id);
 		} catch (IOException e) {
 
@@ -176,6 +176,14 @@ public class AQDateSheetController extends BasicController implements Initializa
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		try {
+			if (aqService.getAllAQ().isEmpty()) {
+				FillTestDB.main(null);
+			}
+		} catch (ServiceException e) {
+			e.printStackTrace();
+		}
+		
 		// FishTabelle
 		breedColumn.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<FishTypeInAQ, String>, ObservableValue<String>>() {
@@ -221,7 +229,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 	void showAQParameters(AQ a) {
 
-		sizeText.setText(a.getSizeHeight() + "cm x " + a.getSizeLength() + "cm x " + a.getSizeHeight() + "cm");
+		sizeText.setText(a.getSizeWidth() + "cm x " + a.getSizeLength() + "cm x " + a.getSizeHeight() + "cm");
 		volumenText.setText(String.valueOf(a.getVolumen()) + " l");
 		temperaturText.setText(String.valueOf(a.getTemperatur()) + "°C");
 		ghText.setText(String.valueOf(a.getgH()) + "°d");

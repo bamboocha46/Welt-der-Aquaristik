@@ -20,10 +20,10 @@
       <GridPane layoutX="21.0" layoutY="17.0" prefHeight="381.0" prefWidth="367.0" styleClass="GridPane" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="212.0" AnchorPane.topAnchor="17.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Größe:" wrappingWidth="70.29443359375" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Aquarium Größe (min):" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Temperatur (min):" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Aquarium Größe (min) l:" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Temperatur (min) °C:" GridPane.rowIndex="4" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Ph-wert (min):" GridPane.rowIndex="6" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Wasserhärte (min):" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Wasserhärte (min) °d:" GridPane.rowIndex="8" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Vergesellschaftung:" GridPane.rowIndex="10" />
             <TextField fx:id="sizeTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="aqMinVolumenTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -35,10 +35,10 @@
             <TextField fx:id="maxTemperaturTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <TextField fx:id="maxPhTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextField fx:id="maxGhTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Aquarium Größe (max):" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Temperatur (max):" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Aquarium Größe (max) l:" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Temperatur (max) °C:" GridPane.rowIndex="5" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Ph-wert (max):" GridPane.rowIndex="7" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Wasserhärte (max):" GridPane.rowIndex="9" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="AddNewFishToListField" text="Wasserhärte (max) °d:" GridPane.rowIndex="9" />
             <ComboBox fx:id="socializationComboBox" prefHeight="31.0" prefWidth="189.0" styleClass="ComboBox" GridPane.columnIndex="1" GridPane.rowIndex="10" />
             <TextField fx:id="breedTextField" GridPane.columnIndex="1" />
          </children>

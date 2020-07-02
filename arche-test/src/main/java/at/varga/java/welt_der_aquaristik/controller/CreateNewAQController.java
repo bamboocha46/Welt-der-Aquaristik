@@ -111,15 +111,15 @@ public class CreateNewAQController extends BasicController {
 
 					} else
 						showPopUp("Ph-Werte müssen zwischen 6.5 und 8.2 liegen. Bitte die Eingabe korrigieren!");
-					System.out.println("ph is not correct");
+					
 
 				} else
 					showPopUp("GH-werte müssen zwischen 0°d und 30°d liegen. Bitte die Eingabe korrigieren!");
-				System.out.println("gh ist not correct");
+				
 
 			} else
 				showPopUp("Temperatur muss zwischen 4°C und 35°C liegen. Bitte die Eingabe korrigieren!");
-			System.out.println("temperatur ist not correct");
+			
 
 		} else
 			System.out.println("input is not corrert");

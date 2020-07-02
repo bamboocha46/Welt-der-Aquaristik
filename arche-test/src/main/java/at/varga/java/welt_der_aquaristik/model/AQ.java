@@ -49,7 +49,6 @@ public class AQ implements Serializable {
 	public AQ() {
 	}
 
-	// 2020ß626
 	public AQ(long aqId, String titel, int sizeWidth, int sizeLength, int sizeHeight, int temperatur, double gH,
 			double ph, List<FishTypeInAQ> listOfFishes) {
 		super();
@@ -62,7 +61,6 @@ public class AQ implements Serializable {
 		this.temperatur = temperatur;
 		this.gH = gH;
 		this.ph = ph;
-		// this.stockingDensity = stockingDensity;
 		this.fishesInAQList = listOfFishes;
 	}
 
