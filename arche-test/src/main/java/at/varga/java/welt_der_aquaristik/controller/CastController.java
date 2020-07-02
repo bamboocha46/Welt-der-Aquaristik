@@ -100,7 +100,7 @@ public class CastController extends BasicController {
 				FillTestDB.main(null);
 			}
 		} catch (ServiceException e1) {
-			System.out.println("kannnotloadthemethode");
+
 			e1.printStackTrace();
 		}
 		try {
