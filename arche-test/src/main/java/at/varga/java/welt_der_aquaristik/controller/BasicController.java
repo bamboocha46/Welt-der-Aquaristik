@@ -57,7 +57,7 @@ public abstract class BasicController {
 			popUpSavectrl.setPopUpText(text);
 
 			Stage stage = new Stage();
-			stage.setTitle("Pop Up");
+			stage.setTitle("Info");
 			stage.initModality(Modality.WINDOW_MODAL);
 			stage.initOwner(Main.primaryStage);
 

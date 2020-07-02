@@ -101,12 +101,12 @@ public class FillTestDB {
 		for (AQ a : aqs) {
 			aqRepo.add(a);
 		}
-		FishTypeInAQRepositoryJPA ftinaqRepo = new FishTypeInAQRepositoryJPA();
-		FishTypeInAQ ftia = new FishTypeInAQ(fish25, aq4, 6);
-		List<FishTypeInAQ> fishTypeInAQList = new ArrayList<FishTypeInAQ>(List.of(ftia));
-		for (FishTypeInAQ ft : fishTypeInAQList) {
-			ftinaqRepo.add(ft);
-		}
+//		FishTypeInAQRepositoryJPA ftinaqRepo = new FishTypeInAQRepositoryJPA();
+//		FishTypeInAQ ftia = new FishTypeInAQ(fish25, aq4, 6);
+//		List<FishTypeInAQ> fishTypeInAQList = new ArrayList<FishTypeInAQ>(List.of(ftia));
+//		for (FishTypeInAQ ft : fishTypeInAQList) {
+//			ftinaqRepo.add(ft);
+//		}
 
 	}
 

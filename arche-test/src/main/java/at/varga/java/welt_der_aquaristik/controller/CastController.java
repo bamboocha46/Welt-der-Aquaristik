@@ -12,7 +12,8 @@ import at.varga.java.welt_der_aquaristik.db.FillTestDB;
 import at.varga.java.welt_der_aquaristik.exception.ServiceException;
 
 import at.varga.java.welt_der_aquaristik.model.FishType;
-
+import at.varga.java.welt_der_aquaristik.model.FishTypeInAQ;
+import at.varga.java.welt_der_aquaristik.service.FishTypeInAQService;
 import at.varga.java.welt_der_aquaristik.service.FishTypeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,8 +33,10 @@ import javafx.stage.Stage;
 public class CastController extends BasicController {
 
 	FishTypeService fishTypeService = new FishTypeService();
+	FishTypeInAQService ftiaService = new FishTypeInAQService();
 
 	private List<FishType> fishTypeFromDB = new ArrayList<FishType>();
+	private List<FishTypeInAQ> ftiaFromDB = new ArrayList<FishTypeInAQ>();
 
 	ObservableList<FishType> fishBreedList = FXCollections.observableArrayList();
 	List<FishType> fishArtList = new ArrayList<FishType>();
@@ -96,7 +99,7 @@ public class CastController extends BasicController {
 		this.cast = cast;
 
 		try {
-			if  (fishTypeService.getAllFishType().isEmpty()) {
+			if (fishTypeService.getAllFishType().isEmpty()) {
 				FillTestDB.main(null);
 			}
 		} catch (ServiceException e1) {
@@ -128,6 +131,13 @@ public class CastController extends BasicController {
 		fishTypeComboBox.setItems(fishBreedList);
 
 		fishTypeComboBox.setOnAction(this::handleAQSelected);
+
+		try {
+			ftiaFromDB = ftiaService.getAllFishTypeInAQ();
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -151,24 +161,40 @@ public class CastController extends BasicController {
 		phLabel.setText(String.valueOf(f.getMinPh()) + " - " + f.getMaxPh());
 		socialisationsLabel.setText(f.getSocialization().getName());
 
-		System.out.println(temperaturLabel);
 	}
 
 	@FXML
 	void deleteFish(ActionEvent event) {
 
+		boolean isFishInAnAQ = false;
+
 		try {
-			fishTypeService.deleteFishType(fishTypeComboBox.getValue());
-			fishBreedList.clear();
-			fishTypeComboBox.getItems().clear();
-			fishArtList.clear();
+			for (FishTypeInAQ ftia : ftiaService.getAllFishTypeInAQ()) {
+				if (ftia.getFishType().getId() == (fishTypeComboBox.getValue().getId())) {
+					isFishInAnAQ = true;
+				}
+			}
+
+			if (!isFishInAnAQ) {
+				fishTypeService.deleteFishType(fishTypeComboBox.getValue());
+				fishBreedList.clear();
+				fishTypeComboBox.getItems().clear();
+				fishArtList.clear();
+
+				showPopUp("Fisch ist geloescht.");
+				System.out.println("Fish deleted");
+				initialize(cast);
+
+			} else {
+
+				showPopUp(
+						"Um diesen Fisch loeschen zu koennen, muessen Sie diesen Fisch von allen Aquarium entfernen, wo er schwimmt.");
+
+			}
+
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-
-		showPopUp("Fisch ist geloescht.");
-		System.out.println("Fish deleted");
-		initialize(cast);
 
 	}
 
