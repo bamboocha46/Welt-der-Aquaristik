@@ -22,7 +22,7 @@ public class PopUpSaveMessageController extends BasicController {
 	private void initialize() {
 		
 		if (isSaveOk =true) {
-		saveMassageLabel.setText("erfolderlich gespeichert");
+		saveMassageLabel.setText("erfolgreich gespeichert");
 		} else if (isSaveOk = false) {
 			saveMassageLabel.setText("Falsche Eingabe, bitte korrigieren!");
 		}

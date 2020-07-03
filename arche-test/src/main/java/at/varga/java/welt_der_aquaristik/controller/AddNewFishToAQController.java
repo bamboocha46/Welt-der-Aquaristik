@@ -81,48 +81,55 @@ public class AddNewFishToAQController extends BasicController {
 	@FXML
 	void choosePerch(ActionEvent event) {
 		selectedFish = perchComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
+
+	
 
 	@FXML
 	void chooseColdWaterFish(ActionEvent event) {
 		selectedFish = coldWaterFishComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void chooseViviparous(ActionEvent event) {
 		selectedFish = viviparousComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void chooseCatFish(ActionEvent event) {
 		selectedFish = catFishComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void chooseDario(ActionEvent event) {
 		selectedFish = darioComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void chooseAnabas(ActionEvent event) {
 		selectedFish = anabasComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void choosetetra(ActionEvent event) {
 		selectedFish = tetraComboBox.getValue();
-		choosenFishTextField.setText(selectedFish.toString());
+		fillChoosenFishTextField();
 	}
 
 	@FXML
 	void chooseOtherFish(ActionEvent event) {
 		selectedFish = otherFishComboBox.getValue();
+		fillChoosenFishTextField();
+	}
+	
+	//this method fill the ChoosenFishTextField.  
+	private void fillChoosenFishTextField() {
 		choosenFishTextField.setText(selectedFish.toString());
 	}
 
@@ -212,7 +219,6 @@ public class AddNewFishToAQController extends BasicController {
 
 			// Input from User is correct
 			if (isInputFormatCorrect) {
-				// jprie: nachsehen ob FishTypeInAQ existiert
 				List<FishTypeInAQ> list = givenAQ.getListOfFishes();
 				Optional<FishTypeInAQ> match = list.stream()
 						.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();

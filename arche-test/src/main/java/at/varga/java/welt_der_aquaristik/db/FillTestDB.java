@@ -91,9 +91,9 @@ public class FillTestDB {
 
 		// AQ objects for DB
 		AQRepositoryJPA aqRepo = new AQRepositoryJPA();
-		AQ aq1 = new AQ(0, "Garnelen Aquarium", 30, 30, 30, 25, 15, 7.6, null);
-		AQ aq2 = new AQ(0, "Grösses Aquarium", 180, 60, 60, 27, 22, 7.2, null);
-		AQ aq3 = new AQ(0, "Predators Aq", 40, 32, 28, 26, 18, 6.9, null);
+		AQ aq1 = new AQ(0, "Garnelen Aquarium", 30, 30, 30, 25, 10, 7.6, null);
+		AQ aq2 = new AQ(0, "Grösses Aquarium", 180, 60, 60, 26, 9, 6.9, null);
+		AQ aq3 = new AQ(0, "Predators Aq", 40, 32, 28, 26, 8, 6.9, null);
 		AQ aq4 = new AQ(0, "Algen Land", 100, 30, 30, 22, 22, 7.7, null);
 
 		List<AQ> aqs = new ArrayList<AQ>(List.of(aq1, aq2, aq3, aq4));

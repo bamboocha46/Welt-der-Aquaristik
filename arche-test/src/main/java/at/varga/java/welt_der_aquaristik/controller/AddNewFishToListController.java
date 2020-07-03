@@ -148,7 +148,7 @@ public class AddNewFishToListController extends BasicController {
 			System.out.println("WrongInput");
 
 		}
-		// inputFormat is correct (also Integer is int, Double ich double, float is
+		// inputFormat is correct (also Integer is int, Double is double, float is
 		// float), input will be set to FishType
 		if (isInputFormatCorrect) {
 			saved.setCast(castCastFormat);
@@ -195,7 +195,7 @@ public class AddNewFishToListController extends BasicController {
 												}
 
 												System.out.println(saved.getBreed() + " saved in DB");
-												showPopUp(saved.getBreed() + " ist gespeichert!");
+												showPopUp(saved.getBreed() + " ist erfolgreich gespeichert!");
 												saved = null;
 											} else 
 												showPopUp(

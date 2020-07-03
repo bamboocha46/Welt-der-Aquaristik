@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 /**
  * @author eszte
- *
+ * Hier are methods, they will be often use by the controllers
  */
 
 public abstract class BasicController {

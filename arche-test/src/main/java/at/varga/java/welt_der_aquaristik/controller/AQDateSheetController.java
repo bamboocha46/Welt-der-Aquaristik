@@ -183,7 +183,7 @@ public class AQDateSheetController extends BasicController implements Initializa
 		} catch (ServiceException e) {
 			e.printStackTrace();
 		}
-		
+
 		// FishTabelle
 		breedColumn.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<FishTypeInAQ, String>, ObservableValue<String>>() {
@@ -197,10 +197,11 @@ public class AQDateSheetController extends BasicController implements Initializa
 		quantityColumn.setCellValueFactory(new PropertyValueFactory<FishTypeInAQ, Integer>("quantity"));
 
 		aqComboBox.setOnAction(this::handleAQSelected);
-		// MyAQS List
+		// MyAQS List update
 		updateUI(0);
 	}
 
+	//fill the ComboBox with currentdates
 	private void updateUI(int id) {
 		try {
 			aqListFromDB.clear();
@@ -244,7 +245,6 @@ public class AQDateSheetController extends BasicController implements Initializa
 
 		fishTypeInAQTable.setItems(list);
 
-//		stockingDensity(a);
 	}
 
 	void stockingDensity(AQ a) {

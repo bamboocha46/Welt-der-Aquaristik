@@ -69,7 +69,7 @@ public class CreateNewAQController extends BasicController {
 			System.out.println("Wrong User Input");
 
 		}
-		// If inputFormat is correct (also Integer is int, Double ich double, float is
+		// If inputFormat is correct (also Integer is int, Double is double, float is
 		// float), input will be set to AQ
 		if (isInputFormatCorrect) {
 			saved.setTitel(aqNameTextField.getText());
@@ -104,7 +104,7 @@ public class CreateNewAQController extends BasicController {
 								e.printStackTrace();
 							}
 							System.out.println("AQgespeichert: " + saved);
-							showPopUp(saved.getTitel() + " ist erforderlich gespeichert!");
+							showPopUp(saved.getTitel() + " ist erfolgreich gespeichert!");
 							saved = null;
 						} else
 							showPopUp("Aquariumseiten müssen grösser, als 0cm sein");
