@@ -220,8 +220,10 @@ public class AddNewFishToAQController extends BasicController {
 			// Input from User is correct
 			if (isInputFormatCorrect) {
 				List<FishTypeInAQ> list = givenAQ.getListOfFishes();
+//				Optional<FishTypeInAQ> match = list.stream()
+//						.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();
 				Optional<FishTypeInAQ> match = list.stream()
-						.filter(ft -> ft.getFishType().getCast() == selectedFish.getCast()).findFirst();
+						.filter(ft -> ft.getFishType().getId() == selectedFish.getId()).findFirst();
 
 				FishTypeInAQ ftqa;
 
